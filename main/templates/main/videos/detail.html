@@ -1,0 +1,14 @@
+{% extends 'main/base.html' %}
+{% block title %}{{ video.title }}{% endblock %}
+{% block content %}
+<div class="container py-5">
+    <h1>{{ video.title }}</h1>
+    
+    <div class="ratio ratio-16x9 mb-3">
+        <iframe src="https://www.youtube.com/embed/{{ video.youtube_id }}" allowfullscreen></iframe>
+    </div>
+    
+    <p>{{ video.description }}</p>
+    <p>Dowamlylygy: {{ video.duration }}</p>
+</div>
+{% endblock %}

@@ -1,0 +1,38 @@
+{% extends 'main/base.html' %}
+{% load static %}
+
+{% block title %}CAT5 kabel{% endblock %}
+
+{% block content %}
+<div class="bg-light py-4">
+    <div class="container">
+        <nav aria-label="breadcrumb">
+            <ol class="breadcrumb">
+                <li class="breadcrumb-item"><a href="{% url 'index' %}">Baş sahypa</a></li>
+                <li class="breadcrumb-item"><a href="{% url 'cables_index' %}">Kabeller</a></li>
+                <li class="breadcrumb-item"><a href="{% url 'cable_ethernet' %}">Ethernet</a></li>
+                <li class="breadcrumb-item active">CAT5</li>
+            </ol>
+        </nav>
+        <h1 class="display-5 fw-bold">CAT5 kabel</h1>
+    </div>
+</div>
+
+<div class="container py-5">
+    <div class="row">
+        <div class="col-md-8">
+            <div class="card">
+                <div class="card-body">
+                    <p>CAT5 (Category 5) – 100 Mbps tizlikli, 100 MHz ýygylykly Ethernet kabeli. Köne enjamlar üçin ulanylýar, häzirki wagtda ornuny CAT5e we has ýokary görnüşlere berdi.</p>
+                    <ul>
+                        <li><strong>Tizlik:</strong> 100 Mbps</li>
+                        <li><strong>Ýygylyk:</strong> 100 MHz</li>
+                        <li><strong>Maksimal uzynlyk:</strong> 100 metr</li>
+                        <li><strong>Konnektor:</strong> RJ-45</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

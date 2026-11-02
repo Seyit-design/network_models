@@ -1,0 +1,62 @@
+{% extends 'main/base.html' %}
+{% load static %}
+
+{% block title %}CAT6 Kabel{% endblock %}
+
+{% block content %}
+<div class="bg-light py-4">
+    <div class="container">
+        <nav aria-label="breadcrumb">
+            <ol class="breadcrumb">
+                <li class="breadcrumb-item"><a href="{% url 'index' %}">Baş sahypa</a></li>
+                <li class="breadcrumb-item"><a href="{% url 'cables_index' %}">Kabeller</a></li>
+                <li class="breadcrumb-item"><a href="{% url 'cable_ethernet' %}">Ethernet</a></li>
+                <li class="breadcrumb-item active">CAT6</li>
+            </ol>
+        </nav>
+        <h1 class="display-5 fw-bold">CAT6 Kabel</h1>
+    </div>
+</div>
+
+<div class="container py-5">
+    <div class="row">
+        <div class="col-md-8">
+            <div class="card">
+                <div class="card-body">
+                    <p><strong>CAT6 (Category 6)</strong> – Ethernet torlary üçin standartlaşdyrylan kabel görnüşi. CAT5e-den has ýokary tizlik we ýygylyk goldaýar.</p>
+                    <h3 class="h5">Spesifikasiýalar:</h3>
+                    <ul>
+                        <li><strong>Tizlik:</strong> 10 Gbps (55 metre çenli), 1 Gbps (100 metre çenli)</li>
+                        <li><strong>Ýygylyk:</strong> 250 MHz</li>
+                        <li><strong>Maksimal uzynlyk:</strong> 100 metr (1 Gbps üçin), 55 metr (10 Gbps üçin)</li>
+                        <li><strong>Konnektor:</strong> RJ-45</li>
+                        <li><strong>Görnüşi:</strong> U/UTP, F/UTP, U/FTP, S/FTP</li>
+                    </ul>
+                    <h3 class="h5">Ýokluklary:</h3>
+                    <ul>
+                        <li>CAT5e-den has ýokary tizlik we ýygylyk</li>
+                        <li>Gysga aralykda 10 Gbps goldaýar</li>
+                        <li>Yzly-yzyna gabat gelýän (backward compatible) – CAT5 we CAT5e enjamlar bilen işleýär</li>
+                        <li>Parazitlere garşy has gowy gorag (ekranly görnüşleri)</li>
+                    </ul>
+                    <h3 class="h5">Ulanylyşy:</h3>
+                    <p>Kompýuter torlary, server otaglary, data merkezleri, 10GbE ulgamlar, ýokary tizlikli internet birikmeleri.</p>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="card">
+                <div class="card-body">
+                    <i class="fas fa-ethernet fa-4x text-primary mb-3"></i>
+                    <h3 class="h5">CAT6 aýratynlyklary</h3>
+                    <ul>
+                        <li>10 Gbps çenli</li>
+                        <li>250 MHz</li>
+                        <li>100 m çenli</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

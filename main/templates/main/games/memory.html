@@ -1,0 +1,237 @@
+{% extends 'main/base.html' %}
+{% load static %}
+
+{% block title %}Ýat oýuny - Network Memory{% endblock %}
+
+{% block extra_css %}
+<style>
+    .memory-grid {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        gap: 1rem;
+        max-width: 600px;
+        margin: 0 auto;
+    }
+    .memory-card {
+        aspect-ratio: 1 / 1;
+        background-color: var(--primary-color);
+        border-radius: 0.5rem;
+        cursor: pointer;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 2rem;
+        color: white;
+        transition: all 0.3s ease;
+        box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+    }
+    .memory-card.flipped {
+        background-color: white;
+        color: var(--dark-color);
+        border: 2px solid var(--primary-color);
+        transform: scale(1.05);
+    }
+    .memory-card.matched {
+        background-color: var(--success-color);
+        color: white;
+        cursor: default;
+        opacity: 0.7;
+        transform: scale(0.95);
+        pointer-events: none;
+    }
+    .memory-card i {
+        font-size: 2.5rem;
+    }
+    .game-info {
+        display: flex;
+        justify-content: space-between;
+        max-width: 600px;
+        margin: 2rem auto;
+        padding: 1rem;
+        background-color: white;
+        border-radius: 0.5rem;
+        box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    }
+    .restart-btn {
+        background-color: var(--primary-color);
+        color: white;
+        border: none;
+        padding: 0.5rem 1.5rem;
+        border-radius: 2rem;
+        transition: background-color 0.3s;
+    }
+    .restart-btn:hover {
+        background-color: var(--secondary-color);
+    }
+</style>
+{% endblock %}
+
+{% block content %}
+<div class="bg-light py-4">
+    <div class="container">
+        <nav aria-label="breadcrumb">
+            <ol class="breadcrumb">
+                <li class="breadcrumb-item"><a href="{% url 'index' %}">Baş sahypa</a></li>
+                <li class="breadcrumb-item"><a href="{% url 'games_index' %}">Oýunlar</a></li>
+                <li class="breadcrumb-item active">Ýat oýuny</li>
+            </ol>
+        </nav>
+        <h1 class="display-5 fw-bold">🧠 Tor ulgam ýat oýuny</h1>
+        <p class="lead">Deň gelýän kartlary tapyň we jübütleşdiriň</p>
+    </div>
+</div>
+
+<div class="container py-5">
+    <div class="game-info">
+        <div><i class="fas fa-star me-2"></i>Jübütler: <span id="pairs-matched">0</span>/8</div>
+        <div><i class="fas fa-shoe-prints me-2"></i>Ädimler: <span id="move-counter">0</span></div>
+        <button class="restart-btn" id="restart-btn"><i class="fas fa-redo-alt me-2"></i>Täzeden başla</button>
+    </div>
+
+    <div class="memory-grid" id="memory-grid">
+        <!-- Cards will be inserted by JavaScript -->
+    </div>
+
+    <div class="text-center mt-5">
+        <p class="text-muted">Kartlaryň üstüne basyp, ýatda saklaň we deň gelýän jübütleri tapyň.</p>
+    </div>
+</div>
+{% endblock %}
+
+{% block extra_js %}
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+    // List of items (icons or text) to match
+    const items = [
+        { icon: 'fa-layer-group', text: 'OSI' },
+        { icon: 'fa-network-wired', text: 'TCP/IP' },
+        { icon: 'fa-router', text: 'Router' },
+        { icon: 'fa-code-branch', text: 'Switch' },
+        { icon: 'fa-shield-alt', text: 'Firewall' },
+        { icon: 'fa-wifi', text: 'Wi-Fi' },
+        { icon: 'fa-database', text: 'DNS' },
+        { icon: 'fa-envelope', text: 'SMTP' }
+    ];
+
+    // Create card pairs (each item appears twice)
+    let cards = [];
+    items.forEach((item, index) => {
+        cards.push({ id: index, icon: item.icon, text: item.text, matched: false, flipped: false });
+        cards.push({ id: index, icon: item.icon, text: item.text, matched: false, flipped: false });
+    });
+
+    // Shuffle cards
+    function shuffleArray(array) {
+        for (let i = array.length - 1; i > 0; i--) {
+            const j = Math.floor(Math.random() * (i + 1));
+            [array[i], array[j]] = [array[j], array[i]];
+        }
+        return array;
+    }
+
+    let gameCards = shuffleArray([...cards]);
+    let selectedIndex = null; // index of first flipped card
+    let lockBoard = false;    // prevent clicking during animation
+    let moves = 0;
+    let pairsMatched = 0;
+
+    const grid = document.getElementById('memory-grid');
+    const pairsSpan = document.getElementById('pairs-matched');
+    const movesSpan = document.getElementById('move-counter');
+
+    function renderBoard() {
+        grid.innerHTML = '';
+        gameCards.forEach((card, idx) => {
+            const cardDiv = document.createElement('div');
+            cardDiv.className = 'memory-card';
+            if (card.matched) {
+                cardDiv.classList.add('matched');
+            } else if (card.flipped) {
+                cardDiv.classList.add('flipped');
+            }
+            cardDiv.dataset.index = idx;
+            cardDiv.dataset.id = card.id;
+
+            // Content: show icon if flipped, otherwise question mark
+            if (card.flipped || card.matched) {
+                cardDiv.innerHTML = `<i class="fas ${card.icon}"></i>`;
+            } else {
+                cardDiv.innerHTML = '?';
+            }
+
+            cardDiv.addEventListener('click', () => handleCardClick(idx));
+            grid.appendChild(cardDiv);
+        });
+    }
+
+    function handleCardClick(index) {
+        if (lockBoard) return;
+        const card = gameCards[index];
+        if (card.matched || card.flipped) return;
+
+        // Flip current card
+        card.flipped = true;
+        renderBoard();
+
+        if (selectedIndex === null) {
+            // First card selected
+            selectedIndex = index;
+        } else {
+            // Second card selected
+            const firstCard = gameCards[selectedIndex];
+            const secondCard = card;
+
+            moves++;
+            movesSpan.textContent = moves;
+
+            if (firstCard.id === secondCard.id) {
+                // Match found
+                firstCard.matched = true;
+                secondCard.matched = true;
+                firstCard.flipped = false;
+                secondCard.flipped = false;
+                pairsMatched++;
+                pairsSpan.textContent = pairsMatched;
+
+                selectedIndex = null;
+                renderBoard();
+
+                // Check for game over
+                if (pairsMatched === items.length) {
+                    setTimeout(() => {
+                        alert(`Gutlagtaň! ${moves} ädimde ýeňdiňiz!`);
+                    }, 200);
+                }
+            } else {
+                // No match, flip back after delay
+                lockBoard = true;
+                setTimeout(() => {
+                    firstCard.flipped = false;
+                    secondCard.flipped = false;
+                    selectedIndex = null;
+                    lockBoard = false;
+                    renderBoard();
+                }, 1000);
+            }
+        }
+    }
+
+    // Restart game
+    function restartGame() {
+        gameCards = shuffleArray([...cards]);
+        selectedIndex = null;
+        lockBoard = false;
+        moves = 0;
+        pairsMatched = 0;
+        pairsSpan.textContent = '0';
+        movesSpan.textContent = '0';
+        renderBoard();
+    }
+
+    document.getElementById('restart-btn').addEventListener('click', restartGame);
+
+    // Initial render
+    renderBoard();
+});
+</script>
+{% endblock %}

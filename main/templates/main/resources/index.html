@@ -1,0 +1,64 @@
+{% extends 'main/base.html' %}
+{% load static %}
+
+{% block title %}Resurslar{% endblock %}
+
+{% block content %}
+<div class="bg-light py-4">
+    <div class="container">
+        <nav aria-label="breadcrumb">
+            <ol class="breadcrumb">
+                <li class="breadcrumb-item"><a href="{% url 'index' %}">Baş sahypa</a></li>
+                <li class="breadcrumb-item active">Resurslar</li>
+            </ol>
+        </nav>
+        <h1 class="display-5 fw-bold">Resurslar</h1>
+        <p class="lead">Tor ulgamy öwrenmek üçin peýdaly kitaplar, web saýtlar we forumlar</p>
+    </div>
+</div>
+
+<div class="container py-5">
+    <div class="row g-4">
+        <div class="col-md-6 col-lg-3">
+            <div class="card h-100 text-center">
+                <div class="card-body">
+                    <i class="fas fa-book fa-4x text-primary mb-3"></i>
+                    <h3 class="h5">Kitaplar</h3>
+                    <p class="text-muted">Tor ulgamy boýunça iň gowy kitaplar</p>
+                    <a href="{% url 'resources_books' %}" class="btn btn-outline-primary">Gör</a>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-6 col-lg-3">
+            <div class="card h-100 text-center">
+                <div class="card-body">
+                    <i class="fas fa-globe fa-4x text-primary mb-3"></i>
+                    <h3 class="h5">Web saýtlar</h3>
+                    <p class="text-muted">Peýdaly web saýtlar we onlaýn gurallar</p>
+                    <a href="{% url 'resources_websites' %}" class="btn btn-outline-primary">Gör</a>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-6 col-lg-3">
+            <div class="card h-100 text-center">
+                <div class="card-body">
+                    <i class="fas fa-users fa-4x text-primary mb-3"></i>
+                    <h3 class="h5">Forumlar</h3>
+                    <p class="text-muted">Tor ulgamy hünärmenleri üçin forumlar</p>
+                    <a href="{% url 'resources_forums' %}" class="btn btn-outline-primary">Gör</a>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-6 col-lg-3">
+            <div class="card h-100 text-center">
+                <div class="card-body">
+                    <i class="fas fa-file-alt fa-4x text-primary mb-3"></i>
+                    <h3 class="h5">Çit listler</h3>
+                    <p class="text-muted">Çalt ýatda saklamak üçin çit listler</p>
+                    <a href="{% url 'resources_cheatsheets' %}" class="btn btn-outline-primary">Gör</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

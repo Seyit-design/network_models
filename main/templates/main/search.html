@@ -1,0 +1,62 @@
+{% extends 'main/base.html' %}
+{% load static %}
+
+{% block title %}Gözleg netijeleri{% endblock %}
+
+{% block content %}
+<div class="bg-light py-4">
+    <div class="container">
+        <nav aria-label="breadcrumb">
+            <ol class="breadcrumb">
+                <li class="breadcrumb-item"><a href="{% url 'index' %}">Baş sahypa</a></li>
+                <li class="breadcrumb-item active">Gözleg</li>
+            </ol>
+        </nav>
+        <h1 class="display-5 fw-bold">Gözleg netijeleri</h1>
+        <p class="lead">"{{ query }}" boýunça tapylanlar</p>
+    </div>
+</div>
+
+<div class="container py-5">
+    <div class="row">
+        <div class="col-12">
+            {% if results.lessons or results.terms or results.protocols %}
+                {% if results.lessons %}
+                <h3 class="h5">Dersler</h3>
+                <div class="list-group mb-4">
+                    {% for lesson in results.lessons %}
+                    <a href="{% url 'lesson_detail' lesson.slug %}" class="list-group-item list-group-item-action">
+                        {{ lesson.title }}
+                    </a>
+                    {% endfor %}
+                </div>
+                {% endif %}
+
+                {% if results.terms %}
+                <h3 class="h5">Sözlük terminleri</h3>
+                <div class="list-group mb-4">
+                    {% for term in results.terms %}
+                    <a href="{% url 'glossary_detail' term.term %}" class="list-group-item list-group-item-action">
+                        {{ term.term }}
+                    </a>
+                    {% endfor %}
+                </div>
+                {% endif %}
+
+                {% if results.protocols %}
+                <h3 class="h5">Protokollar</h3>
+                <div class="list-group mb-4">
+                    {% for protocol in results.protocols %}
+                    <a href="{% url 'protocol_detail' protocol.name %}" class="list-group-item list-group-item-action">
+                        {{ protocol.name }}
+                    </a>
+                    {% endfor %}
+                </div>
+                {% endif %}
+            {% else %}
+                <p class="text-muted">Hiç zat tapylmady.</p>
+            {% endif %}
+        </div>
+    </div>
+</div>
+{% endblock %}

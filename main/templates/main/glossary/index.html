@@ -1,0 +1,47 @@
+{% extends 'main/base.html' %}
+{% block title %}Tor sözlügi{% endblock %}
+{% block content %}
+<div class="container py-5">
+    <h1 class="mb-4">Tor sözlügi</h1>
+    
+    <!-- Gözleg -->
+    <div class="row mb-4">
+        <div class="col-md-6 mx-auto">
+            <form action="{% url 'glossary_search' %}" method="GET">
+                <div class="input-group">
+                    <input type="text" name="q" class="form-control" placeholder="Termin gözle...">
+                    <button class="btn btn-primary" type="submit">
+                        <i class="fas fa-search"></i>
+                    </button>
+                </div>
+            </form>
+        </div>
+    </div>
+    
+    <!-- Harplar -->
+    <div class="text-center mb-4">
+        {% for letter in letters %}
+        <a href="{% url 'glossary_by_letter' letter %}" class="btn btn-outline-primary btn-sm m-1">
+            {{ letter }}
+        </a>
+        {% endfor %}
+    </div>
+    
+    <!-- Terminler -->
+    <div class="row">
+        {% for term in terms %}
+        <div class="col-md-6 mb-3">
+            <div class="card h-100">
+                <div class="card-body">
+                    <h5 class="card-title">{{ term.term }}</h5>
+                    <p class="card-text">{{ term.definition|truncatewords:30 }}</p>
+                    <a href="{% url 'glossary_detail' term.term %}" class="btn btn-sm btn-primary">
+                        Giňişleýin
+                    </a>
+                </div>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+</div>
+{% endblock %}

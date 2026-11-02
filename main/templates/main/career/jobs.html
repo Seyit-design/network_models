@@ -1,0 +1,65 @@
+{% extends 'main/base.html' %}
+{% load static %}
+
+{% block title %}Iş mümkinçilikleri{% endblock %}
+
+{% block content %}
+<div class="bg-light py-4">
+    <div class="container">
+        <nav aria-label="breadcrumb">
+            <ol class="breadcrumb">
+                <li class="breadcrumb-item"><a href="{% url 'index' %}">Baş sahypa</a></li>
+                <li class="breadcrumb-item"><a href="{% url 'career_index' %}">Kariýer</a></li>
+                <li class="breadcrumb-item active">Işler</li>
+            </ol>
+        </nav>
+        <h1 class="display-5 fw-bold">Tor ulgamy hünärmenleri üçin işler</h1>
+        <p class="lead">Meşhur wezipeler we olaryň talaplary</p>
+    </div>
+</div>
+
+<div class="container py-5">
+    <div class="row g-4">
+        <div class="col-md-6">
+            <div class="card h-100">
+                <div class="card-body">
+                    <h3 class="h5">Network Administrator</h3>
+                    <p class="text-muted">Orta dereje, 40,000 – 70,000 $ / ýyl</p>
+                    <p><strong>Wezipeler:</strong> Tor gurmak, enjamlary dolandyrmak, ulanyjylara goldaw bermek.</p>
+                    <p><strong>Talap:</strong> CCNA ýa-da Network+.</p>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-6">
+            <div class="card h-100">
+                <div class="card-body">
+                    <h3 class="h5">Network Engineer</h3>
+                    <p class="text-muted">Ýokary dereje, 70,000 – 110,000 $ / ýyl</p>
+                    <p><strong>Wezipeler:</strong> Tor dizaýny, ýokary derejeli troubleshooting, awtomatlaşdyrma.</p>
+                    <p><strong>Talap:</strong> CCNP, strong experience.</p>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-6">
+            <div class="card h-100">
+                <div class="card-body">
+                    <h3 class="h5">Security Analyst</h3>
+                    <p class="text-muted">Orta/ýokary dereje, 60,000 – 95,000 $ / ýyl</p>
+                    <p><strong>Wezipeler:</strong> Howpsuzlyk näsazlyklaryny gözegçilik etmek, firewall konfigurasiýasy.</p>
+                    <p><strong>Talap:</strong> Security+, CEH.</p>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-6">
+            <div class="card h-100">
+                <div class="card-body">
+                    <h3 class="h5">Network Architect</h3>
+                    <p class="text-muted">Ekspert, 100,000 – 150,000 $ / ýyl</p>
+                    <p><strong>Wezipeler:</strong> Uly torlaryň arhitekturasyny döretmek, strategik meýilleşdirme.</p>
+                    <p><strong>Talap:</strong> CCIE, JNCIE.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

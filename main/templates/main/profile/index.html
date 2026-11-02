@@ -1,0 +1,82 @@
+{% extends 'main/base.html' %}
+{% load static %}
+
+{% block title %}Meniň profilim{% endblock %}
+
+{% block content %}
+<div class="bg-light py-4">
+    <div class="container">
+        <nav aria-label="breadcrumb">
+            <ol class="breadcrumb">
+                <li class="breadcrumb-item"><a href="{% url 'index' %}">Baş sahypa</a></li>
+                <li class="breadcrumb-item active">Profil</li>
+            </ol>
+        </nav>
+        <h1 class="display-5 fw-bold">Meniň profilim</h1>
+        <p class="lead">Şahsy maglumatlaryňyz we hasap sazlamalaryňyz</p>
+    </div>
+</div>
+
+<div class="container py-5">
+    <div class="row">
+        <div class="col-md-4 mb-4">
+            <div class="card text-center">
+                <div class="card-body">
+                    <i class="fas fa-user-circle fa-5x text-primary mb-3"></i>
+                    <h3 class="h5">{{ user.username }}</h3>
+                    <p class="text-muted">{{ user.email|default:"E-poçta ýok" }}</p>
+                    <hr>
+                    <p><i class="fas fa-calendar-alt me-2"></i>Goşulan: {{ user.date_joined|date:"d.m.Y" }}</p>
+                    <p><i class="fas fa-clock me-2"></i>Soňky giriş: {{ user.last_login|date:"d.m.Y H:i" }}</p>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-8">
+            <div class="card mb-4">
+                <div class="card-header bg-white">
+                    <h2 class="h5 mb-0">Hasap maglumatlary</h2>
+                </div>
+                <div class="card-body">
+                    <form method="post" action="{% url 'user_profile' %}">
+                        {% csrf_token %}
+                        <div class="mb-3">
+                            <label class="form-label">Ulanyjy ady</label>
+                            <input type="text" class="form-control" value="{{ user.username }}" disabled>
+                        </div>
+                        <div class="mb-3">
+                            <label class="form-label">E-poçta</label>
+                            <input type="email" class="form-control" name="email" value="{{ user.email }}">
+                        </div>
+                        <div class="mb-3">
+                            <label class="form-label">Täze parol</label>
+                            <input type="password" class="form-control" name="password" placeholder="Üýtgetmek islemeseniz boş goýuň">
+                        </div>
+                        <button type="submit" class="btn btn-primary">Ýatda sakla</button>
+                    </form>
+                </div>
+            </div>
+            <div class="card">
+                <div class="card-header bg-white">
+                    <h2 class="h5 mb-0">Statistika</h2>
+                </div>
+                <div class="card-body">
+                    <div class="row text-center">
+                        <div class="col-4">
+                            <h3 class="h2">{{ completed_lessons|default:"0" }}</h3>
+                            <p class="text-muted">Tamamlanan ders</p>
+                        </div>
+                        <div class="col-4">
+                            <h3 class="h2">{{ quiz_count|default:"0" }}</h3>
+                            <p class="text-muted">Çözülen test</p>
+                        </div>
+                        <div class="col-4">
+                            <h3 class="h2">{{ bookmarks|default:"0" }}</h3>
+                            <p class="text-muted">Belgiler</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

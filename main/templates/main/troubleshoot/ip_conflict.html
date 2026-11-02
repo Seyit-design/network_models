@@ -1,0 +1,59 @@
+{% extends 'main/base.html' %}
+{% load static %}
+
+{% block title %}IP konflikt{% endblock %}
+
+{% block content %}
+<div class="bg-light py-4">
+    <div class="container">
+        <nav aria-label="breadcrumb">
+            <ol class="breadcrumb">
+                <li class="breadcrumb-item"><a href="{% url 'index' %}">Baş sahypa</a></li>
+                <li class="breadcrumb-item"><a href="{% url 'troubleshoot_index' %}">Troubleshooting</a></li>
+                <li class="breadcrumb-item active">IP konflikt</li>
+            </ol>
+        </nav>
+        <h1 class="display-5 fw-bold">IP konflikt</h1>
+    </div>
+</div>
+
+<div class="container py-5">
+    <div class="row">
+        <div class="col-lg-8 mx-auto">
+            <div class="card mb-4">
+                <div class="card-header bg-white">
+                    <h2 class="h5 mb-0">IP konflikt näme?</h2>
+                </div>
+                <div class="card-body">
+                    <p>IP konflikt, tor ulgamynda iki sany enjama şol bir IP adres bellendiğinde ýüze çykýar. Bu, enjamlaryň biriniň ýa-da ikisiniň hem tor ulgamyna girip bilmezligine sebäp bolýar.</p>
+                </div>
+            </div>
+            <div class="card mb-4">
+                <div class="card-header bg-white">
+                    <h2 class="h5 mb-0">Nädip anyklamaly?</h2>
+                </div>
+                <div class="card-body">
+                    <ul>
+                        <li>Windows: "IP address conflict" ýalňyşlygy çykýar.</li>
+                        <li><code>arp -a</code> buýrugy bilen IP-MAC gabat gelşiklerini barlaň.</li>
+                        <li>Router-a girip, DHCP klientlerini barlaň.</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="card mb-4">
+                <div class="card-header bg-white">
+                    <h2 class="h5 mb-0">Çözgüt</h2>
+                </div>
+                <div class="card-body">
+                    <ol>
+                        <li>IP adresi täzeden belläň: <code>ipconfig /release</code> we <code>ipconfig /renew</code> (Windows).</li>
+                        <li>Router-da DHCP serwerini barlaň, IP adres diapazony ýeterlikmi?</li>
+                        <li>Static IP adres ulanylsa, ony üýtgediň.</li>
+                        <li>Router-yň ýa-da switçiň özünde IP konflikt bolsa, ony gaýtadan işlediň (reboot).</li>
+                    </ol>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

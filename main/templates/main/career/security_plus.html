@@ -1,0 +1,59 @@
+{% extends 'main/base.html' %}
+{% load static %}
+
+{% block title %}CompTIA Security+{% endblock %}
+
+{% block content %}
+<div class="bg-light py-4">
+    <div class="container">
+        <nav aria-label="breadcrumb">
+            <ol class="breadcrumb">
+                <li class="breadcrumb-item"><a href="{% url 'index' %}">Baş sahypa</a></li>
+                <li class="breadcrumb-item"><a href="{% url 'career_index' %}">Kariýer</a></li>
+                <li class="breadcrumb-item active">Security+</li>
+            </ol>
+        </nav>
+        <h1 class="display-5 fw-bold">CompTIA Security+</h1>
+        <p class="lead">Howpsuzlyk esaslary boýunça halkara sertifikat</p>
+    </div>
+</div>
+
+<div class="container py-5">
+    <div class="row">
+        <div class="col-md-8">
+            <div class="card mb-4">
+                <div class="card-header bg-white">
+                    <h2 class="h5 mb-0">Security+ barada</h2>
+                </div>
+                <div class="card-body">
+                    <p>Security+ – howpsuzlyk ulgamynda işlemek isleýänler üçin esasy sertifikat. Howplary tanamak, tor howpsuzlygy, kriptografiýa we töwekgelçilik dolandyryşyny öwredýär.</p>
+                    <h3 class="h6 mt-3">Esasy mövzular:</h4>
+                    <ul>
+                        <li>Howplar, hüjümler we gowşaklyklar</li>
+                        <li>Tehnologiýalar we gurallar</li>
+                        <li>Arhitektura we dizaýn</li>
+                        <li>Identity we access management</li>
+                        <li>Töwekgelçilik dolandyryşy</li>
+                        <li>Kriptografiýa we PKI</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="card mb-4">
+                <div class="card-header bg-white">
+                    <h2 class="h5 mb-0">Synag maglumatlary</h2>
+                </div>
+                <div class="card-body">
+                    <ul class="list-unstyled">
+                        <li><strong>Kod:</strong> SY0-601</li>
+                        <li><strong>Wagt:</strong> 90 minut</li>
+                        <li><strong>Sorag sany:</strong> 90</li>
+                        <li><strong>Baha:</strong> 370 USD</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

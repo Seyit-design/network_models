@@ -1,0 +1,88 @@
+{% extends 'main/base.html' %}
+{% load static %}
+
+{% block title %}Cisco IOS buýruklar{% endblock %}
+
+{% block content %}
+<div class="bg-light py-4">
+    <div class="container">
+        <nav aria-label="breadcrumb">
+            <ol class="breadcrumb">
+                <li class="breadcrumb-item"><a href="{% url 'index' %}">Baş sahypa</a></li>
+                <li class="breadcrumb-item"><a href="{% url 'labs_index' %}">Laboratoriýalar</a></li>
+                <li class="breadcrumb-item active">Cisco buýruklar</li>
+            </ol>
+        </nav>
+        <h1 class="display-5 fw-bold">Cisco IOS esasy buýruklar</h1>
+        <p class="lead">Router we switch konfigurasiýasy üçin iň zerur buýruklar</p>
+    </div>
+</div>
+
+<div class="container py-5">
+    <div class="row">
+        <div class="col-md-6">
+            <div class="card mb-4">
+                <div class="card-header bg-white">
+                    <h2 class="h5 mb-0">Esasy režimler</h2>
+                </div>
+                <div class="card-body">
+                    <table class="table table-sm">
+                        <tr><th>Buýruk</th><th>Düşündiriş</th></tr>
+                        <tr><td>enable</td><td>Privileged mode girmek</td></tr>
+                        <tr><td>configure terminal</td><td>Global konfigurasiýa režimi</td></tr>
+                        <tr><td>interface fa0/0</td><td>Interface saýlamak</td></tr>
+                        <tr><td>exit</td><td>Bir dereje yza çykmak</td></tr>
+                        <tr><td>end</td><td>Privileged mode gaýdyp gelmek</td></tr>
+                    </table>
+                </div>
+            </div>
+            <div class="card mb-4">
+                <div class="card-header bg-white">
+                    <h2 class="h5 mb-0">IP konfigurasiýa</h2>
+                </div>
+                <div class="card-body">
+                    <table class="table table-sm">
+                        <tr><th>Buýruk</th><th>Düşündiriş</th></tr>
+                        <tr><td>ip address 192.168.1.1 255.255.255.0</td><td>IP adres bellemek</td></tr>
+                        <tr><td>no shutdown</td><td>Interfeysi işjeňleşdirmek</td></tr>
+                        <tr><td>shutdown</td><td>Interfeysi öçürmek</td></tr>
+                        <tr><td>ip route 0.0.0.0 0.0.0.0 192.168.1.254</td><td>Default route</td></tr>
+                    </table>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-6">
+            <div class="card mb-4">
+                <div class="card-header bg-white">
+                    <h2 class="h5 mb-0">Görkezmek (show) buýruklary</h2>
+                </div>
+                <div class="card-body">
+                    <table class="table table-sm">
+                        <tr><th>Buýruk</th><th>Düşündiriş</th></tr>
+                        <tr><td>show running-config</td><td>Häzirki konfigurasiýa</td></tr>
+                        <tr><td>show startup-config</td><td>Ýatda saklanan konfigurasiýa</td></tr>
+                        <tr><td>show ip interface brief</td><td>Interfeýsleriň ýagdaýy we IP adresler</td></tr>
+                        <tr><td>show vlan brief</td><td>VLAN maglumatlary</td></tr>
+                        <tr><td>show ip route</td><td>Routing tablisasy</td></tr>
+                        <tr><td>show mac address-table</td><td>MAC adres tablisasy (switch)</td></tr>
+                    </table>
+                </div>
+            </div>
+            <div class="card mb-4">
+                <div class="card-header bg-white">
+                    <h2 class="h5 mb-0">VLAN we trunk</h2>
+                </div>
+                <div class="card-body">
+                    <table class="table table-sm">
+                        <tr><th>Buýruk</th><th>Düşündiriş</th></tr>
+                        <tr><td>vlan 10</td><td>VLAN döretmek</td></tr>
+                        <tr><td>name IT</td><td>VLAN-a at bermek</td></tr>
+                        <tr><td>interface fa0/1</td><td>switchport mode access<br>switchport access vlan 10</td><td>Porty VLAN-a bellemek</td></tr>
+                        <tr><td>interface fa0/24</td><td>switchport mode trunk</td><td>Trunk port</td></tr>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

@@ -1,0 +1,84 @@
+{% extends 'main/base.html' %}
+{% load static %}
+
+{% block title %}Troubleshooting - Tor problemalaryny çözmek{% endblock %}
+
+{% block content %}
+<div class="bg-light py-4">
+    <div class="container">
+        <nav aria-label="breadcrumb">
+            <ol class="breadcrumb">
+                <li class="breadcrumb-item"><a href="{% url 'index' %}">Baş sahypa</a></li>
+                <li class="breadcrumb-item active">Troubleshooting</li>
+            </ol>
+        </nav>
+        <h1 class="display-5 fw-bold">Troubleshooting</h1>
+        <p class="lead">Tor problemalaryny çözmek usullary</p>
+    </div>
+</div>
+
+<div class="container py-5">
+    <div class="row g-4">
+        <div class="col-md-4">
+            <div class="card h-100">
+                <div class="card-body">
+                    <i class="fas fa-plug fa-2x text-primary mb-3"></i>
+                    <h3 class="h5">Baglanyşyk problemalary</h3>
+                    <p>Kabel, Wi-Fi, IP konfigurasiýa problemalary</p>
+                    <a href="{% url 'tshoot_connectivity' %}" class="btn btn-sm btn-outline-primary">Giňişleýin</a>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="card h-100">
+                <div class="card-body">
+                    <i class="fas fa-globe fa-2x text-primary mb-3"></i>
+                    <h3 class="h5">DNS problemalary</h3>
+                    <p>DNS çözmeýär, ýalnyş DNS serwer</p>
+                    <a href="{% url 'tshoot_dns' %}" class="btn btn-sm btn-outline-primary">Giňişleýin</a>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="card h-100">
+                <div class="card-body">
+                    <i class="fas fa-exclamation-triangle fa-2x text-primary mb-3"></i>
+                    <h3 class="h5">IP konflikt</h3>
+                    <p>Şol bir IP adres ulanylanda</p>
+                    <a href="{% url 'tshoot_ip_conflict' %}" class="btn btn-sm btn-outline-primary">Giňişleýin</a>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="card h-100">
+                <div class="card-body">
+                    <i class="fas fa-tachometer-alt fa-2x text-primary mb-3"></i>
+                    <h3 class="h5">Işjeňlik problemalary</h3>
+                    <p>Haýal işleýän tor, paket ýitirme</p>
+                    <a href="{% url 'tshoot_performance' %}" class="btn btn-sm btn-outline-primary">Giňişleýin</a>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="card h-100">
+                <div class="card-body">
+                    <i class="fas fa-shield-alt fa-2x text-primary mb-3"></i>
+                    <h3 class="h5">Howpsuzlyk problemalary</h3>
+                    <p>Firewall, hüjümler, icmp blok</p>
+                    <a href="{% url 'tshoot_security' %}" class="btn btn-sm btn-outline-primary">Giňişleýin</a>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="card h-100">
+                <div class="card-body">
+                    <i class="fas fa-list fa-2x text-primary mb-3"></i>
+                    <h3 class="h5">Umumy problemalar</h3>
+                    <p>Iň köp duş gelýän 10 problema</p>
+                    <a href="{% url 'tshoot_common' %}" class="btn btn-sm btn-outline-primary">Giňişleýin</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

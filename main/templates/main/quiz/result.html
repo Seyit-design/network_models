@@ -1,0 +1,39 @@
+{% extends 'main/base.html' %}
+{% load static %}
+
+{% block title %}Test netijesi{% endblock %}
+
+{% block content %}
+<div class="bg-light py-4">
+    <div class="container">
+        <nav aria-label="breadcrumb">
+            <ol class="breadcrumb">
+                <li class="breadcrumb-item"><a href="{% url 'index' %}">Baş sahypa</a></li>
+                <li class="breadcrumb-item"><a href="{% url 'quiz_index' %}">Testler</a></li>
+                <li class="breadcrumb-item active">Netije</li>
+            </ol>
+        </nav>
+        <h1 class="display-5 fw-bold">Test netijesi</h1>
+    </div>
+</div>
+
+<div class="container py-5">
+    <div class="row">
+        <div class="col-lg-6 mx-auto">
+            <div class="card text-center">
+                <div class="card-body">
+                    <i class="fas fa-trophy fa-4x text-warning mb-3"></i>
+                    <h2 class="display-1">{{ result.score|default:"85" }}%</h2>
+                    <p class="lead">Siz {{ result.correct|default:"17" }} / {{ result.total|default:"20" }} dogry jogap berdiňiz.</p>
+                    <hr>
+                    <p>Test wagty: {{ result.completed_at|default:"24.02.2026" }}</p>
+                    <div class="d-grid gap-2">
+                        <a href="{% url 'quiz_index' %}" class="btn btn-primary">Testlere gaýdyp bar</a>
+                        <a href="#" class="btn btn-outline-secondary">Netijäni paýlaş</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

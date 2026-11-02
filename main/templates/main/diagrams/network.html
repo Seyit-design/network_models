@@ -1,0 +1,55 @@
+{% extends 'main/base.html' %}
+{% load static %}
+
+{% block title %}Tor diagrammasy{% endblock %}
+
+{% block content %}
+<div class="bg-light py-4">
+    <div class="container">
+        <nav aria-label="breadcrumb">
+            <ol class="breadcrumb">
+                <li class="breadcrumb-item"><a href="{% url 'index' %}">Baş sahypa</a></li>
+                <li class="breadcrumb-item"><a href="{% url 'diagrams_index' %}">Diagrammalar</a></li>
+                <li class="breadcrumb-item active">Tor diagrammasy</li>
+            </ol>
+        </nav>
+        <h1 class="display-5 fw-bold">Tor diagrammasy</h1>
+    </div>
+</div>
+
+<div class="container py-5">
+    <div class="row">
+        <div class="col-lg-10 mx-auto">
+            <div class="card">
+                <div class="card-body text-center">
+                    <img src="{% static 'images/network_diagram_large.png' %}" class="img-fluid" alt="Network Diagram" onerror="this.src='https://via.placeholder.com/800x400?text=Network+Diagram+Example'">
+                    
+                    <hr class="my-4">
+                    
+                    <h3 class="h5 text-start">Tor elementleri:</h3>
+                    <ul class="text-start">
+                        <li><strong>Router:</strong> Torlary birleşdirýän enjam (IP adres: 192.168.1.1)</li>
+                        <li><strong>Switch:</strong> Yerli tor enjamlaryny birleşdirýän enjam</li>
+                        <li><strong>Access Point:</strong> Simsiz giriş nokady</li>
+                        <li><strong>Firewall:</strong> Howpsuzlyk enjamy</li>
+                        <li><strong>Server:</strong> Hyzmat ediji kompýuter (Web, DNS, DHCP)</li>
+                        <li><strong>Client:</strong> Ulanyjy kompýuterleri</li>
+                    </ul>
+                    
+                    <hr>
+                    
+                    <h3 class="h5 text-start">IP adresleme:</h3>
+                    <pre class="text-start bg-light p-3">
+Router: 192.168.1.1/24
+Switchler: 192.168.1.2-192.168.1.10
+Server: 192.168.1.100
+Kompýuterler: 192.168.1.101-192.168.1.200 (DHCP)
+                    </pre>
+                    
+                    <a href="{% url 'topologies_index' %}" class="btn btn-primary mt-3">Topologiýalar barada öwren</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

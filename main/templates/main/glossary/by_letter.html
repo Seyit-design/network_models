@@ -1,0 +1,30 @@
+{% extends 'main/base.html' %}
+{% block title %}{{ letter }} harpy bilen başlaýan terminler{% endblock %}
+{% block content %}
+<div class="container py-5">
+    <h1 class="mb-4">"{{ letter }}" harpy bilen başlaýan terminler</h1>
+    
+    <div class="row">
+        {% for term in terms %}
+        <div class="col-md-6 mb-3">
+            <div class="card">
+                <div class="card-body">
+                    <h5 class="card-title">{{ term.term }}</h5>
+                    <p class="card-text">{{ term.definition|truncatewords:20 }}</p>
+                    <a href="{% url 'glossary_detail' term.term %}" class="btn btn-sm btn-primary">
+                        Giňişleýin
+                    </a>
+                </div>
+            </div>
+        </div>
+        {% empty %}
+        <div class="col-12">
+            <div class="alert alert-info">
+                <i class="fas fa-info-circle me-2"></i>
+                "{{ letter }}" harpy bilen başlaýan termin ýok
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+</div>
+{% endblock %}

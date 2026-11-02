@@ -1,0 +1,101 @@
+{% extends 'main/base.html' %}
+{% load static %}
+
+{% block title %}Interwýu soraglary{% endblock %}
+
+{% block content %}
+<div class="bg-light py-4">
+    <div class="container">
+        <nav aria-label="breadcrumb">
+            <ol class="breadcrumb">
+                <li class="breadcrumb-item"><a href="{% url 'index' %}">Baş sahypa</a></li>
+                <li class="breadcrumb-item"><a href="{% url 'career_index' %}">Kariýer</a></li>
+                <li class="breadcrumb-item"><a href="{% url 'career_interview' %}">Interwýu</a></li>
+                <li class="breadcrumb-item active">Soraglar</li>
+            </ol>
+        </nav>
+        <h1 class="display-5 fw-bold">Köp berilýän interwýu soraglary</h1>
+    </div>
+</div>
+
+<div class="container py-5">
+    <div class="row">
+        <div class="col-lg-8 mx-auto">
+            <div class="accordion" id="interviewQuestions">
+                <div class="accordion-item">
+                    <h2 class="accordion-header">
+                        <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#q1">
+                            OSI modelinde näçe gatlak bar we olar haýsylar?
+                        </button>
+                    </h2>
+                    <div id="q1" class="accordion-collapse collapse show" data-bs-parent="#interviewQuestions">
+                        <div class="accordion-body">
+                            7 gatlak: Fiziki, Maglumat baglanyşyk, Ulgam, Ulag, Sessiýa, Prezentasiýa, Amaly.
+                        </div>
+                    </div>
+                </div>
+                <div class="accordion-item">
+                    <h2 class="accordion-header">
+                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#q2">
+                            TCP bilen UDP arasynda tapawut näme?
+                        </button>
+                    </h2>
+                    <div id="q2" class="accordion-collapse collapse" data-bs-parent="#interviewQuestions">
+                        <div class="accordion-body">
+                            TCP – baglanyşyk esasly, ygtybarly, tertipli, ýöne haýal. UDP – baglanyşyksyz, ygtybarly däl, ýöne çalt.
+                        </div>
+                    </div>
+                </div>
+                <div class="accordion-item">
+                    <h2 class="accordion-header">
+                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#q3">
+                            Switch bilen router arasynda tapawut näme?
+                        </button>
+                    </h2>
+                    <div id="q3" class="accordion-collapse collapse" data-bs-parent="#interviewQuestions">
+                        <div class="accordion-body">
+                            Switch – MAC adres ulanyp, bir tor segmentinde işleýär. Router – IP adres ulanyp, torlary birleşdirýär.
+                        </div>
+                    </div>
+                </div>
+                <div class="accordion-item">
+                    <h2 class="accordion-header">
+                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#q4">
+                            Subnet mask näme üçin gerek?
+                        </button>
+                    </h2>
+                    <div id="q4" class="accordion-collapse collapse" data-bs-parent="#interviewQuestions">
+                        <div class="accordion-body">
+                            IP adresiň tor bölegini we host bölegini kesgitlemek üçin.
+                        </div>
+                    </div>
+                </div>
+                <div class="accordion-item">
+                    <h2 class="accordion-header">
+                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#q5">
+                            VLAN näme?
+                        </button>
+                    </h2>
+                    <div id="q5" class="accordion-collapse collapse" data-bs-parent="#interviewQuestions">
+                        <div class="accordion-body">
+                            Bir switçde birnäçe logiki tor döretmek. Broadcast domain bölmek üçin.
+                        </div>
+                    </div>
+                </div>
+                <div class="accordion-item">
+                    <h2 class="accordion-header">
+                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#q6">
+                            DNS nähili işleýär?
+                        </button>
+                    </h2>
+                    <div id="q6" class="accordion-collapse collapse" data-bs-parent="#interviewQuestions">
+                        <div class="accordion-body">
+                            Domen adyny IP adrese öwürýär. Ulanjy kompýuter DNS serwere sorag iberýär, serwer jogap berýär.
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

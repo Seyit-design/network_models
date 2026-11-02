@@ -1,0 +1,62 @@
+{% extends "main/base.html" %}
+
+{% block title %}TCP/IP - Ulgama giriş gatlagy{% endblock %}
+
+{% block content %}
+<div class="row">
+    <div class="col-md-12">
+        <nav aria-label="breadcrumb">
+            <ol class="breadcrumb">
+                <li class="breadcrumb-item"><a href="/tcpip/">TCP/IP</a></li>
+                <li class="breadcrumb-item active">Ulgama giriş gatlagy</li>
+            </ol>
+        </nav>
+
+        <h1>Ulgama giriş gatlagy (Network Access Layer)</h1>
+        
+        <div class="layer-card">
+            <h2>Bu gatlak näme?</h2>
+            <p>Ulgama giriş gatlagy TCP/IP modeliniň iň pes gatlagy bolup, OSI modeliniň Fiziki we Maglumat baglanyşyk gatlaklaryny birleşdirýär. Bu gatlak maglumatlaryň fiziki gurşawda nähili äkidiljekdigini kesgitleýär.</p>
+            
+            <div class="alert alert-info">
+                <strong>OSI bilen deňeşdirme:</strong> OSI Layer 1 (Fiziki) + OSI Layer 2 (Maglumat baglanyşyk)
+            </div>
+        </div>
+
+        <div class="layer-card">
+            <h2>Esasy wezipeleri</h2>
+            <ul>
+                <li>IP paketlerini frame-lara öwürmek</li>
+                <li>Fiziki adresleme (MAC adresler)</li>
+                <li>Fiziki signallary dolandyrmak</li>
+                <li>Media girişini dolandyrmak (CSMA/CD, CSMA/CA)</li>
+                <li>Ýalňyşlyklary anyklamak</li>
+            </ul>
+        </div>
+
+        <div class="layer-card">
+            <h2>Protokollar we tehnologiýalar</h2>
+            <div class="row">
+                <div class="col-md-6">
+                    <h5>Kabel tehnologiýalary:</h5>
+                    <ul>
+                        <li>Ethernet (IEEE 802.3)</li>
+                        <li>Fiber optika</li>
+                        <li>Coaxial kabel</li>
+                        <li>Twisted pair (Cat5, Cat6)</li>
+                    </ul>
+                </div>
+                <div class="col-md-6">
+                    <h5>Simsiz tehnologiýalar:</h5>
+                    <ul>
+                        <li>Wi-Fi (IEEE 802.11)</li>
+                        <li>Bluetooth</li>
+                        <li>Cellular (4G, 5G)</li>
+                        <li>Satellite</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

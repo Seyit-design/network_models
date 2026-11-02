@@ -1,0 +1,84 @@
+{% extends 'main/base.html' %}
+{% load static %}
+
+{% block title %}Laboratoriýalar{% endblock %}
+
+{% block content %}
+<div class="bg-light py-4">
+    <div class="container">
+        <nav aria-label="breadcrumb">
+            <ol class="breadcrumb">
+                <li class="breadcrumb-item"><a href="{% url 'index' %}">Baş sahypa</a></li>
+                <li class="breadcrumb-item active">Laboratoriýalar</li>
+            </ol>
+        </nav>
+        <h1 class="display-5 fw-bold">Laboratoriýalar</h1>
+        <p class="lead">Tor enjamlaryny konfigurirlemek üçin amaly işler</p>
+    </div>
+</div>
+
+<div class="container py-5">
+    <div class="row g-4">
+        <div class="col-md-4">
+            <div class="card h-100">
+                <div class="card-body">
+                    <i class="fas fa-network-wired fa-3x text-primary mb-3"></i>
+                    <h3 class="h5">Packet Tracer</h3>
+                    <p class="text-muted">Cisco Packet Tracer bilen tor gurmak we simulýasiýa.</p>
+                    <a href="{% url 'lab_packet_tracer' %}" class="btn btn-outline-primary">Giňişleýin</a>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="card h-100">
+                <div class="card-body">
+                    <i class="fas fa-terminal fa-3x text-primary mb-3"></i>
+                    <h3 class="h5">Cisco buýruklar</h3>
+                    <p class="text-muted">Esasy we giňişleýin Cisco IOS buýruklary.</p>
+                    <a href="{% url 'lab_cisco_commands' %}" class="btn btn-outline-primary">Giňişleýin</a>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="card h-100">
+                <div class="card-body">
+                    <i class="fas fa-cogs fa-3x text-primary mb-3"></i>
+                    <h3 class="h5">Network Simulation</h3>
+                    <p class="text-muted">GNS3, EVE-NG we beýleki simulýatorlar.</p>
+                    <a href="{% url 'lab_simulation' %}" class="btn btn-outline-primary">Giňişleýin</a>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="card h-100">
+                <div class="card-body">
+                    <i class="fas fa-wrench fa-3x text-primary mb-3"></i>
+                    <h3 class="h5">Basic Config</h3>
+                    <p class="text-muted">Router we switch üçin esasy konfigurasiýa.</p>
+                    <a href="{% url 'lab_basic_config' %}" class="btn btn-outline-primary">Giňişleýin</a>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="card h-100">
+                <div class="card-body">
+                    <i class="fas fa-code-branch fa-3x text-primary mb-3"></i>
+                    <h3 class="h5">VLAN Config</h3>
+                    <p class="text-muted">VLAN döretmek, trunk we access portlar.</p>
+                    <a href="{% url 'lab_vlan_config' %}" class="btn btn-outline-primary">Giňişleýin</a>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="card h-100">
+                <div class="card-body">
+                    <i class="fas fa-route fa-3x text-primary mb-3"></i>
+                    <h3 class="h5">Routing Config</h3>
+                    <p class="text-muted">Static, default we dynamic routing (OSPF, EIGRP).</p>
+                    <a href="{% url 'lab_routing_config' %}" class="btn btn-outline-primary">Giňişleýin</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

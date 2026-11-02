@@ -1,0 +1,62 @@
+{% extends 'main/base.html' %}
+{% load static %}
+
+{% block title %}Packet Tracer laboratoriýasy{% endblock %}
+
+{% block content %}
+<div class="bg-light py-4">
+    <div class="container">
+        <nav aria-label="breadcrumb">
+            <ol class="breadcrumb">
+                <li class="breadcrumb-item"><a href="{% url 'index' %}">Baş sahypa</a></li>
+                <li class="breadcrumb-item"><a href="{% url 'labs_index' %}">Laboratoriýalar</a></li>
+                <li class="breadcrumb-item active">Packet Tracer</li>
+            </ol>
+        </nav>
+        <h1 class="display-5 fw-bold">Cisco Packet Tracer</h1>
+        <p class="lead">Tor gurmak we simulýasiýa etmek üçin güýçli gural</p>
+    </div>
+</div>
+
+<div class="container py-5">
+    <div class="row">
+        <div class="col-md-8">
+            <div class="card mb-4">
+                <div class="card-body">
+                    <h3 class="h5">Packet Tracer näme?</h3>
+                    <p>Cisco Packet Tracer – tor ulgamlaryny gurmak, konfigurirlemek we troubleshoot etmek üçin simulýasiýa programmasy. Okuwçylar üçin ideal gural.</p>
+                    <h3 class="h5 mt-3">Esasy aýratynlyklar:</h3>
+                    <ul>
+                        <li>Router, switch, kompýuter, server ýaly enjamlary süýşürip goýmak</li>
+                        <li>Konfigurasiýa ýazmak (CLI)</li>
+                        <li>Paket hereketini görmek (simulation mode)</li>
+                        <li>Wi-Fi, IoT enjamlary bilen işlemek</li>
+                    </ul>
+                    <h3 class="h5 mt-3">Ýönekeý laboratoriýa (2 kompýuter birikdirmek):</h3>
+                    <ol>
+                        <li>Packet Tracer açyň.</li>
+                        <li>End Devices-den 2 sany PC süýşürüň.</li>
+                        <li>Connections-dan Copper Straight-Through saýlaň we PC-leri birikdiriň.</li>
+                        <li>PC-lere IP adres belläň: PC0 → 192.168.1.1, PC1 → 192.168.1.2 (subnet mask: 255.255.255.0).</li>
+                        <li>PC0-dan PC1-e ping iberiň (Desktop → Command Prompt → ping 192.168.1.2).</li>
+                    </ol>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="card">
+                <div class="card-body">
+                    <h3 class="h6">Resmi sahypa</h3>
+                    <p><a href="https://www.netacad.com/courses/packet-tracer" target="_blank">Cisco NetAcad Packet Tracer</a></p>
+                    <hr>
+                    <h3 class="h6">Wideo sapaklar</h3>
+                    <ul>
+                        <li><a href="#" target="_blank">Packet Tracer başlangyç</a></li>
+                        <li><a href="#" target="_blank">VLAN konfigurasiýasy</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

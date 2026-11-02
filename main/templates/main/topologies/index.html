@@ -1,0 +1,104 @@
+{% extends 'main/base.html' %}
+{% load static %}
+
+{% block title %}Tor topologiýalary{% endblock %}
+
+{% block content %}
+<div class="bg-light py-4">
+    <div class="container">
+        <nav aria-label="breadcrumb">
+            <ol class="breadcrumb">
+                <li class="breadcrumb-item"><a href="{% url 'index' %}">Baş sahypa</a></li>
+                <li class="breadcrumb-item active">Topologiýalar</li>
+            </ol>
+        </nav>
+        <h1 class="display-5 fw-bold">Tor topologiýalary</h1>
+        <p class="lead">Enjamlaryň birikdiriliş görnüşleri we olaryň aýratynlyklary</p>
+    </div>
+</div>
+
+<div class="container py-5">
+    <div class="row g-4">
+        <div class="col-md-4">
+            <div class="card h-100">
+                <div class="card-body text-center">
+                    <i class="fas fa-star fa-3x text-primary mb-3"></i>
+                    <h3 class="h5">Ýyldyz (Star)</h3>
+                    <p class="text-muted">Merkezi enjama birikdirilen ähli enjamlar</p>
+                    <a href="{% url 'topology_star' %}" class="btn btn-outline-primary">Giňişleýin</a>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="card h-100">
+                <div class="card-body text-center">
+                    <i class="fas fa-exchange-alt fa-3x text-primary mb-3"></i>
+                    <h3 class="h5">Şina (Bus)</h3>
+                    <p class="text-muted">Bir esasy kabel bilen birikdirilen enjamlar</p>
+                    <a href="{% url 'topology_bus' %}" class="btn btn-outline-primary">Giňişleýin</a>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="card h-100">
+                <div class="card-body text-center">
+                    <i class="fas fa-circle fa-3x text-primary mb-3"></i>
+                    <h3 class="h5">Halka (Ring)</h3>
+                    <p class="text-muted">Enjamlar ýapyk halka görnüşinde birikdirilýär</p>
+                    <a href="{% url 'topology_ring' %}" class="btn btn-outline-primary">Giňişleýin</a>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="card h-100">
+                <div class="card-body text-center">
+                    <i class="fas fa-th fa-3x text-primary mb-3"></i>
+                    <h3 class="h5">Mesh (Tor)</h3>
+                    <p class="text-muted">Her enjam beýlekiler bilen aýratyn birikdirilýär</p>
+                    <a href="{% url 'topology_mesh' %}" class="btn btn-outline-primary">Giňişleýin</a>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="card h-100">
+                <div class="card-body text-center">
+                    <i class="fas fa-sitemap fa-3x text-primary mb-3"></i>
+                    <h3 class="h5">Agaç (Tree)</h3>
+                    <p class="text-muted">Ýyldyz topologiýasynyň giňeldilen görnüşi</p>
+                    <a href="{% url 'topology_tree' %}" class="btn btn-outline-primary">Giňişleýin</a>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="card h-100">
+                <div class="card-body text-center">
+                    <i class="fas fa-project-diagram fa-3x text-primary mb-3"></i>
+                    <h3 class="h5">Gibrid (Hybrid)</h3>
+                    <p class="text-muted">Birnäçe topologiýanyň utgaşmasy</p>
+                    <a href="{% url 'topology_hybrid' %}" class="btn btn-outline-primary">Giňişleýin</a>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="card h-100">
+                <div class="card-body text-center">
+                    <i class="fas fa-link fa-3x text-primary mb-3"></i>
+                    <h3 class="h5">Daisy Chain</h3>
+                    <p class="text-muted">Enjamlar yzly-yzyna birikdirilýär</p>
+                    <a href="{% url 'topology_daisy' %}" class="btn btn-outline-primary">Giňişleýin</a>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="card h-100">
+                <div class="card-body text-center">
+                    <i class="fas fa-balance-scale fa-3x text-primary mb-3"></i>
+                    <h3 class="h5">Deňeşdirme</h3>
+                    <p class="text-muted">Ähli topologiýalaryň deňeşdirilmegi</p>
+                    <a href="{% url 'topology_comparison' %}" class="btn btn-outline-primary">Giňişleýin</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

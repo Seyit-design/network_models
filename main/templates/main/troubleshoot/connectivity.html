@@ -1,0 +1,94 @@
+{% extends 'main/base.html' %}
+{% load static %}
+
+{% block title %}Baglanyşyk problemalary{% endblock %}
+
+{% block content %}
+<div class="bg-light py-4">
+    <div class="container">
+        <nav aria-label="breadcrumb">
+            <ol class="breadcrumb">
+                <li class="breadcrumb-item"><a href="{% url 'index' %}">Baş sahypa</a></li>
+                <li class="breadcrumb-item"><a href="{% url 'troubleshoot_index' %}">Troubleshooting</a></li>
+                <li class="breadcrumb-item active">Baglanyşyk problemalary</li>
+            </ol>
+        </nav>
+        <h1 class="display-5 fw-bold">Baglanyşyk problemalary</h1>
+    </div>
+</div>
+
+<div class="container py-5">
+    <div class="row">
+        <div class="col-lg-8 mx-auto">
+            <div class="card mb-4">
+                <div class="card-header bg-white">
+                    <h2 class="h5 mb-0">Esasy barlaglar</h2>
+                </div>
+                <div class="card-body">
+                    <div class="list-group">
+                        <div class="list-group-item">
+                            <div class="d-flex">
+                                <i class="fas fa-check-circle text-success me-3 mt-1"></i>
+                                <div>
+                                    <h6 class="mb-1">Fiziki birikme</h6>
+                                    <p class="text-muted small">Kabeliň dogry birikdirilendigini barlaň. Ethernet kabeliniň görkezijisi ýanýarmy?</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="list-group-item">
+                            <div class="d-flex">
+                                <i class="fas fa-check-circle text-success me-3 mt-1"></i>
+                                <div>
+                                    <h6 class="mb-1">IP adres barlagy</h6>
+                                    <p class="text-muted small">ipconfig (Windows) ýa-da ifconfig (Linux) bilen IP adresiňizi barlaň.</p>
+                                    <pre class="bg-light p-2 rounded"><code>ipconfig /all</code></pre>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="list-group-item">
+                            <div class="d-flex">
+                                <i class="fas fa-check-circle text-success me-3 mt-1"></i>
+                                <div>
+                                    <h6 class="mb-1">Ping test</h6>
+                                    <p class="text-muted small">Default gateway-e ping iberiň.</p>
+                                    <pre class="bg-light p-2 rounded"><code>ping 192.168.1.1</code></pre>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="card mb-4">
+                <div class="card-header bg-white">
+                    <h2 class="h5 mb-0">Köp ýalňyşlyklar we çözgütleri</h2>
+                </div>
+                <div class="card-body">
+                    <table class="table">
+                        <thead>
+                            <tr>
+                                <th>Problem</th>
+                                <th>Çözgüt</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>"Limited connectivity" ýa-da "No internet access"</td>
+                                <td>DHCP serwerden IP adres alyp bilmeýär. <code>ipconfig /release</code> we <code>ipconfig /renew</code> ediň.</td>
+                            </tr>
+                            <tr>
+                                <td>"Destination host unreachable"</td>
+                                <td>Router-a çenli ýol ýok. Default gateway-i barlaň.</td>
+                            </tr>
+                            <tr>
+                                <td>"Request timed out"</td>
+                                <td>Firewall ping bloklap biler. Firewall sazlamalaryny barlaň.</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

@@ -1,0 +1,52 @@
+{% extends 'main/base.html' %}
+{% load static %}
+
+{% block title %}Routing konfigurasiýa{% endblock %}
+
+{% block content %}
+<div class="bg-light py-4">
+    <div class="container">
+        <nav aria-label="breadcrumb">
+            <ol class="breadcrumb">
+                <li class="breadcrumb-item"><a href="{% url 'index' %}">Baş sahypa</a></li>
+                <li class="breadcrumb-item"><a href="{% url 'labs_index' %}">Laboratoriýalar</a></li>
+                <li class="breadcrumb-item active">Routing konfigurasiýa</li>
+            </ol>
+        </nav>
+        <h1 class="display-5 fw-bold">Static we dynamic routing</h1>
+    </div>
+</div>
+
+<div class="container py-5">
+    <div class="card mb-4">
+        <div class="card-body">
+            <h3 class="h5">Static route</h3>
+            <pre class="bg-light p-3">
+ip route 192.168.2.0 255.255.255.0 10.0.0.2
+ip route 0.0.0.0 0.0.0.0 10.0.0.2   ! default route
+            </pre>
+        </div>
+    </div>
+    <div class="card mb-4">
+        <div class="card-body">
+            <h3 class="h5">OSPF (Open Shortest Path First)</h3>
+            <pre class="bg-light p-3">
+router ospf 1
+network 192.168.1.0 0.0.0.255 area 0
+network 10.0.0.0 0.0.0.3 area 0
+            </pre>
+        </div>
+    </div>
+    <div class="card mb-4">
+        <div class="card-body">
+            <h3 class="h5">EIGRP (Enhanced Interior Gateway Routing Protocol)</h3>
+            <pre class="bg-light p-3">
+router eigrp 100
+network 192.168.1.0
+network 10.0.0.0
+no auto-summary
+            </pre>
+        </div>
+    </div>
+</div>
+{% endblock %}

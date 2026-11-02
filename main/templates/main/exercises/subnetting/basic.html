@@ -1,0 +1,44 @@
+{% extends 'main/base.html' %}
+{% load static %}
+
+{% block title %}Başlangyç subnetting{% endblock %}
+
+{% block content %}
+<div class="bg-light py-4">
+    <div class="container">
+        <nav aria-label="breadcrumb">
+            <ol class="breadcrumb">
+                <li class="breadcrumb-item"><a href="{% url 'index' %}">Baş sahypa</a></li>
+                <li class="breadcrumb-item"><a href="{% url 'exercises_index' %}">Maşklar</a></li>
+                <li class="breadcrumb-item"><a href="{% url 'ex_subnetting' %}">Subnetting</a></li>
+                <li class="breadcrumb-item active">Başlangyç</li>
+            </ol>
+        </nav>
+        <h1 class="display-5 fw-bold">Başlangyç subnetting maşklary</h1>
+    </div>
+</div>
+
+<div class="container py-5">
+    <div class="row">
+        <div class="col-lg-8 mx-auto">
+            <div class="card mb-4">
+                <div class="card-body">
+                    <h3 class="h5">1. Gönükme</h3>
+                    <p>192.168.1.0/24 toryny 4 bölege bölüň. Her subnet üçin tor adresini, broadcast adresini we host aralygyny ýazyň.</p>
+                    <hr>
+                    <h3 class="h5">2. Gönükme</h3>
+                    <p>10.0.0.0/8 toryndan 8 subnet dörediň (her biri deň ölçegli). Subnet maskany we her subnetiň ilkinji 3 adresini görkeziň.</p>
+                    <hr>
+                    <h3 class="h5">3. Gönükme</h3>
+                    <p>172.16.0.0/16 tory üçin /20 maska ulanyp, subnet sanyny we her subnetdäki host sanyny hasaplaň.</p>
+                    <hr>
+                    <p class="text-muted">Jogaplaryňyzy barlamak üçin "Barla" düwmesini ulanyň (entek işlenýär).</p>
+                </div>
+            </div>
+            <div class="alert alert-info">
+                <i class="fas fa-info-circle me-2"></i> Subnet kalkulýator ulanyp bilersiňiz: <a href="{% url 'subnet_calculator' %}">Subnet Kalkulýator</a>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

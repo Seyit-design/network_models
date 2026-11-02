@@ -1,0 +1,51 @@
+{% extends 'main/base.html' %}
+{% block title %}Wildcard Kalkulýator{% endblock %}
+{% block content %}
+<div class="container py-5">
+    <div class="row">
+        <div class="col-md-8 mx-auto">
+            <div class="card">
+                <div class="card-header bg-white">
+                    <h1 class="h4 mb-0">Wildcard Mask Kalkulýator</h1>
+                </div>
+                <div class="card-body">
+                    <form method="post">
+                        {% csrf_token %}
+                        <div class="mb-3">
+                            <label class="form-label">Subnet Mask giriziň</label>
+                            <input type="text" name="subnet_mask" class="form-control" placeholder="255.255.255.0" required>
+                        </div>
+                        <button type="submit" class="btn btn-primary w-100">Hasapla</button>
+                    </form>
+                    
+                    {% if result %}
+                        <hr>
+                        {% if result.error %}
+                            <div class="alert alert-danger">{{ result.error }}</div>
+                        {% else %}
+                            <table class="table table-bordered">
+                                <tr>
+                                    <th>Subnet Mask</th>
+                                    <td>{{ result.subnet_mask }}</td>
+                                </tr>
+                                <tr>
+                                    <th>Wildcard Mask</th>
+                                    <td>{{ result.wildcard }}</td>
+                                </tr>
+                                <tr>
+                                    <th>Subnet (binary)</th>
+                                    <td><code>{{ result.binary_subnet }}</code></td>
+                                </tr>
+                                <tr>
+                                    <th>Wildcard (binary)</th>
+                                    <td><code>{{ result.binary_wildcard }}</code></td>
+                                </tr>
+                            </table>
+                        {% endif %}
+                    {% endif %}
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

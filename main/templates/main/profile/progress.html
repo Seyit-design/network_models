@@ -1,0 +1,92 @@
+{% extends 'main/base.html' %}
+{% load static %}
+
+{% block title %}Meniň progressim{% endblock %}
+
+{% block content %}
+<div class="bg-light py-4">
+    <div class="container">
+        <nav aria-label="breadcrumb">
+            <ol class="breadcrumb">
+                <li class="breadcrumb-item"><a href="{% url 'index' %}">Baş sahypa</a></li>
+                <li class="breadcrumb-item"><a href="{% url 'user_profile' %}">Profil</a></li>
+                <li class="breadcrumb-item active">Progress</li>
+            </ol>
+        </nav>
+        <h1 class="display-5 fw-bold">Meniň progressim</h1>
+        <p class="lead">Öwreniş taryhyňyz we üstünlikleriňiz</p>
+    </div>
+</div>
+
+<div class="container py-5">
+    <div class="row">
+        <div class="col-md-6 mb-4">
+            <div class="card">
+                <div class="card-header bg-white">
+                    <h2 class="h5 mb-0">Umumy progress</h2>
+                </div>
+                <div class="card-body">
+                    <div class="d-flex justify-content-between mb-2">
+                        <span>Tamamlanan dersler: {{ completed_lessons }} / {{ total_lessons }}</span>
+                        <span class="text-primary">{{ progress_percentage|floatformat:1 }}%</span>
+                    </div>
+                    <div class="progress mb-4">
+                        <div class="progress-bar bg-success" style="width: {{ progress_percentage }}%"></div>
+                    </div>
+                    
+                    <h3 class="h6">Kategoriýalar boýunça</h3>
+                    {% for cat in category_progress %}
+                    <div class="d-flex justify-content-between mb-1 small">
+                        <span>{{ cat.name }}</span>
+                        <span>{{ cat.completed }}/{{ cat.total }}</span>
+                    </div>
+                    <div class="progress mb-2" style="height: 10px;">
+                        <div class="progress-bar" style="width: {{ cat.percentage }}%"></div>
+                    </div>
+                    {% empty %}
+                    <p class="text-muted">Hiç hili maglumat ýok.</p>
+                    {% endfor %}
+                </div>
+            </div>
+        </div>
+        
+        <div class="col-md-6 mb-4">
+            <div class="card">
+                <div class="card-header bg-white">
+                    <h2 class="h5 mb-0">Soňky işjeňlik</h2>
+                </div>
+                <div class="card-body">
+                    <ul class="list-unstyled">
+                        {% for activity in recent_activities %}
+                        <li class="mb-2">
+                            <i class="fas fa-check-circle text-success me-2"></i>
+                            <strong>{{ activity.lesson.title }}</strong> - {{ activity.completed_at|timesago }}
+                        </li>
+                        {% empty %}
+                        <li class="text-muted">Entek işjeňlik ýok.</li>
+                        {% endfor %}
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="card mt-4">
+                <div class="card-header bg-white">
+                    <h2 class="h5 mb-0">Test netijeleri</h2>
+                </div>
+                <div class="card-body">
+                    <ul class="list-unstyled">
+                        {% for result in quiz_results %}
+                        <li class="mb-2 d-flex justify-content-between">
+                            <span><i class="fas fa-question-circle me-2 text-info"></i>{{ result.quiz.title }}</span>
+                            <span class="badge bg-{% if result.score >= 70 %}success{% else %}warning{% endif %}">{{ result.score }}%</span>
+                        </li>
+                        {% empty %}
+                        <li class="text-muted">Entek test çözmediňiz.</li>
+                        {% endfor %}
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

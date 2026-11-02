@@ -1,0 +1,44 @@
+{% extends 'main/base.html' %}
+{% load static %}
+
+{% block title %}Kabel maşklary{% endblock %}
+
+{% block content %}
+<div class="bg-light py-4">
+    <div class="container">
+        <nav aria-label="breadcrumb">
+            <ol class="breadcrumb">
+                <li class="breadcrumb-item"><a href="{% url 'index' %}">Baş sahypa</a></li>
+                <li class="breadcrumb-item"><a href="{% url 'exercises_index' %}">Maşklar</a></li>
+                <li class="breadcrumb-item active">Kabel maşklary</li>
+            </ol>
+        </nav>
+        <h1 class="display-5 fw-bold">Kabel we birikme maşklary</h1>
+    </div>
+</div>
+
+<div class="container py-5">
+    <div class="row">
+        <div class="col-lg-8 mx-auto">
+            <div class="card mb-4">
+                <div class="card-body">
+                    <h3 class="h5">1. Gönükme</h3>
+                    <p>T568A we T568B standartlary boýunça sim tertibini ýazyň.</p>
+                    <hr>
+                    <h3 class="h5">2. Gönükme</h3>
+                    <p>Iki kompýuteri göni birikdirmek üçin crossover kabel gerekmi ýa-da straight-through? Sebäbini düşündiriň.</p>
+                    <hr>
+                    <h3 class="h5">3. Gönükme</h3>
+                    <p>CAT5e bilen CAT6 kabeliň arasyndaky esasy tapawutlar näme?</p>
+                    <hr>
+                    <h3 class="h5">4. Gönükme</h3>
+                    <p>Fiber optik kabellerde single-mode bilen multi-mode arasyndaky tapawutlary aýdyň.</p>
+                </div>
+            </div>
+            <div class="alert alert-warning">
+                <i class="fas fa-tools me-2"></i> Kabel çekmek boýunça amaly sapak: <a href="{% url 'cable_crimping' %}">Crimping gollanmasy</a>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

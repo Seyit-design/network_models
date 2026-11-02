@@ -1,0 +1,15 @@
+{% extends 'main/base.html' %}
+{% block title %}MPLS{% endblock %}
+{% block content %}
+<div class="bg-light py-4">...</div>
+<div class="container py-5">
+    <p><strong>MPLS (Multiprotocol Label Switching)</strong> – paketlere bellik (label) goşup, olary çalt ugrukdyrmak usuly. IP routing-i gowulandyrýar.</p>
+    <h3 class="h5">Işleýşi:</h3>
+    <ul>
+        <li>Giriş router (LER) pakete label goşýar.</li>
+        <li>Aralyk routerlar (LSR) diňe label-e seredip, IP tablisasyna seretmän ugrukdyrýar.</li>
+        <li>Çykyş router label-i aýyrýar.</li>
+    </ul>
+    <p><strong>Ulanylyşy:</strong> VPN, Traffic Engineering, QoS goldamak.</p>
+</div>
+{% endblock %}

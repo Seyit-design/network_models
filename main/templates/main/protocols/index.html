@@ -1,0 +1,195 @@
+{% extends 'main/base.html' %}
+{% load static %}
+
+{% block title %}Tor protokollary{% endblock %}
+
+{% block content %}
+<div class="bg-light py-4">
+    <div class="container">
+        <nav aria-label="breadcrumb">
+            <ol class="breadcrumb">
+                <li class="breadcrumb-item"><a href="{% url 'index' %}">Baş sahypa</a></li>
+                <li class="breadcrumb-item active">Protokollar</li>
+            </ol>
+        </nav>
+        <h1 class="display-5 fw-bold">Tor protokollary</h1>
+        <p class="lead">TCP/IP, OSI we beýleki protokollar barada giňişleýin maglumat</p>
+    </div>
+</div>
+
+<div class="container py-5">
+    <!-- Kategoriýalar boýunça filtr (opsional) -->
+    <ul class="nav nav-pills mb-4" id="protocolTabs" role="tablist">
+        <li class="nav-item" role="presentation">
+            <button class="nav-link active" id="all-tab" data-bs-toggle="pill" data-bs-target="#all" type="button" role="tab">Ählisi</button>
+        </li>
+        <li class="nav-item" role="presentation">
+            <button class="nav-link" id="application-tab" data-bs-toggle="pill" data-bs-target="#application" type="button" role="tab">Amaly gatlak</button>
+        </li>
+        <li class="nav-item" role="presentation">
+            <button class="nav-link" id="transport-tab" data-bs-toggle="pill" data-bs-target="#transport" type="button" role="tab">Ulag gatlagy</button>
+        </li>
+        <li class="nav-item" role="presentation">
+            <button class="nav-link" id="internet-tab" data-bs-toggle="pill" data-bs-target="#internet" type="button" role="tab">Internet gatlagy</button>
+        </li>
+        <li class="nav-item" role="presentation">
+            <button class="nav-link" id="network-access-tab" data-bs-toggle="pill" data-bs-target="#network-access" type="button" role="tab">Ulgama giriş</button>
+        </li>
+    </ul>
+
+    <!-- Tab content -->
+    <div class="tab-content" id="protocolTabsContent">
+        <!-- Ähli protokollar -->
+        <div class="tab-pane fade show active" id="all" role="tabpanel">
+            <div class="row g-4">
+                {% for protocol in protocols %}
+                <div class="col-md-4">
+                    <div class="card h-100">
+                        <div class="card-body">
+                            <div class="d-flex align-items-center mb-2">
+                                {% if protocol.protocol_type == 'application' %}
+                                    <i class="fas fa-globe text-primary me-2"></i>
+                                {% elif protocol.protocol_type == 'transport' %}
+                                    <i class="fas fa-exchange-alt text-success me-2"></i>
+                                {% elif protocol.protocol_type == 'internet' %}
+                                    <i class="fas fa-network-wired text-info me-2"></i>
+                                {% elif protocol.protocol_type == 'network_access' %}
+                                    <i class="fas fa-plug text-warning me-2"></i>
+                                {% else %}
+                                    <i class="fas fa-code text-secondary me-2"></i>
+                                {% endif %}
+                                <h3 class="h5 mb-0">{{ protocol.name }}</h3>
+                            </div>
+                            <p class="text-muted small">{{ protocol.full_name }}</p>
+                            {% if protocol.port %}
+                                <span class="badge bg-light text-dark mb-2">Port: {{ protocol.port }}</span>
+                            {% endif %}
+                            <p class="card-text">{{ protocol.description|truncatechars:100 }}</p>
+                            <a href="{% url 'protocol_detail' protocol.name %}" class="btn btn-outline-primary btn-sm">Giňişleýin</a>
+                        </div>
+                    </div>
+                </div>
+                {% empty %}
+                <div class="col-12">
+                    <p class="text-muted">Entek protokollar ýok.</p>
+                </div>
+                {% endfor %}
+            </div>
+        </div>
+
+        <!-- Amaly gatlak -->
+        <div class="tab-pane fade" id="application" role="tabpanel">
+            <div class="row g-4">
+                {% for protocol in protocols %}
+                    {% if protocol.protocol_type == 'application' %}
+                    <div class="col-md-4">
+                        <div class="card h-100">
+                            <div class="card-body">
+                                <div class="d-flex align-items-center mb-2">
+                                    <i class="fas fa-globe text-primary me-2"></i>
+                                    <h3 class="h5 mb-0">{{ protocol.name }}</h3>
+                                </div>
+                                <p class="text-muted small">{{ protocol.full_name }}</p>
+                                {% if protocol.port %}
+                                    <span class="badge bg-light text-dark mb-2">Port: {{ protocol.port }}</span>
+                                {% endif %}
+                                <p class="card-text">{{ protocol.description|truncatechars:100 }}</p>
+                                <a href="{% url 'protocol_detail' protocol.name %}" class="btn btn-outline-primary btn-sm">Giňişleýin</a>
+                            </div>
+                        </div>
+                    </div>
+                    {% endif %}
+                {% endfor %}
+            </div>
+        </div>
+
+        <!-- Ulag gatlagy -->
+        <div class="tab-pane fade" id="transport" role="tabpanel">
+            <div class="row g-4">
+                {% for protocol in protocols %}
+                    {% if protocol.protocol_type == 'transport' %}
+                    <div class="col-md-4">
+                        <div class="card h-100">
+                            <div class="card-body">
+                                <div class="d-flex align-items-center mb-2">
+                                    <i class="fas fa-exchange-alt text-success me-2"></i>
+                                    <h3 class="h5 mb-0">{{ protocol.name }}</h3>
+                                </div>
+                                <p class="text-muted small">{{ protocol.full_name }}</p>
+                                {% if protocol.port %}
+                                    <span class="badge bg-light text-dark mb-2">Port: {{ protocol.port }}</span>
+                                {% endif %}
+                                <p class="card-text">{{ protocol.description|truncatechars:100 }}</p>
+                                <a href="{% url 'protocol_detail' protocol.name %}" class="btn btn-outline-success btn-sm">Giňişleýin</a>
+                            </div>
+                        </div>
+                    </div>
+                    {% endif %}
+                {% endfor %}
+            </div>
+        </div>
+
+        <!-- Internet gatlagy -->
+        <div class="tab-pane fade" id="internet" role="tabpanel">
+            <div class="row g-4">
+                {% for protocol in protocols %}
+                    {% if protocol.protocol_type == 'internet' %}
+                    <div class="col-md-4">
+                        <div class="card h-100">
+                            <div class="card-body">
+                                <div class="d-flex align-items-center mb-2">
+                                    <i class="fas fa-network-wired text-info me-2"></i>
+                                    <h3 class="h5 mb-0">{{ protocol.name }}</h3>
+                                </div>
+                                <p class="text-muted small">{{ protocol.full_name }}</p>
+                                {% if protocol.port %}
+                                    <span class="badge bg-light text-dark mb-2">Port: {{ protocol.port }}</span>
+                                {% endif %}
+                                <p class="card-text">{{ protocol.description|truncatechars:100 }}</p>
+                                <a href="{% url 'protocol_detail' protocol.name %}" class="btn btn-outline-info btn-sm">Giňişleýin</a>
+                            </div>
+                        </div>
+                    </div>
+                    {% endif %}
+                {% endfor %}
+            </div>
+        </div>
+
+        <!-- Ulgama giriş gatlagy -->
+        <div class="tab-pane fade" id="network-access" role="tabpanel">
+            <div class="row g-4">
+                {% for protocol in protocols %}
+                    {% if protocol.protocol_type == 'network_access' %}
+                    <div class="col-md-4">
+                        <div class="card h-100">
+                            <div class="card-body">
+                                <div class="d-flex align-items-center mb-2">
+                                    <i class="fas fa-plug text-warning me-2"></i>
+                                    <h3 class="h5 mb-0">{{ protocol.name }}</h3>
+                                </div>
+                                <p class="text-muted small">{{ protocol.full_name }}</p>
+                                {% if protocol.port %}
+                                    <span class="badge bg-light text-dark mb-2">Port: {{ protocol.port }}</span>
+                                {% endif %}
+                                <p class="card-text">{{ protocol.description|truncatechars:100 }}</p>
+                                <a href="{% url 'protocol_detail' protocol.name %}" class="btn btn-outline-warning btn-sm">Giňişleýin</a>
+                            </div>
+                        </div>
+                    </div>
+                    {% endif %}
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+
+    <!-- Port nomerleri tablisasyna link -->
+    <div class="text-center mt-5">
+        <a href="{% url 'protocol_ports' %}" class="btn btn-outline-primary">
+            <i class="fas fa-list me-2"></i>Ähli port nomerleri
+        </a>
+        <a href="{% url 'protocol_comparison' %}" class="btn btn-outline-secondary ms-2">
+            <i class="fas fa-balance-scale me-2"></i>Protokollary deňeşdir
+        </a>
+    </div>
+</div>
+{% endblock %}

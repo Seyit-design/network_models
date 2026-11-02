@@ -1,0 +1,69 @@
+{% extends 'main/base.html' %}
+{% load static %}
+
+{% block title %}Ethernet kabeller{% endblock %}
+
+{% block content %}
+<div class="bg-light py-4">
+    <div class="container">
+        <nav aria-label="breadcrumb">
+            <ol class="breadcrumb">
+                <li class="breadcrumb-item"><a href="{% url 'index' %}">Baş sahypa</a></li>
+                <li class="breadcrumb-item"><a href="{% url 'cables_index' %}">Kabeller</a></li>
+                <li class="breadcrumb-item active">Ethernet</li>
+            </ol>
+        </nav>
+        <h1 class="display-5 fw-bold">Ethernet kabeller</h1>
+        <p class="lead">CAT5, CAT5e, CAT6, CAT7 – aýratynlyklary we tapawutlary</p>
+    </div>
+</div>
+
+<div class="container py-5">
+    <div class="row g-4">
+        <div class="col-md-3">
+            <div class="card h-100">
+                <div class="card-body">
+                    <h3 class="h5">CAT5</h3>
+                    <p><strong>Tizlik:</strong> 100 Mbps</p>
+                    <p><strong>Ýygylyk:</strong> 100 MHz</p>
+                    <p><strong>Maks. uzynlyk:</strong> 100 m</p>
+                    <a href="{% url 'cable_cat5' %}" class="btn btn-sm btn-primary">Giňişleýin</a>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-3">
+            <div class="card h-100">
+                <div class="card-body">
+                    <h3 class="h5">CAT5e</h3>
+                    <p><strong>Tizlik:</strong> 1 Gbps</p>
+                    <p><strong>Ýygylyk:</strong> 100 MHz</p>
+                    <p><strong>Maks. uzynlyk:</strong> 100 m</p>
+                    <a href="{% url 'cable_cat5e' %}" class="btn btn-sm btn-primary">Giňişleýin</a>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-3">
+            <div class="card h-100">
+                <div class="card-body">
+                    <h3 class="h5">CAT6</h3>
+                    <p><strong>Tizlik:</strong> 10 Gbps (55 m)</p>
+                    <p><strong>Ýygylyk:</strong> 250 MHz</p>
+                    <p><strong>Maks. uzynlyk:</strong> 100 m</p>
+                    <a href="{% url 'cable_cat6' %}" class="btn btn-sm btn-primary">Giňişleýin</a>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-3">
+            <div class="card h-100">
+                <div class="card-body">
+                    <h3 class="h5">CAT7</h3>
+                    <p><strong>Tizlik:</strong> 10 Gbps</p>
+                    <p><strong>Ýygylyk:</strong> 600 MHz</p>
+                    <p><strong>Maks. uzynlyk:</strong> 100 m</p>
+                    <a href="{% url 'cable_cat7' %}" class="btn btn-sm btn-primary">Giňişleýin</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

@@ -1,0 +1,22 @@
+{% extends 'main/base.html' %}
+{% block title %}IP Protocol{% endblock %}
+{% block content %}
+<div class="container py-5">
+    <h1>IP (Internet Protocol)</h1>
+    
+    <div class="card">
+        <div class="card-body">
+            <p><strong>Gatlak:</strong> Ulgam gatlagy</p>
+            
+            <h5>IP versiýalary:</h5>
+            <ul>
+                <li>IPv4 - 32 bit</li>
+                <li>IPv6 - 128 bit</li>
+            </ul>
+            
+            <h5>IP header:</h5>
+            <p>Version, IHL, Type of Service, Total Length, ID, Flags, Fragment Offset, TTL, Protocol, Checksum, Source IP, Destination IP</p>
+        </div>
+    </div>
+</div>
+{% endblock %}

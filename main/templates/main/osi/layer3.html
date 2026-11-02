@@ -1,0 +1,172 @@
+{% extends "main/base.html" %}
+
+{% block title %}OSI - Ulgam gatlagy{% endblock %}
+
+{% block content %}
+<div class="row">
+    <div class="col-md-12">
+        <nav aria-label="breadcrumb">
+            <ol class="breadcrumb">
+                <li class="breadcrumb-item"><a href="/osi/">OSI</a></li>
+                <li class="breadcrumb-item active">Ulgam gatlagy</li>
+            </ol>
+        </nav>
+
+        <h1>Ulgam gatlagy (Layer 3)</h1>
+        
+        <div class="layer-card">
+            <h2>Gelip çykyşy we wezipeleri</h2>
+            <p>Ulgam gatlagy 1970-nji ýyllaryň ortalarynda dürli torlaryň özara birleşmegi üçin döredildi. IP protokolynyň (Internet Protocol) döredilmegi bilen bu gatlagyň ähmiýeti has-da artdy.</p>
+            <p><strong>Esasy wezipeleri:</strong></p>
+            <ul>
+                <li>Mantiýsy adresleme (IP adresler)</li>
+                <li>Marşrutizasiýa (iň gowy ýoly saýlamak)</li>
+                <li>Paketleri böleklere bölmek we birleşdirmek (fragmentation)</li>
+                <li>Tor gürpüldisini dolandyrmak</li>
+                <li>Marşrut tablisalaryny dolandyrmak</li>
+            </ul>
+        </div>
+
+        <div class="layer-card">
+            <h2>IP adresler we klaslar</h2>
+            <div class="row">
+                <div class="col-md-6">
+                    <h5>IPv4 adres gurluşy:</h5>
+                    <p>32 bitlik, 4 oktetden ybarat (mysal: 192.168.1.1)</p>
+                    <table class="table table-sm">
+                        <tr><th>Klas</th><th>Başlangyç bitler</th><th>Adres diapazony</th><th>Maska</th></tr>
+                        <tr><td>A</td><td>0</td><td>1.0.0.0 - 126.255.255.255</td><td>255.0.0.0</td></tr>
+                        <tr><td>B</td><td>10</td><td>128.0.0.0 - 191.255.255.255</td><td>255.255.0.0</td></tr>
+                        <tr><td>C</td><td>110</td><td>192.0.0.0 - 223.255.255.255</td><td>255.255.255.0</td></tr>
+                    </table>
+                </div>
+                <div class="col-md-6">
+                    <h5>Ýörite adresler:</h5>
+                    <ul>
+                        <li><strong>Loopback:</strong> 127.0.0.1 (öz kompýuteri)</li>
+                        <li><strong>Private adresler:</strong> 10.0.0.0/8, 172.16.0.0/12, 192.168.0.0/16</li>
+                        <li><strong>Broadcast:</strong> 255.255.255.255 (hemme enjama)</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <div class="layer-card">
+            <h2>Marşrutizasiýa animasiýasy</h2>
+            <div class="animation-container">
+                <svg width="600" height="300" viewBox="0 0 600 300">
+                    <!-- Routerlar -->
+                    <circle cx="100" cy="150" r="30" fill="#007bff" />
+                    <text x="100" y="155" text-anchor="middle" fill="white">R1</text>
+                    
+                    <circle cx="300" cy="80" r="30" fill="#28a745" />
+                    <text x="300" y="85" text-anchor="middle" fill="white">R2</text>
+                    
+                    <circle cx="300" cy="220" r="30" fill="#ffc107" />
+                    <text x="300" y="225" text-anchor="middle">R3</text>
+                    
+                    <circle cx="500" cy="150" r="30" fill="#dc3545" />
+                    <text x="500" y="155" text-anchor="middle" fill="white">R4</text>
+                    
+                    <!-- Baglanyşyklar -->
+                    <line x1="130" y1="150" x2="270" y2="80" stroke="black" stroke-dasharray="5,5" />
+                    <line x1="130" y1="150" x2="270" y2="220" stroke="black" stroke-dasharray="5,5" />
+                    <line x1="330" y1="80" x2="470" y2="150" stroke="black" stroke-dasharray="5,5" />
+                    <line x1="330" y1="220" x2="470" y2="150" stroke="black" stroke-dasharray="5,5" />
+                    
+                    <!-- Paket -->
+                    <circle id="packet" cx="100" cy="150" r="10" fill="red">
+                        <animate attributeName="cx" from="100" to="500" dur="4s" fill="freeze" begin="click" />
+                        <animate attributeName="cy" from="150" to="150" dur="4s" fill="freeze" begin="click" />
+                    </circle>
+                </svg>
+                <button class="btn btn-primary mt-2" onclick="document.getElementById('packet').beginElement()">Paketi iber</button>
+                <p class="mt-2">R1 -> R2 -> R4 ýa-da R1 -> R3 -> R4 ýoly bilen gitmeli. Marşrut protokoly iň gysga ýoly saýlar.</p>
+            </div>
+        </div>
+
+        <div class="layer-card">
+            <h2>Protokollar</h2>
+            <div class="row">
+                <div class="col-md-4">
+                    <div class="card">
+                        <div class="card-body">
+                            <h5>Marşrut protokollary</h5>
+                            <ul>
+                                <li>RIP (Routing Information Protocol)</li>
+                                <li>OSPF (Open Shortest Path First)</li>
+                                <li>EIGRP (Enhanced Interior Gateway)</li>
+                                <li>BGP (Border Gateway Protocol)</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="card">
+                        <div class="card-body">
+                            <h5>Ulgam protokollary</h5>
+                            <ul>
+                                <li>IP (Internet Protocol)</li>
+                                <li>ICMP (Internet Control Message)</li>
+                                <li>ARP (Address Resolution)</li>
+                                <li>DHCP (Dynamic Host Configuration)</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="card">
+                        <div class="card-body">
+                            <h5>Enjamlar</h5>
+                            <ul>
+                                <li>Router (marşrutizator)</li>
+                                <li>Layer 3 switch</li>
+                                <li>Firewall</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="layer-card">
+            <h2>Praktiki mysal: traceroute</h2>
+            <p>Traceroute komandasy bilen paketiň geçýän routerlaryny görmek bolýar:</p>
+            <div class="bg-dark text-white p-3 rounded">
+                <code>$ traceroute google.com<br>
+                1  192.168.1.1 (2 ms)<br>
+                2  10.0.0.1 (5 ms)<br>
+                3  172.16.1.1 (10 ms)<br>
+                4  8.8.8.8 (15 ms)</code>
+            </div>
+            <p class="mt-2">Her bir hop (böküş) paketiň bir routerdan geçendigini görkezýär.</p>
+        </div>
+
+        <div class="layer-card">
+            <h2>IP paketiniň gurluşy</h2>
+            <table class="table table-bordered">
+                <tr>
+                    <td>Wersiýa (4 bit)</td>
+                    <td>IHL (4 bit)</td>
+                    <td>Hyzmat görnüşi (8 bit)</td>
+                    <td>Umumy uzynlyk (16 bit)</td>
+                </tr>
+                <tr>
+                    <td>Identifikasiýa (16 bit)</td>
+                    <td>Flaglar (3 bit)</td>
+                    <td>Fragment ofset (13 bit)</td>
+                    <td>TTL (8 bit)</td>
+                </tr>
+                <tr>
+                    <td>Protokol (8 bit)</td>
+                    <td colspan="2">Başlyk cheksumy (16 bit)</td>
+                    <td>Çeşme IP adres (32 bit)</td>
+                </tr>
+                <tr>
+                    <td colspan="4">Barjak IP adres (32 bit)</td>
+                </tr>
+            </table>
+        </div>
+    </div>
+</div>
+{% endblock %}

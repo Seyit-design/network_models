@@ -1,0 +1,162 @@
+{% extends "main/base.html" %}
+
+{% block title %}OSI - Prezentasiýa gatlagy{% endblock %}
+
+{% block content %}
+<div class="row">
+    <div class="col-md-12">
+        <nav aria-label="breadcrumb">
+            <ol class="breadcrumb">
+                <li class="breadcrumb-item"><a href="/osi/">OSI</a></li>
+                <li class="breadcrumb-item active">Prezentasiýa gatlagy</li>
+            </ol>
+        </nav>
+
+        <h1>Prezentasiýa gatlagy (Layer 6)</h1>
+        
+        <div class="layer-card">
+            <h2>Gelip çykyşy we wezipeleri</h2>
+            <p>Prezentasiýa gatlagy dürli ulgamlaryň maglumat formatlarynyň üýtgeşikliklerini ýok etmek üçin döredildi. Bu gatlak maglumatlaryň bir formatdan başga bir forma öwrülmegini üpjün edýär.</p>
+            <p><strong>Esasy wezipeleri:</strong></p>
+            <ul>
+                <li>Maglumat formatlaşdyryş (JPEG, GIF, MPEG)</li>
+                <li>Şifrleme we desifrleme (SSL/TLS)</li>
+                <li>Kompressiýa we dekompressiýa (ZIP, GZIP)</li>
+                <li>Kodirovka öwrülişikleri (ASCII, EBCDIC, Unicode)</li>
+                <li>Sintaksis öwrülişikleri</li>
+            </ul>
+        </div>
+
+        <div class="layer-card">
+            <h2>Şifrleme animasiýasy</h2>
+            <div class="row">
+                <div class="col-md-6">
+                    <h5>Original maglumat:</h5>
+                    <div id="originalText" class="bg-light p-3 rounded">Salam, dünýä!</div>
+                </div>
+                <div class="col-md-6">
+                    <h5>Şifirlenen maglumat:</h5>
+                    <div id="encryptedText" class="bg-dark text-white p-3 rounded">U2FsdGVkX1+6nC3r...</div>
+                </div>
+            </div>
+            <div class="text-center mt-3">
+                <button class="btn btn-primary" onclick="encrypt()">Şifirle</button>
+                <button class="btn btn-success" onclick="decrypt()">Desifirle</button>
+            </div>
+        </div>
+
+        <div class="layer-card">
+            <h2>Kompressiýa animasiýasy</h2>
+            <div class="progress mb-3" style="height: 30px;">
+                <div id="compressBar" class="progress-bar bg-success" style="width: 100%">10 MB</div>
+            </div>
+            <button class="btn btn-primary" onclick="compress()">Kompressiýa et</button>
+            <button class="btn btn-secondary" onclick="decompress()">Dekompressiýa et</button>
+        </div>
+
+        <div class="layer-card">
+            <h2>Format öwrülişikleri</h2>
+            <div class="row">
+                <div class="col-md-4">
+                    <div class="card">
+                        <div class="card-body">
+                            <h6>Surat formatlary</h6>
+                            <p>BMP (bitmap) → JPEG, PNG, GIF</p>
+                            <p>RAW → TIFF, JPEG</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="card">
+                        <div class="card-body">
+                            <h6>Wideo formatlary</h6>
+                            <p>AVI → MP4, MKV, MOV</p>
+                            <p>RAW video → H.264, H.265</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="card">
+                        <div class="card-body">
+                            <h6>Tekst kodirovkalary</h6>
+                            <p>ASCII → Unicode (UTF-8, UTF-16)</p>
+                            <p>EBCDIC → ASCII</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="layer-card">
+            <h2>SSL/TLS el çarpmasy</h2>
+            <div class="animation-container">
+                <div style="display: flex; flex-direction: column;">
+                    <div class="bg-primary text-white p-2 m-1 rounded">Client → Server: "Men bilen baglanyş" (Client Hello)</div>
+                    <div class="bg-success text-white p-2 m-1 rounded">Server → Client: "Sertifikatym, açyk açar" (Server Hello)</div>
+                    <div class="bg-warning p-2 m-1 rounded">Client → Server: "Açary şifirledim, indi ygtybarly"</div>
+                    <div class="bg-info text-white p-2 m-1 rounded">Server → Client: "Bolýar, baglanyşyk ygtybarly"</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="layer-card">
+            <h2>Praktiki mysal: Base64 kodirovkasy</h2>
+            <div class="input-group mb-3">
+                <input type="text" id="base64Input" class="form-control" placeholder="Tekst giriziň">
+                <button class="btn btn-primary" onclick="toBase64()">Base64 kodirle</button>
+            </div>
+            <div id="base64Output" class="bg-light p-3 rounded"></div>
+        </div>
+    </div>
+</div>
+
+<script>
+function encrypt() {
+    $('#originalText').fadeOut(500, function() {
+        $(this).text('*** Gizlin maglumat ***').fadeIn(500);
+    });
+    $('#encryptedText').fadeOut(500, function() {
+        $(this).text('U2FsdGVkX1+6nC3rZp8yQa9xV5k=').fadeIn(500);
+    });
+}
+
+function decrypt() {
+    $('#encryptedText').fadeOut(500, function() {
+        $(this).text('Salam, dünýä!').fadeIn(500);
+    });
+    $('#originalText').fadeOut(500, function() {
+        $(this).text('Salam, dünýä!').fadeIn(500);
+    });
+}
+
+function compress() {
+    let width = 100;
+    let interval = setInterval(function() {
+        if (width > 30) {
+            width -= 5;
+            $('#compressBar').css('width', width + '%').text('3 MB');
+        } else {
+            clearInterval(interval);
+        }
+    }, 100);
+}
+
+function decompress() {
+    let width = 30;
+    let interval = setInterval(function() {
+        if (width < 100) {
+            width += 5;
+            $('#compressBar').css('width', width + '%').text('10 MB');
+        } else {
+            clearInterval(interval);
+        }
+    }, 100);
+}
+
+function toBase64() {
+    let text = $('#base64Input').val();
+    let encoded = btoa(text);
+    $('#base64Output').text('Base64: ' + encoded);
+}
+</script>
+{% endblock %}

@@ -1,0 +1,17 @@
+{% extends 'main/base.html' %}
+{% block title %}IPv6{% endblock %}
+{% block content %}
+<div class="bg-light py-4">...</div>
+<div class="container py-5">
+    <p><strong>IPv6</strong> – IPv4-iň ornuny tutýan täze IP protokoly. 128 bit uzynlykda, 3.4×10^38 adres.</p>
+    <h3 class="h5">IPv6 aýratynlyklary:</h3>
+    <ul>
+        <li>Adres görnüşi: 8 blok, her biri 4 sanly (hex), mysal: 2001:0db8:85a3:0000:0000:8a2e:0370:7334</li>
+        <li>Öňdäki nollary goýup bolýar: 2001:db8:85a3::8a2e:370:7334</li>
+        <li>Adres görnüşleri: Global unicast, link-local, unique local, multicast, anycast</li>
+        <li>ICMPv6, NDP (Neighbor Discovery Protocol) öz içine alýar</li>
+        <li>ARP ýok, ýerine NDP</li>
+    </ul>
+    <a href="{% url 'advanced_ipv6_addressing' %}" class="btn btn-primary">IPv6 adresleme</a>
+</div>
+{% endblock %}

@@ -1,0 +1,44 @@
+{% extends 'main/base.html' %}
+{% load static %}
+
+{% block title %}VLSM maşklary{% endblock %}
+
+{% block content %}
+<div class="bg-light py-4">
+    <div class="container">
+        <nav aria-label="breadcrumb">
+            <ol class="breadcrumb">
+                <li class="breadcrumb-item"><a href="{% url 'index' %}">Baş sahypa</a></li>
+                <li class="breadcrumb-item"><a href="{% url 'exercises_index' %}">Maşklar</a></li>
+                <li class="breadcrumb-item active">VLSM</li>
+            </ol>
+        </nav>
+        <h1 class="display-5 fw-bold">VLSM (Variable Length Subnet Mask) maşklary</h1>
+    </div>
+</div>
+
+<div class="container py-5">
+    <div class="row">
+        <div class="col-lg-8 mx-auto">
+            <div class="card mb-4">
+                <div class="card-body">
+                    <h3 class="h5">Gönükme</h3>
+                    <p>Size 192.168.1.0/24 tor berlen. Aşakdaky talaplar boýunça VLSM ulanyp subnetleri dörediň:</p>
+                    <ul>
+                        <li>Subnet A: 50 host</li>
+                        <li>Subnet B: 25 host</li>
+                        <li>Subnet C: 10 host</li>
+                        <li>Subnet D: 2 host (router arasy birikme)</li>
+                    </ul>
+                    <p>Her subnet üçin tor adresini, subnet maskany, host aralygyny we broadcast adresini ýazyň.</p>
+                    <hr>
+                    <p class="text-muted">Maslahat: Iň uly talapdan başlaň we ýer tygşytlaň.</p>
+                </div>
+            </div>
+            <div class="alert alert-success">
+                <i class="fas fa-lightbulb me-2"></i> Jogap: A: /26 (64 adres), B: /27 (32), C: /28 (16), D: /30 (4).
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

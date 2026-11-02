@@ -1,0 +1,111 @@
+{% extends "main/base.html" %}
+
+{% block title %}OSI - Fiziki gatlak{% endblock %}
+
+{% block content %}
+<div class="row">
+    <div class="col-md-12">
+        <nav aria-label="breadcrumb">
+            <ol class="breadcrumb">
+                <li class="breadcrumb-item"><a href="/osi/">OSI</a></li>
+                <li class="breadcrumb-item active">Fiziki gatlak</li>
+            </ol>
+        </nav>
+
+        <h1>Fiziki gatlak (Layer 1)</h1>
+        
+        <div class="layer-card">
+            <h2>Gelip çykyşy we wezipeleri</h2>
+            <p>Fiziki gatlak OSI modeliniň iň pes gatlagy bolup, maglumatlaryň fiziki gurşawda (kabel, optiki süýüm, howa) äkidilmegini üpjün edýär. Bu gatlak 1980-nji ýyllarda ilkinji tor enjamlary bilen birlikde işlenip düzüldi.</p>
+            <p><strong>Esasy wezipeleri:</strong></p>
+            <ul>
+                <li>Bitleriň fiziki geçirijide äkidilmegi</li>
+                <li>Signal görnüşini kesgitlemek (dijital, analog)</li>
+                <li>Fiziki birikdirijileri we kabelleri kesgitlemek</li>
+                <li>Data transferiniň tizligini kesgitlemek</li>
+                <li>Signal synchronizasiýasy</li>
+            </ul>
+        </div>
+
+        <div class="layer-card">
+            <h2>Maglumat geçişi</h2>
+            <p>Fiziki gatlak ýokarky gatlakdan alan bitlerini elektrik signallaryna, ýagtylyk impulslaryna ýa-da radiotalgalara öwürýär we fiziki gurşawa iberýär.</p>
+            <div class="animation-container">
+                <h4>Animasiýa: Bitleriň geçirilmegi</h4>
+                <div style="height: 100px; background: #333; border-radius: 5px; position: relative;">
+                    <div id="bit1" style="width: 10px; height: 10px; background: red; border-radius: 50%; position: absolute; top: 45px; left: 0;"></div>
+                    <div id="bit2" style="width: 10px; height: 10px; background: blue; border-radius: 50%; position: absolute; top: 45px; left: 20px;"></div>
+                    <div id="bit3" style="width: 10px; height: 10px; background: green; border-radius: 50%; position: absolute; top: 45px; left: 40px;"></div>
+                    <div id="cable" style="width: 100%; height: 2px; background: #666; position: absolute; top: 50px;"></div>
+                </div>
+                <button class="btn btn-sm btn-primary mt-2" onclick="animateBits()">Bitleri iber</button>
+            </div>
+        </div>
+
+        <div class="layer-card">
+            <h2>Protokollar we standartlar</h2>
+            <ul>
+                <li><strong>Ethernet:</strong> 10BASE-T, 100BASE-TX, 1000BASE-T</li>
+                <li><strong>USB:</strong> 1.0, 2.0, 3.0</li>
+                <li><strong>Bluetooth:</strong> 802.15.1</li>
+                <li><strong>Wi-Fi:</strong> 802.11 a/b/g/n/ac/ax</li>
+                <li><strong>Fiber kanal:</strong> 1GFC, 2GFC, 4GFC, 8GFC, 16GFC</li>
+                <li><strong>RS-232:</strong> Seriýaly port</li>
+            </ul>
+        </div>
+
+        <div class="layer-card">
+            <h2>Praktiki mysallar</h2>
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="card">
+                        <div class="card-body">
+                            <h5 class="card-title">Cat5e kabeli</h5>
+                            <p>100 MHz ýygylykda işleýär, 1 Gbit/s tizlik bilen maglumat geçirýär. Maksimum uzynlygy 100 metr.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="card">
+                        <div class="card-body">
+                            <h5 class="card-title">Optiki süýüm</h5>
+                            <p>Ýagtylyk signallaryny ulanyp, 100 Gbit/s we has ýokary tizlikde maglumat geçirýär. Uzak aralyklara çenli işläp biler.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="layer-card">
+            <h2>Maglumat geçişinde fiziki gatlagyň roly</h2>
+            <p>Iberiji kompýuterde maglumat aşaky gatlaklardan geçip, fiziki gatlakda signallara öwrülýär we kabel arkaly alyja kompýutere ýetirilýär. Alyjyda bolsa signallar täzeden bitlere öwrülýär we ýokarky gatlaklara ugradylýar.</p>
+            <div style="display: flex; justify-content: space-around; margin-top: 20px;">
+                <div class="text-center">
+                    <span class="badge bg-primary">Iberiji</span>
+                    <div>01010101</div>
+                </div>
+                <div class="text-center">
+                    <span class="badge bg-success">Kabel</span>
+                    <div>⚡⚡⚡⚡</div>
+                </div>
+                <div class="text-center">
+                    <span class="badge bg-primary">Alyjy</span>
+                    <div>01010101</div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+function animateBits() {
+    $('div[id^="bit"]').each(function(index) {
+        $(this).animate({
+            left: '100%'
+        }, 2000, function() {
+            $(this).css('left', '0');
+        });
+    });
+}
+</script>
+{% endblock %}

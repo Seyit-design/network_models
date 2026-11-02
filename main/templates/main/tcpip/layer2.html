@@ -1,0 +1,69 @@
+{% extends "main/base.html" %}
+
+{% block title %}TCP/IP - Internet gatlagy{% endblock %}
+
+{% block content %}
+<div class="row">
+    <div class="col-md-12">
+        <nav aria-label="breadcrumb">
+            <ol class="breadcrumb">
+                <li class="breadcrumb-item"><a href="/tcpip/">TCP/IP</a></li>
+                <li class="breadcrumb-item active">Internet gatlagy</li>
+            </ol>
+        </nav>
+
+        <h1>Internet gatlagy (Internet Layer)</h1>
+        
+        <div class="layer-card">
+            <h2>Bu gatlak näme?</h2>
+            <p>Internet gatlagy TCP/IP modeliniň iň möhüm gatlagy bolup, OSI modeliniň Ulgam gatlagyna (Layer 3) gabat gelýär. Bu gatlak paketleriň dogry ýere ýetirilmegi üçin jogapkär.</p>
+            
+            <div class="alert alert-info">
+                <strong>OSI bilen deňeşdirme:</strong> OSI Layer 3 (Ulgam gatlagy)
+            </div>
+        </div>
+
+        <div class="layer-card">
+            <h2>Esasy protokollar</h2>
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="card">
+                        <div class="card-header bg-primary text-white">IP (Internet Protocol)</div>
+                        <div class="card-body">
+                            <p>Esasy protokol, paketleri iberýär</p>
+                            <ul>
+                                <li>IPv4 (32 bit adres)</li>
+                                <li>IPv6 (128 bit adres)</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="card">
+                        <div class="card-header bg-success text-white">ICMP</div>
+                        <div class="card-body">
+                            <p>Ýalňyş habarlary we diagnoz</p>
+                            <ul>
+                                <li>Ping</li>
+                                <li>Traceroute</li>
+                                <li>Destination unreachable</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="layer-card">
+            <h2>Praktiki mysal: Ping</h2>
+            <div class="bg-dark text-white p-3 rounded">
+                <code>$ ping google.com<br>
+                PING google.com (172.217.168.46): 56 data bytes<br>
+                64 bytes from 172.217.168.46: icmp_seq=0 ttl=115 time=10.5 ms<br>
+                64 bytes from 172.217.168.46: icmp_seq=1 ttl=115 time=9.8 ms</code>
+            </div>
+            <p class="mt-2">Ping ICMP protokolyny ulanyp, enjamyň elýeterliligini barlaýar.</p>
+        </div>
+    </div>
+</div>
+{% endblock %}

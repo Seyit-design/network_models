@@ -1,0 +1,67 @@
+{% extends 'main/base.html' %}
+{% load static %}
+
+{% block title %}Saýt kartasy{% endblock %}
+
+{% block content %}
+<div class="bg-light py-4">
+    <div class="container">
+        <nav aria-label="breadcrumb">
+            <ol class="breadcrumb">
+                <li class="breadcrumb-item"><a href="{% url 'index' %}">Baş sahypa</a></li>
+                <li class="breadcrumb-item active">Saýt kartasy</li>
+            </ol>
+        </nav>
+        <h1 class="display-5 fw-bold">Saýt kartasy</h1>
+        <p class="lead">Ähli sahypalaryň sanawy</p>
+    </div>
+</div>
+
+<div class="container py-5">
+    <div class="row">
+        <div class="col-md-4">
+            <h3 class="h6">Esasy</h3>
+            <ul>
+                <li><a href="{% url 'index' %}">Baş sahypa</a></li>
+                <li><a href="{% url 'category_list' %}">Kategoriýalar</a></li>
+                <li><a href="{% url 'dashboard' %}">Panel</a></li>
+            </ul>
+            <h3 class="h6 mt-3">Modeller</h3>
+            <ul>
+                <li><a href="{% url 'osi_index' %}">OSI Model</a></li>
+                <li><a href="{% url 'tcpip_index' %}">TCP/IP</a></li>
+            </ul>
+        </div>
+        <div class="col-md-4">
+            <h3 class="h6">Öwren</h3>
+            <ul>
+                <li><a href="{% url 'basic_index' %}">Esasy düşünjeler</a></li>
+                <li><a href="{% url 'devices_index' %}">Enjamlar</a></li>
+                <li><a href="{% url 'protocols_index' %}">Protokollar</a></li>
+                <li><a href="{% url 'cables_index' %}">Kabeller</a></li>
+                <li><a href="{% url 'topologies_index' %}">Topologiýalar</a></li>
+            </ul>
+        </div>
+        <div class="col-md-4">
+            <h3 class="h6">Gurallar we oýunlar</h3>
+            <ul>
+                <li><a href="{% url 'tools_index' %}">Gurallar</a></li>
+                <li><a href="{% url 'exercises_index' %}">Maşklar</a></li>
+                <li><a href="{% url 'games_index' %}">Oýunlar</a></li>
+                <li><a href="{% url 'quiz_index' %}">Testler</a></li>
+            </ul>
+            <h3 class="h6 mt-3">Beýlekiler</h3>
+            <ul>
+                <li><a href="{% url 'videos_index' %}">Wideo dersler</a></li>
+                <li><a href="{% url 'glossary_index' %}">Sözlük</a></li>
+                <li><a href="{% url 'labs_index' %}">Laboratoriýalar</a></li>
+                <li><a href="{% url 'troubleshoot_index' %}">Troubleshooting</a></li>
+                <li><a href="{% url 'advanced_index' %}">Öňdebaryjy</a></li>
+                <li><a href="{% url 'career_index' %}">Kariýer</a></li>
+                <li><a href="{% url 'resources_index' %}">Resurslar</a></li>
+                <li><a href="{% url 'diagrams_index' %}">Diagrammalar</a></li>
+            </ul>
+        </div>
+    </div>
+</div>
+{% endblock %}

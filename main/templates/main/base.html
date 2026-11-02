@@ -1,0 +1,422 @@
+<!DOCTYPE html>
+<html lang="tk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}Tor ulgamlary öwreniş platformasy{% endblock %}</title>
+    
+    <!-- Bootstrap 5 CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Custom CSS -->
+    {% block extra_css %}{% endblock %}
+    
+    <style>
+        :root {
+            --primary-color: #2563eb;
+            --secondary-color: #1e40af;
+            --success-color: #10b981;
+            --warning-color: #f59e0b;
+            --danger-color: #ef4444;
+            --dark-color: #1f2937;
+            --light-color: #f3f4f6;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #f9fafb;
+        }
+        
+        .navbar-brand {
+            font-weight: bold;
+            font-size: 1.5rem;
+            color: var(--primary-color) !important;
+        }
+        
+        .hero-section {
+            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+            color: white;
+            padding: 4rem 0;
+            margin-bottom: 2rem;
+        }
+        
+        .card {
+            border: none;
+            border-radius: 1rem;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+            transition: transform 0.3s ease;
+        }
+        
+        .card:hover {
+            transform: translateY(-5px);
+        }
+        
+        .btn-primary {
+            background-color: var(--primary-color);
+            border: none;
+            padding: 0.75rem 1.5rem;
+            border-radius: 0.5rem;
+        }
+        
+        .btn-primary:hover {
+            background-color: var(--secondary-color);
+        }
+        
+        .footer {
+            background-color: var(--dark-color);
+            color: white;
+            padding: 3rem 0;
+            margin-top: 4rem;
+        }
+        
+        .search-box {
+            max-width: 500px;
+            margin: 0 auto;
+        }
+        
+        .badge {
+            padding: 0.5rem 1rem;
+            border-radius: 2rem;
+        }
+        
+        .progress {
+            height: 10px;
+            border-radius: 5px;
+        }
+        
+        .list-group-item {
+            border: none;
+            margin-bottom: 0.5rem;
+            border-radius: 0.5rem !important;
+        }
+        
+        .nav-tabs .nav-link {
+            border: none;
+            color: var(--dark-color);
+            font-weight: 500;
+        }
+        
+        .nav-tabs .nav-link.active {
+            border-bottom: 3px solid var(--primary-color);
+            color: var(--primary-color);
+        }
+        /* Dropdown wide */
+        .dropdown-wide {
+            min-width: 20rem;
+        }
+        @media (min-width: 992px) {
+            .mega-menu {
+                position: static;
+            }
+            .mega-menu .dropdown-menu {
+                width: 100%;
+                padding: 1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg navbar-light bg-white shadow-sm">
+        <div class="container">
+            <a class="navbar-brand" href="{% url 'index' %}">
+                <i class="fas fa-network-wired me-2"></i>NetLearn
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav me-auto">
+                    <!-- Öwren (Learn) mega dropdown -->
+                    <li class="nav-item dropdown mega-menu">
+                        <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown">
+                            Öwren
+                        </a>
+                        <div class="dropdown-menu dropdown-wide p-3">
+                            <div class="row">
+                                <div class="col-md-4">
+                                    <h6 class="dropdown-header">Modeller</h6>
+                                    <a class="dropdown-item" href="{% url 'osi_index' %}">OSI Model</a>
+                                    <a class="dropdown-item" href="{% url 'tcpip_index' %}">TCP/IP</a>
+                                    <div class="dropdown-divider"></div>
+                                    <h6 class="dropdown-header">Esasy düşünjeler</h6>
+                                    <a class="dropdown-item" href="{% url 'basic_index' %}">Esasy düşünjeler</a>
+                                    <a class="dropdown-item" href="{% url 'basic_ip' %}">IP Adresler</a>
+                                    <a class="dropdown-item" href="{% url 'basic_mac' %}">MAC Adresler</a>
+                                    <a class="dropdown-item" href="{% url 'basic_subnetting' %}">Subnetting</a>
+                                    <a class="dropdown-item" href="{% url 'basic_vlan' %}">VLAN</a>
+                                    <a class="dropdown-item" href="{% url 'basic_nat' %}">NAT</a>
+                                </div>
+                                <div class="col-md-4">
+                                    <h6 class="dropdown-header">Enjamlar</h6>
+                                    <a class="dropdown-item" href="{% url 'devices_index' %}">Ähli enjamlar</a>
+                                    <a class="dropdown-item" href="{% url 'device_router' %}">Router</a>
+                                    <a class="dropdown-item" href="{% url 'device_switch' %}">Switch</a>
+                                    <a class="dropdown-item" href="{% url 'device_hub' %}">Hub</a>
+                                    <a class="dropdown-item" href="{% url 'device_firewall' %}">Firewall</a>
+                                    <a class="dropdown-item" href="{% url 'device_ap' %}">Access Point</a>
+                                    <a class="dropdown-item" href="{% url 'device_modem' %}">Modem</a>
+                                    <a class="dropdown-item" href="{% url 'device_repeater' %}">Repeater</a>
+                                    <a class="dropdown-item" href="{% url 'device_bridge' %}">Bridge</a>
+                                    <a class="dropdown-item" href="{% url 'device_gateway' %}">Gateway</a>
+                                    <a class="dropdown-item" href="{% url 'device_comparison' %}">Deňeşdirme</a>
+                                </div>
+                                <div class="col-md-4">
+                                    <h6 class="dropdown-header">Protokollar</h6>
+                                    <a class="dropdown-item" href="{% url 'protocols_index' %}">Ähli protokollar</a>
+                                    <a class="dropdown-item" href="{% url 'protocol_tcp' %}">TCP</a>
+                                    <a class="dropdown-item" href="{% url 'protocol_udp' %}">UDP</a>
+                                    <a class="dropdown-item" href="{% url 'protocol_ip' %}">IP</a>
+                                    <a class="dropdown-item" href="{% url 'protocol_icmp' %}">ICMP</a>
+                                    <a class="dropdown-item" href="{% url 'protocol_arp' %}">ARP</a>
+                                    <a class="dropdown-item" href="{% url 'protocol_dhcp' %}">DHCP</a>
+                                    <a class="dropdown-item" href="{% url 'protocol_dns' %}">DNS</a>
+                                    <a class="dropdown-item" href="{% url 'protocol_http' %}">HTTP</a>
+                                    <a class="dropdown-item" href="{% url 'protocol_https' %}">HTTPS</a>
+                                    <a class="dropdown-item" href="{% url 'protocol_ftp' %}">FTP</a>
+                                    <a class="dropdown-item" href="{% url 'protocol_smtp' %}">SMTP</a>
+                                    <a class="dropdown-item" href="{% url 'protocol_pop3' %}">POP3</a>
+                                    <a class="dropdown-item" href="{% url 'protocol_imap' %}">IMAP</a>
+                                    <a class="dropdown-item" href="{% url 'protocol_ssh' %}">SSH</a>
+                                    <a class="dropdown-item" href="{% url 'protocol_telnet' %}">Telnet</a>
+                                    <a class="dropdown-item" href="{% url 'protocol_snmp' %}">SNMP</a>
+                                    <a class="dropdown-item" href="{% url 'protocol_comparison' %}">Deňeşdirme</a>
+                                    <a class="dropdown-item" href="{% url 'protocol_ports' %}">Port nomerleri</a>
+                                </div>
+                            </div>
+                        </div>
+                    </li>
+                    
+                    <!-- Kabeller we birikmeler -->
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown">
+                            Kabeller
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li><a class="dropdown-item" href="{% url 'cables_index' %}">Ähli kabeller</a></li>
+                            <li><hr class="dropdown-divider"></li>
+                            <li><a class="dropdown-item" href="{% url 'cable_ethernet' %}">Ethernet</a></li>
+                            <li><a class="dropdown-item" href="{% url 'cable_fiber' %}">Fiber optik</a></li>
+                            <li><a class="dropdown-item" href="{% url 'cable_coaxial' %}">Koaksial</a></li>
+                            <li><a class="dropdown-item" href="{% url 'cable_serial' %}">Serial</a></li>
+                            <li><a class="dropdown-item" href="{% url 'cable_console' %}">Console</a></li>
+                            <li><a class="dropdown-item" href="{% url 'cable_usb' %}">USB</a></li>
+                            <li><a class="dropdown-item" href="{% url 'wireless_index' %}">Simsiz</a></li>
+                            <li><a class="dropdown-item" href="{% url 'cable_crimping' %}">Kabel çekmek</a></li>
+                            <li><a class="dropdown-item" href="{% url 'cable_colors' %}">Reňk kodlary</a></li>
+                        </ul>
+                    </li>
+                    
+                    <!-- Topologiýalar -->
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown">
+                            Topologiýalar
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li><a class="dropdown-item" href="{% url 'topologies_index' %}">Ähli topologiýalar</a></li>
+                            <li><hr class="dropdown-divider"></li>
+                            <li><a class="dropdown-item" href="{% url 'topology_star' %}">Ýyldyz</a></li>
+                            <li><a class="dropdown-item" href="{% url 'topology_bus' %}">Şina</a></li>
+                            <li><a class="dropdown-item" href="{% url 'topology_ring' %}">Halka</a></li>
+                            <li><a class="dropdown-item" href="{% url 'topology_mesh' %}">Mesh</a></li>
+                            <li><a class="dropdown-item" href="{% url 'topology_tree' %}">Agaç</a></li>
+                            <li><a class="dropdown-item" href="{% url 'topology_hybrid' %}">Gibrid</a></li>
+                            <li><a class="dropdown-item" href="{% url 'topology_daisy' %}">Daisy Chain</a></li>
+                            <li><a class="dropdown-item" href="{% url 'topology_comparison' %}">Deňeşdirme</a></li>
+                        </ul>
+                    </li>
+                    
+                    <!-- Gurallar we testler -->
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown">
+                            Gurallar
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li><a class="dropdown-item" href="{% url 'tools_index' %}">Gurallar esasy</a></li>
+                            <li><hr class="dropdown-divider"></li>
+                            <li><a class="dropdown-item" href="{% url 'ip_calculator' %}">IP Kalkulýator</a></li>
+                            <li><a class="dropdown-item" href="{% url 'subnet_calculator' %}">Subnet Kalkulýator</a></li>
+                            <li><a class="dropdown-item" href="{% url 'vlsm_calculator' %}">VLSM Kalkulýator</a></li>
+                            <li><a class="dropdown-item" href="{% url 'mac_converter' %}">MAC Converter</a></li>
+                            <li><a class="dropdown-item" href="{% url 'binary_converter' %}">Binary Converter</a></li>
+                            <li><a class="dropdown-item" href="{% url 'hex_converter' %}">Hex Converter</a></li>
+                            <li><a class="dropdown-item" href="{% url 'port_scanner' %}">Port Skaner</a></li>
+                            <li><a class="dropdown-item" href="{% url 'ping_test' %}">Ping Test</a></li>
+                            <li><a class="dropdown-item" href="{% url 'traceroute' %}">Traceroute</a></li>
+                            <li><a class="dropdown-item" href="{% url 'mac_finder' %}">MAC Finder</a></li>
+                            <li><a class="dropdown-item" href="{% url 'wildcard_calculator' %}">Wildcard Kalkulýator</a></li>
+                        </ul>
+                    </li>
+                    
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown">
+                            Testler
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li><a class="dropdown-item" href="{% url 'quiz_index' %}">Ähli testler</a></li>
+                            <li><hr class="dropdown-divider"></li>
+                            <li><a class="dropdown-item" href="{% url 'quiz_osi' %}">OSI Model</a></li>
+                            <li><a class="dropdown-item" href="{% url 'quiz_tcpip' %}">TCP/IP</a></li>
+                            <li><a class="dropdown-item" href="{% url 'quiz_protocols' %}">Protokollar</a></li>
+                            <li><a class="dropdown-item" href="{% url 'quiz_devices' %}">Enjamlar</a></li>
+                            <li><a class="dropdown-item" href="{% url 'quiz_ip' %}">IP Adresleme</a></li>
+                            <li><a class="dropdown-item" href="{% url 'quiz_leaderboard' %}">Liderler</a></li>
+                        </ul>
+                    </li>
+                    
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown">
+                            Oýunlar
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li><a class="dropdown-item" href="{% url 'games_index' %}">Ähli oýunlar</a></li>
+                            <li><hr class="dropdown-divider"></li>
+                            <li><a class="dropdown-item" href="{% url 'game_layer_quiz' %}">OSI Gatlak oýuny</a></li>
+                            <li><a class="dropdown-item" href="{% url 'game_protocol_match' %}">Protokol deňleşdir</a></li>
+                            <li><a class="dropdown-item" href="{% url 'game_drag_drop' %}">Süýşür goý</a></li>
+                            <li><a class="dropdown-item" href="{% url 'game_ip_game' %}">IP oýuny</a></li>
+                            <li><a class="dropdown-item" href="{% url 'game_memory' %}">Ýat oýuny</a></li>
+                        </ul>
+                    </li>
+                    
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown">
+                            Goşmaça
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li><a class="dropdown-item" href="{% url 'videos_index' %}">Wideo dersler</a></li>
+                            <li><a class="dropdown-item" href="{% url 'exercises_index' %}">Maşklar</a></li>
+                            <li><a class="dropdown-item" href="{% url 'glossary_index' %}">Sözlük</a></li>
+                            <li><a class="dropdown-item" href="{% url 'labs_index' %}">Laboratoriýalar</a></li>
+                            <li><a class="dropdown-item" href="{% url 'troubleshoot_index' %}">Troubleshooting</a></li>
+                            <li><a class="dropdown-item" href="{% url 'advanced_index' %}">Öňdebaryjy</a></li>
+                            <li><a class="dropdown-item" href="{% url 'career_index' %}">Kariýer</a></li>
+                            <li><a class="dropdown-item" href="{% url 'resources_index' %}">Resurslar</a></li>
+                            <li><a class="dropdown-item" href="{% url 'diagrams_index' %}">Diagrammalar</a></li>
+                        </ul>
+                    </li>
+                </ul>
+                
+                <!-- Gözleg formasy -->
+                <form class="d-flex me-3" action="{% url 'global_search' %}" method="GET">
+                    <input class="form-control me-2" type="search" name="q" placeholder="Gözleg...">
+                    <button class="btn btn-outline-primary" type="submit">
+                        <i class="fas fa-search"></i>
+                    </button>
+                </form>
+                
+                <!-- Ulanyjy menýusy -->
+                <ul class="navbar-nav">
+                    {% if user.is_authenticated %}
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown">
+                                <i class="fas fa-user-circle me-1"></i>{{ user.username }}
+                            </a>
+                            <ul class="dropdown-menu dropdown-menu-end">
+                                <li><a class="dropdown-item" href="{% url 'user_profile' %}">
+                                    <i class="fas fa-user me-2"></i>Profil
+                                </a></li>
+                                <li><a class="dropdown-item" href="{% url 'user_progress' %}">
+                                    <i class="fas fa-chart-line me-2"></i>Progress
+                                </a></li>
+                                <li><a class="dropdown-item" href="{% url 'user_bookmarks' %}">
+                                    <i class="fas fa-bookmark me-2"></i>Belgiler
+                                </a></li>
+                                <li><hr class="dropdown-divider"></li>
+                                <li><a class="dropdown-item text-danger" href="#">
+                                    <i class="fas fa-sign-out-alt me-2"></i>Çykmak
+                                </a></li>
+                            </ul>
+                        </li>
+                    {% else %}
+                        <li class="nav-item">
+                            <a class="nav-link" href="#">Giriş</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="btn btn-primary" href="#">Registrasiýa</a>
+                        </li>
+                    {% endif %}
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Esasy content -->
+    {% block content %}{% endblock %}
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-4 mb-4">
+                    <h5><i class="fas fa-network-wired me-2"></i>NetLearn</h5>
+                    <p>Tor ulgamlaryny öwrenmek üçin iň oňat platforma. Başlangyçdan başlap, ýokary derejä çenli.</p>
+                    <div class="social-links">
+                        <a href="#" class="text-white me-3"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#" class="text-white me-3"><i class="fab fa-twitter"></i></a>
+                        <a href="#" class="text-white me-3"><i class="fab fa-linkedin-in"></i></a>
+                        <a href="#" class="text-white me-3"><i class="fab fa-youtube"></i></a>
+                    </div>
+                </div>
+                <div class="col-md-2 mb-4">
+                    <h5>Öwren</h5>
+                    <ul class="list-unstyled">
+                        <li><a href="{% url 'osi_index' %}" class="text-white-50">OSI Model</a></li>
+                        <li><a href="{% url 'tcpip_index' %}" class="text-white-50">TCP/IP</a></li>
+                        <li><a href="{% url 'basic_index' %}" class="text-white-50">Esasy düşünjeler</a></li>
+                        <li><a href="{% url 'devices_index' %}" class="text-white-50">Enjamlar</a></li>
+                        <li><a href="{% url 'protocols_index' %}" class="text-white-50">Protokollar</a></li>
+                        <li><a href="{% url 'cables_index' %}" class="text-white-50">Kabeller</a></li>
+                        <li><a href="{% url 'topologies_index' %}" class="text-white-50">Topologiýalar</a></li>
+                    </ul>
+                </div>
+                <div class="col-md-2 mb-4">
+                    <h5>Gurallar</h5>
+                    <ul class="list-unstyled">
+                        <li><a href="{% url 'tools_index' %}" class="text-white-50">Gurallar esasy</a></li>
+                        <li><a href="{% url 'ip_calculator' %}" class="text-white-50">IP Kalkulýator</a></li>
+                        <li><a href="{% url 'subnet_calculator' %}" class="text-white-50">Subnet Kalkulýator</a></li>
+                        <li><a href="{% url 'ping_test' %}" class="text-white-50">Ping Test</a></li>
+                    </ul>
+                </div>
+                <div class="col-md-2 mb-4">
+                    <h5>Testler</h5>
+                    <ul class="list-unstyled">
+                        <li><a href="{% url 'quiz_index' %}" class="text-white-50">Ähli testler</a></li>
+                        <li><a href="{% url 'quiz_osi' %}" class="text-white-50">OSI Model</a></li>
+                        <li><a href="{% url 'quiz_tcpip' %}" class="text-white-50">TCP/IP</a></li>
+                        <li><a href="{% url 'quiz_leaderboard' %}" class="text-white-50">Liderler</a></li>
+                    </ul>
+                </div>
+                <div class="col-md-2 mb-4">
+                    <h5>Goşmaça</h5>
+                    <ul class="list-unstyled">
+                        <li><a href="{% url 'videos_index' %}" class="text-white-50">Wideo dersler</a></li>
+                        <li><a href="{% url 'exercises_index' %}" class="text-white-50">Maşklar</a></li>
+                        <li><a href="{% url 'games_index' %}" class="text-white-50">Oýunlar</a></li>
+                        <li><a href="{% url 'glossary_index' %}" class="text-white-50">Sözlük</a></li>
+                        <li><a href="{% url 'labs_index' %}" class="text-white-50">Laboratoriýalar</a></li>
+                        <li><a href="{% url 'troubleshoot_index' %}" class="text-white-50">Troubleshooting</a></li>
+                        <li><a href="{% url 'advanced_index' %}" class="text-white-50">Öňdebaryjy</a></li>
+                        <li><a href="{% url 'career_index' %}" class="text-white-50">Kariýer</a></li>
+                        <li><a href="{% url 'resources_index' %}" class="text-white-50">Resurslar</a></li>
+                        <li><a href="{% url 'diagrams_index' %}" class="text-white-50">Diagrammalar</a></li>
+                    </ul>
+                </div>
+            </div>
+            <hr class="bg-light">
+            <div class="text-center">
+                <p class="mb-0">&copy; 2024 NetLearn. Ähli hukuklar goralan.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <!-- jQuery -->
+    <script src="https://code.jquery.com/jquery-3.7.0.min.js"></script>
+    <!-- Custom JS -->
+    {% block extra_js %}{% endblock %}
+</body>
+</html>

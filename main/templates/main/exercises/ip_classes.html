@@ -1,0 +1,45 @@
+{% extends 'main/base.html' %}
+{% load static %}
+
+{% block title %}IP klasslary maşklary{% endblock %}
+
+{% block content %}
+<div class="bg-light py-4">
+    <div class="container">
+        <nav aria-label="breadcrumb">
+            <ol class="breadcrumb">
+                <li class="breadcrumb-item"><a href="{% url 'index' %}">Baş sahypa</a></li>
+                <li class="breadcrumb-item"><a href="{% url 'exercises_index' %}">Maşklar</a></li>
+                <li class="breadcrumb-item active">IP klasslary</li>
+            </ol>
+        </nav>
+        <h1 class="display-5 fw-bold">IP klasslary maşklary</h1>
+    </div>
+</div>
+
+<div class="container py-5">
+    <div class="row">
+        <div class="col-lg-8 mx-auto">
+            <div class="card mb-4">
+                <div class="card-body">
+                    <h3 class="h5">1. Gönükme</h3>
+                    <p>Aşakdaky IP adresleriň klassyny anyklaň (A, B, C, D, E):</p>
+                    <ul>
+                        <li>10.5.23.1</li>
+                        <li>172.31.0.15</li>
+                        <li>192.168.100.200</li>
+                        <li>224.0.0.1</li>
+                        <li>240.10.0.1</li>
+                    </ul>
+                    <hr>
+                    <h3 class="h5">2. Gönükme</h3>
+                    <p>Hususy IP aralyklaryny ýazyň (RFC 1918).</p>
+                    <hr>
+                    <h3 class="h5">3. Gönükme</h3>
+                    <p>10.0.0.0/8 toryna degişli IP adres 172.16.5.10 bilen arabaglanyşyp bilermi? Sebäbini düşündiriň.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

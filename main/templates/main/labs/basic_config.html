@@ -1,0 +1,60 @@
+{% extends 'main/base.html' %}
+{% load static %}
+
+{% block title %}Esasy konfigurasiýa{% endblock %}
+
+{% block content %}
+<div class="bg-light py-4">
+    <div class="container">
+        <nav aria-label="breadcrumb">
+            <ol class="breadcrumb">
+                <li class="breadcrumb-item"><a href="{% url 'index' %}">Baş sahypa</a></li>
+                <li class="breadcrumb-item"><a href="{% url 'labs_index' %}">Laboratoriýalar</a></li>
+                <li class="breadcrumb-item active">Esasy konfigurasiýa</li>
+            </ol>
+        </nav>
+        <h1 class="display-5 fw-bold">Router we Switch esasy konfigurasiýa</h1>
+    </div>
+</div>
+
+<div class="container py-5">
+    <div class="card mb-4">
+        <div class="card-body">
+            <h3 class="h5">Router esasy konfigurasiýa mysaly</h3>
+            <pre class="bg-light p-3">
+enable
+configure terminal
+hostname R1
+interface fa0/0
+ip address 192.168.1.1 255.255.255.0
+no shutdown
+exit
+interface fa0/1
+ip address 10.0.0.1 255.255.255.252
+no shutdown
+exit
+ip route 0.0.0.0 0.0.0.0 10.0.0.2   ! default route
+end
+write memory
+            </pre>
+        </div>
+    </div>
+    <div class="card mb-4">
+        <div class="card-body">
+            <h3 class="h5">Switch esasy konfigurasiýa mysaly</h3>
+            <pre class="bg-light p-3">
+enable
+configure terminal
+hostname SW1
+interface vlan 1
+ip address 192.168.1.10 255.255.255.0
+no shutdown
+exit
+ip default-gateway 192.168.1.1
+end
+write memory
+            </pre>
+        </div>
+    </div>
+</div>
+{% endblock %}

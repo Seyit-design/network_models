@@ -1,0 +1,49 @@
+{% extends 'main/base.html' %}
+{% load static %}
+
+{% block title %}{{ lesson.title }}{% endblock %}
+
+{% block content %}
+<div class="bg-light py-4">
+    <div class="container">
+        <nav aria-label="breadcrumb">
+            <ol class="breadcrumb">
+                <li class="breadcrumb-item"><a href="{% url 'index' %}">Baş sahypa</a></li>
+                <li class="breadcrumb-item"><a href="{% url 'category_detail' lesson.category.slug %}">{{ lesson.category.name }}</a></li>
+                <li class="breadcrumb-item active">{{ lesson.title }}</li>
+            </ol>
+        </nav>
+        <h1 class="display-5 fw-bold">{{ lesson.title }}</h1>
+        <p class="lead">{{ lesson.category.name }} | {{ lesson.get_difficulty_display }}</p>
+    </div>
+</div>
+
+<div class="container py-5">
+    <div class="row">
+        <div class="col-md-8">
+            <div class="card">
+                <div class="card-body">
+                    {{ lesson.content|safe }}
+                    {% if lesson.video_url %}
+                    <hr>
+                    <h3 class="h5">Wideo ders</h3>
+                    <div class="ratio ratio-16x9">
+                        <iframe src="{{ lesson.video_url }}" allowfullscreen></iframe>
+                    </div>
+                    {% endif %}
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="card">
+                <div class="card-body">
+                    <p><i class="fas fa-calendar-alt me-2"></i>Goşulan: {{ lesson.created_at|date }}</p>
+                    <p><i class="fas fa-clock me-2"></i>Soňky täzelenme: {{ lesson.updated_at|date }}</p>
+                    <hr>
+                    <a href="{% url 'add_bookmark' lesson.id %}" class="btn btn-outline-primary w-100">Belgilere goş</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

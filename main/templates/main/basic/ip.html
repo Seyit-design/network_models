@@ -1,0 +1,24 @@
+{% extends 'main/base.html' %}
+{% block title %}IP Adresler{% endblock %}
+{% block content %}
+<div class="bg-light py-4">
+    <div class="container">
+        <nav aria-label="breadcrumb">
+            <ol class="breadcrumb">
+                <li class="breadcrumb-item"><a href="{% url 'index' %}">Baş sahypa</a></li>
+                <li class="breadcrumb-item"><a href="{% url 'basic_index' %}">Esasy düşünjeler</a></li>
+                <li class="breadcrumb-item active">IP Adresler</li>
+            </ol>
+        </nav>
+        <h1 class="display-5 fw-bold">IP Adresler</h1>
+    </div>
+</div>
+<div class="container py-5">
+    <p>IP adres – tor ulgamyndaky her bir enjama berilýän ýeke-täk san belgisi.</p>
+    <ul>
+        <li><strong>IPv4:</strong> 32 bit, 4 oktet (mysal: 192.168.1.1)</li>
+        <li><strong>IPv6:</strong> 128 bit, 8 blok (mysal: 2001:db8::1)</li>
+    </ul>
+    <a href="{% url 'basic_ip_classes' %}" class="btn btn-primary">IP klasslary</a>
+</div>
+{% endblock %}

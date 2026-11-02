@@ -1,0 +1,204 @@
+{% extends "main/base.html" %}
+
+{% block title %}OSI - Amaly gatlak{% endblock %}
+
+{% block content %}
+<div class="row">
+    <div class="col-md-12">
+        <nav aria-label="breadcrumb">
+            <ol class="breadcrumb">
+                <li class="breadcrumb-item"><a href="/osi/">OSI</a></li>
+                <li class="breadcrumb-item active">Amaly gatlak</li>
+            </ol>
+        </nav>
+
+        <h1>Amaly gatlak (Layer 7)</h1>
+        
+        <div class="layer-card">
+            <h2>Gelip çykyşy we wezipeleri</h2>
+            <p>Amaly gatlak OSI modeliniň iň ýokarky gatlagy bolup, ulanyjy programmalaryna tor hyzmatlaryny hödürleýär. Bu gatlak arkaly biz web sahypalary görýäris, email iberýäris we faýl paýlaşýarys.</p>
+            <p><strong>Esasy wezipeleri:</strong></p>
+            <ul>
+                <li>Ulanyjy interfeýsi üpjün etmek</li>
+                <li>Tor hyzmatlaryna giriş bermek</li>
+                <li>Faýl paýlaşmak</li>
+                <li>Elektron poçta ibermek we almak</li>
+                <li>Remote giriş</li>
+                <li>Web serf etmek</li>
+            </ul>
+        </div>
+
+        <div class="layer-card">
+            <h2>Protokollar we olaryň işleýşi</h2>
+            
+            <div class="accordion" id="protocolAccordion">
+                <!-- HTTP -->
+                <div class="accordion-item">
+                    <h2 class="accordion-header">
+                        <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#http">
+                            HTTP/HTTPS (Web)
+                        </button>
+                    </h2>
+                    <div id="http" class="accordion-collapse collapse show">
+                        <div class="accordion-body">
+                            <p>HTTP - web sahypalary görmek üçin ulanylýan protokol.</p>
+                            <div class="bg-light p-2">
+                                <code>GET /index.html HTTP/1.1<br>
+                                Host: www.example.com<br>
+                                User-Agent: Mozilla/5.0</code>
+                            </div>
+                            <button class="btn btn-sm btn-primary mt-2" onclick="simulateHTTP()">HTTP sorag iber</button>
+                            <div id="httpResponse" class="mt-2"></div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- SMTP -->
+                <div class="accordion-item">
+                    <h2 class="accordion-header">
+                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#smtp">
+                            SMTP/POP3/IMAP (Email)
+                        </button>
+                    </h2>
+                    <div id="smtp" class="accordion-collapse collapse">
+                        <div class="accordion-body">
+                            <p>Email ibermek we almak protokollary:</p>
+                            <ul>
+                                <li><strong>SMTP:</strong> Email ibermek (port 25)</li>
+                                <li><strong>POP3:</strong> Email almak (port 110)</li>
+                                <li><strong>IMAP:</strong> Email serwerde goýmak (port 143)</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- FTP -->
+                <div class="accordion-item">
+                    <h2 class="accordion-header">
+                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#ftp">
+                            FTP (File Transfer)
+                        </button>
+                    </h2>
+                    <div id="ftp" class="accordion-collapse collapse">
+                        <div class="accordion-body">
+                            <p>Faýl geçirmek protokoly:</p>
+                            <div class="bg-light p-2">
+                                <code>USER username<br>
+                                PASS password<br>
+                                LIST<br>
+                                RETR file.txt</code>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- DNS -->
+                <div class="accordion-item">
+                    <h2 class="accordion-header">
+                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#dns">
+                            DNS (Domain Name System)
+                        </button>
+                    </h2>
+                    <div id="dns" class="accordion-collapse collapse">
+                        <div class="accordion-body">
+                            <p>Adresleri IP-e öwürmek:</p>
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <input type="text" id="domainName" class="form-control" placeholder="example.com">
+                                </div>
+                                <div class="col-md-6">
+                                    <button class="btn btn-primary" onclick="dnsLookup()">DNS sorag et</button>
+                                </div>
+                            </div>
+                            <div id="dnsResult" class="mt-2"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="layer-card">
+            <h2>Amaly gatlak animasiýasy</h2>
+            <div class="animation-container">
+                <div style="display: flex; justify-content: space-around; align-items: center;">
+                    <div class="text-center">
+                        <span class="badge bg-primary p-3">🌐 Browser</span>
+                    </div>
+                    <div class="text-center">
+                        <span class="badge bg-secondary p-3">→ HTTP →</span>
+                    </div>
+                    <div class="text-center">
+                        <span class="badge bg-success p-3">🖥️ Web Server</span>
+                    </div>
+                </div>
+                <div class="mt-3">
+                    <button class="btn btn-sm btn-info" onclick="browseSite()">example.com gir</button>
+                </div>
+                <div id="browserResult" class="mt-3"></div>
+            </div>
+        </div>
+
+        <div class="layer-card">
+            <h2>Günlik durmuşdan mysallar</h2>
+            <div class="row">
+                <div class="col-md-4">
+                    <div class="card">
+                        <div class="card-body text-center">
+                            <h5>📧 Email ibermek</h5>
+                            <p>Gmail, Outlook, Yahoo Mail</p>
+                            <small>SMTP, IMAP, POP3</small>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="card">
+                        <div class="card-body text-center">
+                            <h5>🌐 Web serf etmek</h5>
+                            <p>Chrome, Firefox, Safari</p>
+                            <small>HTTP, HTTPS</small>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="card">
+                        <div class="card-body text-center">
+                            <h5>📁 Faýl paýlaşmak</h5>
+                            <p>Dropbox, Google Drive</p>
+                            <small>FTP, SFTP, WebDAV</small>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+function simulateHTTP() {
+    $('#httpResponse').html('<div class="alert alert-success">HTTP/1.1 200 OK<br>Content-Type: text/html<br><br>&lt;html&gt;&lt;body&gt;Salam, dünýä!&lt;/body&gt;&lt;/html&gt;</div>');
+}
+
+function dnsLookup() {
+    let domain = $('#domainName').val() || 'example.com';
+    let fakeIP = '93.184.216.34'; // example.com IP
+    $('#dnsResult').html('<div class="alert alert-info">' + domain + ' -> ' + fakeIP + '</div>');
+}
+
+function browseSite() {
+    let steps = [
+        '1. DNS sorag: example.com -> 93.184.216.34',
+        '2. TCP baglanyşyk gurulýar (port 80)',
+        '3. HTTP GET sorag iberilýär',
+        '4. Serwer jogap berýär: "Salam, dünýä!"',
+        '5. Sahypa görkezilýär'
+    ];
+    
+    $('#browserResult').empty();
+    steps.forEach(function(step, index) {
+        setTimeout(function() {
+            $('#browserResult').append('<div class="alert alert-info p-1">' + step + '</div>');
+        }, index * 1000);
+    });
+}
+</script>
+{% endblock %}

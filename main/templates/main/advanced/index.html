@@ -1,0 +1,104 @@
+{% extends 'main/base.html' %}
+{% load static %}
+
+{% block title %}Öňdebaryjy mövzular{% endblock %}
+
+{% block content %}
+<div class="bg-light py-4">
+    <div class="container">
+        <nav aria-label="breadcrumb">
+            <ol class="breadcrumb">
+                <li class="breadcrumb-item"><a href="{% url 'index' %}">Baş sahypa</a></li>
+                <li class="breadcrumb-item active">Öňdebaryjy</li>
+            </ol>
+        </nav>
+        <h1 class="display-5 fw-bold">Öňdebaryjy tor tehnologiýalary</h1>
+        <p class="lead">Bulut, SDN, howpsuzlyk, IPv6 we başgalar</p>
+    </div>
+</div>
+
+<div class="container py-5">
+    <div class="row g-4">
+        <div class="col-md-4">
+            <div class="card h-100">
+                <div class="card-body text-center">
+                    <i class="fas fa-cloud fa-3x text-primary mb-3"></i>
+                    <h3 class="h5">Cloud Networking</h3>
+                    <p>Bulut platformalarynda tor gurmak (AWS, Azure)</p>
+                    <a href="{% url 'advanced_cloud' %}" class="btn btn-outline-primary">Giňişleýin</a>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="card h-100">
+                <div class="card-body text-center">
+                    <i class="fas fa-code fa-3x text-primary mb-3"></i>
+                    <h3 class="h5">SDN</h3>
+                    <p>Software-Defined Networking – programma bilen dolandyrylýan tor</p>
+                    <a href="{% url 'advanced_sdn' %}" class="btn btn-outline-primary">Giňişleýin</a>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="card h-100">
+                <div class="card-body text-center">
+                    <i class="fas fa-shield-alt fa-3x text-primary mb-3"></i>
+                    <h3 class="h5">Network Security</h3>
+                    <p>Tor howpsuzlygy, firewall, IDS/IPS, VPN</p>
+                    <a href="{% url 'advanced_security' %}" class="btn btn-outline-primary">Giňişleýin</a>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="card h-100">
+                <div class="card-body text-center">
+                    <i class="fas fa-globe fa-3x text-primary mb-3"></i>
+                    <h3 class="h5">IPv6</h3>
+                    <p>Täze nesil IP protokoly, adresleme we konfigurasiýa</p>
+                    <a href="{% url 'advanced_ipv6' %}" class="btn btn-outline-primary">Giňişleýin</a>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="card h-100">
+                <div class="card-body text-center">
+                    <i class="fas fa-route fa-3x text-primary mb-3"></i>
+                    <h3 class="h5">MPLS</h3>
+                    <p>Multiprotocol Label Switching – bellik esasly marşrutizasiýa</p>
+                    <a href="{% url 'advanced_mpls' %}" class="btn btn-outline-primary">Giňişleýin</a>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="card h-100">
+                <div class="card-body text-center">
+                    <i class="fas fa-lock fa-3x text-primary mb-3"></i>
+                    <h3 class="h5">VPN</h3>
+                    <p>Virtual Private Network – howply uzak birikme</p>
+                    <a href="{% url 'advanced_vpn' %}" class="btn btn-outline-primary">Giňişleýin</a>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="card h-100">
+                <div class="card-body text-center">
+                    <i class="fas fa-tachometer-alt fa-3x text-primary mb-3"></i>
+                    <h3 class="h5">QoS</h3>
+                    <p>Quality of Service – tor trafigine ileri tutma bermek</p>
+                    <a href="{% url 'advanced_qos' %}" class="btn btn-outline-primary">Giňişleýin</a>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="card h-100">
+                <div class="card-body text-center">
+                    <i class="fas fa-wifi fa-3x text-primary mb-3"></i>
+                    <h3 class="h5">Advanced Wireless</h3>
+                    <p>Wi-Fi 6, 5G, mesh torlar</p>
+                    <a href="{% url 'advanced_wireless' %}" class="btn btn-outline-primary">Giňişleýin</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

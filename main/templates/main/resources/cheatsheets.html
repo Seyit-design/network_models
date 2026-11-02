@@ -1,0 +1,105 @@
+{% extends 'main/base.html' %}
+{% load static %}
+
+{% block title %}Çit listler{% endblock %}
+
+{% block content %}
+<div class="bg-light py-4">
+    <div class="container">
+        <nav aria-label="breadcrumb">
+            <ol class="breadcrumb">
+                <li class="breadcrumb-item"><a href="{% url 'index' %}">Baş sahypa</a></li>
+                <li class="breadcrumb-item"><a href="{% url 'resources_index' %}">Resurslar</a></li>
+                <li class="breadcrumb-item active">Çit listler</li>
+            </ol>
+        </nav>
+        <h1 class="display-5 fw-bold">Çit listler</h1>
+        <p class="lead">Çalt ýatda saklamak üçin gysgaça maglumatlar</p>
+    </div>
+</div>
+
+<div class="container py-5">
+    <div class="row g-4">
+        <div class="col-md-6">
+            <div class="card h-100">
+                <div class="card-header bg-white">
+                    <h3 class="h5 mb-0">Subnetting Cheat Sheet</h3>
+                </div>
+                <div class="card-body">
+                    <pre class="bg-light p-3">
+/30 – 255.255.255.252 – 2 host
+/29 – 255.255.255.248 – 6 host
+/28 – 255.255.255.240 – 14 host
+/27 – 255.255.255.224 – 30 host
+/26 – 255.255.255.192 – 62 host
+/25 – 255.255.255.128 – 126 host
+/24 – 255.255.255.0   – 254 host
+                    </pre>
+                    <a href="#" class="btn btn-sm btn-outline-primary">PDF göçürip al</a>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-6">
+            <div class="card h-100">
+                <div class="card-header bg-white">
+                    <h3 class="h5 mb-0">Cisco IOS Commands</h3>
+                </div>
+                <div class="card-body">
+                    <pre class="bg-light p-3">
+enable
+configure terminal
+interface fa0/0
+ip address 192.168.1.1 255.255.255.0
+no shutdown
+exit
+show running-config
+show ip interface brief
+                    </pre>
+                    <a href="#" class="btn btn-sm btn-outline-primary">PDF göçürip al</a>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-6">
+            <div class="card h-100">
+                <div class="card-header bg-white">
+                    <h3 class="h5 mb-0">OSI Model Layers</h3>
+                </div>
+                <div class="card-body">
+                    <pre class="bg-light p-3">
+7 – Amaly (HTTP, FTP)
+6 – Prezentasiýa (SSL, TLS)
+5 – Sessiýa (NetBIOS)
+4 – Ulag (TCP, UDP)
+3 – Ulgam (IP, ICMP)
+2 – Maglumat baglanyşyk (MAC)
+1 – Fiziki (Ethernet)
+                    </pre>
+                    <a href="#" class="btn btn-sm btn-outline-primary">PDF göçürip al</a>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-6">
+            <div class="card h-100">
+                <div class="card-header bg-white">
+                    <h3 class="h5 mb-0">Well-Known Port Numbers</h3>
+                </div>
+                <div class="card-body">
+                    <pre class="bg-light p-3">
+20/21 – FTP
+22 – SSH
+23 – Telnet
+25 – SMTP
+53 – DNS
+80 – HTTP
+110 – POP3
+143 – IMAP
+443 – HTTPS
+3389 – RDP
+                    </pre>
+                    <a href="#" class="btn btn-sm btn-outline-primary">PDF göçürip al</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

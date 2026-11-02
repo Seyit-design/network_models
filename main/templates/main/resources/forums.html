@@ -1,0 +1,70 @@
+{% extends 'main/base.html' %}
+{% load static %}
+
+{% block title %}Forumlar{% endblock %}
+
+{% block content %}
+<div class="bg-light py-4">
+    <div class="container">
+        <nav aria-label="breadcrumb">
+            <ol class="breadcrumb">
+                <li class="breadcrumb-item"><a href="{% url 'index' %}">Baş sahypa</a></li>
+                <li class="breadcrumb-item"><a href="{% url 'resources_index' %}">Resurslar</a></li>
+                <li class="breadcrumb-item active">Forumlar</li>
+            </ol>
+        </nav>
+        <h1 class="display-5 fw-bold">Tor ulgamy forumlary</h1>
+        <p class="lead">Soraglaryňyzy beriň we beýlekiler bilen pikir alyşyň</p>
+    </div>
+</div>
+
+<div class="container py-5">
+    <div class="list-group">
+        <a href="https://www.reddit.com/r/networking/" target="_blank" class="list-group-item list-group-item-action">
+            <div class="d-flex align-items-center">
+                <i class="fab fa-reddit fa-2x me-3" style="color:#FF4500;"></i>
+                <div>
+                    <h5 class="mb-1">/r/networking</h5>
+                    <p class="mb-0 text-muted">Reddit-de tor ulgamy hünärmenleri üçin forum. Professional soraglar we maslahatlar.</p>
+                </div>
+            </div>
+        </a>
+        <a href="https://community.cisco.com/" target="_blank" class="list-group-item list-group-item-action">
+            <div class="d-flex align-items-center">
+                <i class="fas fa-network-wired fa-2x me-3 text-primary"></i>
+                <div>
+                    <h5 class="mb-1">Cisco Community</h5>
+                    <p class="mb-0 text-muted">Cisco enjamlary we tehnologiýalary barada resmi forum.</p>
+                </div>
+            </div>
+        </a>
+        <a href="https://networkengineering.stackexchange.com/" target="_blank" class="list-group-item list-group-item-action">
+            <div class="d-flex align-items-center">
+                <i class="fab fa-stack-exchange fa-2x me-3" style="color:#1E5397;"></i>
+                <div>
+                    <h5 class="mb-1">Network Engineering Stack Exchange</h5>
+                    <p class="mb-0 text-muted">Tor ulgamy inženerleri üçin sorag-jogap platformasy.</p>
+                </div>
+            </div>
+        </a>
+        <a href="https://www.techexams.net/forums/" target="_blank" class="list-group-item list-group-item-action">
+            <div class="d-flex align-items-center">
+                <i class="fas fa-certificate fa-2x me-3 text-warning"></i>
+                <div>
+                    <h5 class="mb-1">TechExams Forum</h5>
+                    <p class="mb-0 text-muted">Sertifikat synaglaryna taýýarlanýanlar üçin forum (CCNA, Network+ we ş.m.).</p>
+                </div>
+            </div>
+        </a>
+        <a href="https://forums.whirlpool.net.au/forum/6" target="_blank" class="list-group-item list-group-item-action">
+            <div class="d-flex align-items-center">
+                <i class="fas fa-wifi fa-2x me-3 text-success"></i>
+                <div>
+                    <h5 class="mb-1">Whirlpool Networking</h5>
+                    <p class="mb-0 text-muted">Awstraliýaly ulanyjylar üçin tor ulgamy forumy, emma dünýä üçin peýdaly.</p>
+                </div>
+            </div>
+        </a>
+    </div>
+</div>
+{% endblock %}

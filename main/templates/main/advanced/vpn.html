@@ -1,0 +1,20 @@
+{% extends 'main/base.html' %}
+{% block title %}VPN{% endblock %}
+{% block content %}
+<div class="bg-light py-4">...</div>
+<div class="container py-5">
+    <p><strong>VPN (Virtual Private Network)</strong> – umumy internet üstünde howply hususy tor döretmek.</p>
+    <h3 class="h5">Görnüşleri:</h3>
+    <ul>
+        <li><strong>Site-to-Site VPN:</strong> Iki ofisiň arasynda howply tunel (köplenç IPsec).</li>
+        <li><strong>Remote Access VPN:</strong> Ulanyjy uzakdan iş stoluna ýa-da tor birikýär (SSL VPN, IPsec).</li>
+    </ul>
+    <h3 class="h5">Protokollar:</h3>
+    <ul>
+        <li>IPsec (IKE, ESP, AH)</li>
+        <li>SSL/TLS (OpenVPN)</li>
+        <li>WireGuard (täze, ýönekeý)</li>
+        <li>PPTP (köne, howpsuz däl)</li>
+    </ul>
+</div>
+{% endblock %}

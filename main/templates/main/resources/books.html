@@ -1,0 +1,93 @@
+{% extends 'main/base.html' %}
+{% load static %}
+
+{% block title %}Kitaplar{% endblock %}
+
+{% block content %}
+<div class="bg-light py-4">
+    <div class="container">
+        <nav aria-label="breadcrumb">
+            <ol class="breadcrumb">
+                <li class="breadcrumb-item"><a href="{% url 'index' %}">Baş sahypa</a></li>
+                <li class="breadcrumb-item"><a href="{% url 'resources_index' %}">Resurslar</a></li>
+                <li class="breadcrumb-item active">Kitaplar</li>
+            </ol>
+        </nav>
+        <h1 class="display-5 fw-bold">Tor ulgamy kitaplary</h1>
+        <p class="lead">Öwrenmek üçin iň gowy kitaplar</p>
+    </div>
+</div>
+
+<div class="container py-5">
+    <div class="row g-4">
+        <div class="col-md-6">
+            <div class="card h-100">
+                <div class="row g-0">
+                    <div class="col-md-4">
+                        <img src="https://via.placeholder.com/150x200?text=CCNA" class="img-fluid rounded-start" alt="CCNA">
+                    </div>
+                    <div class="col-md-8">
+                        <div class="card-body">
+                            <h5 class="card-title">CCNA 200-301 Official Cert Guide</h5>
+                            <p class="card-text"><small class="text-muted">Wendell Odom</small></p>
+                            <p class="card-text">CCNA sertifikaty üçin esasy gollanma. Tor esaslary, router, switch konfigurasiýasy.</p>
+                            <a href="#" class="btn btn-sm btn-primary">Amazon</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-6">
+            <div class="card h-100">
+                <div class="row g-0">
+                    <div class="col-md-4">
+                        <img src="https://via.placeholder.com/150x200?text=Kurose" class="img-fluid rounded-start" alt="Computer Networking">
+                    </div>
+                    <div class="col-md-8">
+                        <div class="card-body">
+                            <h5 class="card-title">Computer Networking: A Top-Down Approach</h5>
+                            <p class="card-text"><small class="text-muted">Kurose & Ross</small></p>
+                            <p class="card-text">Tor protokollaryny ýokarky gatlakdan başlap düşündirýän meşhur kitap.</p>
+                            <a href="#" class="btn btn-sm btn-primary">Amazon</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-6">
+            <div class="card h-100">
+                <div class="row g-0">
+                    <div class="col-md-4">
+                        <img src="https://via.placeholder.com/150x200?text=TCP%2FIP" class="img-fluid rounded-start" alt="TCP/IP Illustrated">
+                    </div>
+                    <div class="col-md-8">
+                        <div class="card-body">
+                            <h5 class="card-title">TCP/IP Illustrated, Volume 1</h5>
+                            <p class="card-text"><small class="text-muted">W. Richard Stevens</small></p>
+                            <p class="card-text">TCP/IP protokollarynyň jikme-jik düşündirilişi. Her protokol üçin mysallar.</p>
+                            <a href="#" class="btn btn-sm btn-primary">Amazon</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-6">
+            <div class="card h-100">
+                <div class="row g-0">
+                    <div class="col-md-4">
+                        <img src="https://via.placeholder.com/150x200?text=Network%2B" class="img-fluid rounded-start" alt="Network+">
+                    </div>
+                    <div class="col-md-8">
+                        <div class="card-body">
+                            <h5 class="card-title">CompTIA Network+ Study Guide</h5>
+                            <p class="card-text"><small class="text-muted">Todd Lammle</small></p>
+                            <p class="card-text">Network+ sertifikaty üçin taýýarlyk. Tor esaslary, troubleshooting.</p>
+                            <a href="#" class="btn btn-sm btn-primary">Amazon</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

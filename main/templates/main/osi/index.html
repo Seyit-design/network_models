@@ -1,0 +1,302 @@
+{% extends 'main/base.html' %}
+{% load static %}
+
+{% block title %}OSI Model - 7 gatlak{% endblock %}
+
+{% block content %}
+<!-- Header -->
+<div class="bg-light py-4">
+    <div class="container">
+        <nav aria-label="breadcrumb">
+            <ol class="breadcrumb">
+                <li class="breadcrumb-item"><a href="{% url 'index' %}">Baş sahypa</a></li>
+                <li class="breadcrumb-item active">OSI Model</li>
+            </ol>
+        </nav>
+        <h1 class="display-5 fw-bold">OSI Model</h1>
+        <p class="lead">Açyk sistemalar arkalaşygy modeli - 7 gatlakly tor arkalaşyk modeli</p>
+    </div>
+</div>
+
+<div class="container py-5">
+    <!-- Giriş -->
+    <div class="row mb-5">
+        <div class="col-lg-8">
+            <div class="card">
+                <div class="card-body">
+                    <h2 class="h4 mb-3">OSI Model näme?</h2>
+                    <p>OSI (Open Systems Interconnection) modeli - bu tor arkalaşygyny 7 gatlakda suratlandyrýan konseptual model. Her gatlak belli bir funksiýany ýerine ýetirýär we öz ýokarsyndaky we aşagyndaky gatlaklar bilen işleşýär.</p>
+                    <p>1984-nji ýylda ISO tarapyndan işlenip düzülen bu model, tor protokollaryny standartlaşdyrmak we dürli sistemalaryň arasynda aragatnaşyk üpjün etmek üçin ulanylýar.</p>
+                    
+                    <div class="alert alert-info mt-3">
+                        <i class="fas fa-lightbulb me-2"></i>
+                        <strong>Ýatda saklaň:</strong> OSI modelini ýatda saklamak üçin iňlis sözlem: "All People Seem To Need Data Processing" (Aşakdan ýokary)
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-lg-4">
+            <div class="card bg-primary text-white">
+                <div class="card-body text-center">
+                    <i class="fas fa-layer-group fa-4x mb-3"></i>
+                    <h3 class="h5">7 gatlak</h3>
+                    <p>Fiziki gatlakdan Amaly gatlak çenli</p>
+                    <hr class="bg-white">
+                    <p class="mb-0"><small>Her gatlak özünden ýokarky gatlaklara hyzmat edýär</small></p>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Gatlaklar -->
+    <h2 class="h3 mb-4">OSI Modeliniň 7 gatlagy</h2>
+    
+    <div class="row g-4">
+        <!-- Gatlak 7 - Amaly gatlak -->
+        <div class="col-12">
+            <div class="card border-0 shadow-sm">
+                <div class="card-body">
+                    <div class="row align-items-center">
+                        <div class="col-md-2 text-center">
+                            <span class="badge bg-danger p-3 fs-5">Gatlak 7</span>
+                        </div>
+                        <div class="col-md-3">
+                            <h3 class="h5 mb-0">Amaly gatlak</h3>
+                            <small class="text-muted">Application Layer</small>
+                        </div>
+                        <div class="col-md-5">
+                            <p class="mb-0">Ulanyjy programmalary bilen aragatnaşyk edýär. HTTP, FTP, SMTP, DNS protokollary işleýär.</p>
+                        </div>
+                        <div class="col-md-2 text-end">
+                            <a href="{% url 'osi_layer7' %}" class="btn btn-sm btn-outline-primary">Giňişleýin</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Gatlak 6 - Prezentasiýa gatlagy -->
+        <div class="col-12">
+            <div class="card border-0 shadow-sm">
+                <div class="card-body">
+                    <div class="row align-items-center">
+                        <div class="col-md-2 text-center">
+                            <span class="badge bg-warning p-3 fs-5">Gatlak 6</span>
+                        </div>
+                        <div class="col-md-3">
+                            <h3 class="h5 mb-0">Prezentasiýa gatlagy</h3>
+                            <small class="text-muted">Presentation Layer</small>
+                        </div>
+                        <div class="col-md-5">
+                            <p class="mb-0">Maglumatlary formatlaşdyrýar, şifrleýär we kompressiýa edýär. JPEG, GIF, SSL/TLS işleýär.</p>
+                        </div>
+                        <div class="col-md-2 text-end">
+                            <a href="{% url 'osi_layer6' %}" class="btn btn-sm btn-outline-primary">Giňişleýin</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Gatlak 5 - Sessiýa gatlagy -->
+        <div class="col-12">
+            <div class="card border-0 shadow-sm">
+                <div class="card-body">
+                    <div class="row align-items-center">
+                        <div class="col-md-2 text-center">
+                            <span class="badge bg-success p-3 fs-5">Gatlak 5</span>
+                        </div>
+                        <div class="col-md-3">
+                            <h3 class="h5 mb-0">Sessiýa gatlagy</h3>
+                            <small class="text-muted">Session Layer</small>
+                        </div>
+                        <div class="col-md-5">
+                            <p class="mb-0">2 enjam arasynda sessiýa döredýär, dolandyrýar we tamamlaýar. NetBIOS, RPC protokollary.</p>
+                        </div>
+                        <div class="col-md-2 text-end">
+                            <a href="{% url 'osi_layer5' %}" class="btn btn-sm btn-outline-primary">Giňişleýin</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Gatlak 4 - Ulag gatlagy -->
+        <div class="col-12">
+            <div class="card border-0 shadow-sm">
+                <div class="card-body">
+                    <div class="row align-items-center">
+                        <div class="col-md-2 text-center">
+                            <span class="badge bg-info p-3 fs-5">Gatlak 4</span>
+                        </div>
+                        <div class="col-md-3">
+                            <h3 class="h5 mb-0">Ulag gatlagy</h3>
+                            <small class="text-muted">Transport Layer</small>
+                        </div>
+                        <div class="col-md-5">
+                            <p class="mb-0">Maglumatlaryň ygtybarly iberilmegini üpjün edýär. TCP we UDP protokollary işleýär.</p>
+                        </div>
+                        <div class="col-md-2 text-end">
+                            <a href="{% url 'osi_layer4' %}" class="btn btn-sm btn-outline-primary">Giňişleýin</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Gatlak 3 - Ulgam gatlagy -->
+        <div class="col-12">
+            <div class="card border-0 shadow-sm">
+                <div class="card-body">
+                    <div class="row align-items-center">
+                        <div class="col-md-2 text-center">
+                            <span class="badge bg-primary p-3 fs-5">Gatlak 3</span>
+                        </div>
+                        <div class="col-md-3">
+                            <h3 class="h5 mb-0">Ulgam gatlagy</h3>
+                            <small class="text-muted">Network Layer</small>
+                        </div>
+                        <div class="col-md-5">
+                            <p class="mb-0">Marşrutizasiýa edýär, IP adresleme we maglumat paketlerini iberýär. Routerler işleýär.</p>
+                        </div>
+                        <div class="col-md-2 text-end">
+                            <a href="{% url 'osi_layer3' %}" class="btn btn-sm btn-outline-primary">Giňişleýin</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Gatlak 2 - Maglumat baglanyşyk gatlagy -->
+        <div class="col-12">
+            <div class="card border-0 shadow-sm">
+                <div class="card-body">
+                    <div class="row align-items-center">
+                        <div class="col-md-2 text-center">
+                            <span class="badge bg-secondary p-3 fs-5">Gatlak 2</span>
+                        </div>
+                        <div class="col-md-3">
+                            <h3 class="h5 mb-0">Maglumat baglanyşyk gatlagy</h3>
+                            <small class="text-muted">Data Link Layer</small>
+                        </div>
+                        <div class="col-md-5">
+                            <p class="mb-0">Fiziki adresleme (MAC), ýalňyşlyklary tapmak we düzetmek. Switchler işleýär.</p>
+                        </div>
+                        <div class="col-md-2 text-end">
+                            <a href="{% url 'osi_layer2' %}" class="btn btn-sm btn-outline-primary">Giňişleýin</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Gatlak 1 - Fiziki gatlak -->
+        <div class="col-12">
+            <div class="card border-0 shadow-sm">
+                <div class="card-body">
+                    <div class="row align-items-center">
+                        <div class="col-md-2 text-center">
+                            <span class="badge bg-dark p-3 fs-5">Gatlak 1</span>
+                        </div>
+                        <div class="col-md-3">
+                            <h3 class="h5 mb-0">Fiziki gatlak</h3>
+                            <small class="text-muted">Physical Layer</small>
+                        </div>
+                        <div class="col-md-5">
+                            <p class="mb-0">Bitleri fiziki signala öwürýär we iberýär. Kabeller, hub, repeater işleýär.</p>
+                        </div>
+                        <div class="col-md-2 text-end">
+                            <a href="{% url 'osi_layer1' %}" class="btn btn-sm btn-outline-primary">Giňişleýin</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Maglumat iberilişi -->
+    <div class="row mt-5">
+        <div class="col-12">
+            <div class="card">
+                <div class="card-header bg-white">
+                    <h3 class="h5 mb-0">Maglumat iberilişi (Encapsulation)</h3>
+                </div>
+                <div class="card-body">
+                    <div class="table-responsive">
+                        <table class="table table-bordered">
+                            <thead class="table-light">
+                                <tr>
+                                    <th>Gatlak</th>
+                                    <th>Maglumat birligi</th>
+                                    <th>Goşulýan maglumat</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>Amaly</td>
+                                    <td>Data</td>
+                                    <td>-</td>
+                                </tr>
+                                <tr>
+                                    <td>Prezentasiýa</td>
+                                    <td>Data</td>
+                                    <td>Format maglumatlary</td>
+                                </tr>
+                                <tr>
+                                    <td>Sessiýa</td>
+                                    <td>Data</td>
+                                    <td>Sessiýa maglumatlary</td>
+                                </tr>
+                                <tr>
+                                    <td>Ulag</td>
+                                    <td>Segment</td>
+                                    <td>TCP/UDP header</td>
+                                </tr>
+                                <tr>
+                                    <td>Ulgam</td>
+                                    <td>Packet</td>
+                                    <td>IP header</td>
+                                </tr>
+                                <tr>
+                                    <td>Maglumat baglanyşyk</td>
+                                    <td>Frame</td>
+                                    <td>MAC header + trailer</td>
+                                </tr>
+                                <tr>
+                                    <td>Fiziki</td>
+                                    <td>Bits</td>
+                                    <td>-</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Test we wideo -->
+    <div class="row mt-5">
+        <div class="col-md-6 mb-4">
+            <div class="card h-100">
+                <div class="card-body text-center">
+                    <i class="fas fa-question-circle fa-4x text-primary mb-3"></i>
+                    <h3 class="h5">OSI Model testi</h3>
+                    <p>Öz bilimiňizi barlaň</p>
+                    <a href="{% url 'quiz_osi' %}" class="btn btn-primary">Teste başla</a>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-6 mb-4">
+            <div class="card h-100">
+                <div class="card-body text-center">
+                    <i class="fas fa-video fa-4x text-primary mb-3"></i>
+                    <h3 class="h5">Wideo ders</h3>
+                    <p>OSI modelini wideo görnüşinde öwren</p>
+                    <a href="{% url 'video_osi' %}" class="btn btn-primary">Görmek</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

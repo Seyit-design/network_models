@@ -1,0 +1,50 @@
+{% extends 'main/base.html' %}
+{% load static %}
+
+{% block title %}Routing maşklary{% endblock %}
+
+{% block content %}
+<div class="bg-light py-4">
+    <div class="container">
+        <nav aria-label="breadcrumb">
+            <ol class="breadcrumb">
+                <li class="breadcrumb-item"><a href="{% url 'index' %}">Baş sahypa</a></li>
+                <li class="breadcrumb-item"><a href="{% url 'exercises_index' %}">Maşklar</a></li>
+                <li class="breadcrumb-item active">Routing</li>
+            </ol>
+        </nav>
+        <h1 class="display-5 fw-bold">Routing maşklary</h1>
+    </div>
+</div>
+
+<div class="container py-5">
+    <div class="row">
+        <div class="col-lg-8 mx-auto">
+            <div class="card mb-4">
+                <div class="card-body">
+                    <h3 class="h5">1. Gönükme (Static route)</h3>
+                    <p>Router-da 192.168.2.0/24 toryna 10.0.0.2 next-hop bilen static route ýazyň.</p>
+                    <pre class="bg-light p-3">ip route 192.168.2.0 255.255.255.0 10.0.0.2</pre>
+                    <hr>
+                    <h3 class="h5">2. Gönükme (Default route)</h3>
+                    <p>Ähli näbelli trafigi 10.0.0.1-e iberýän default route ýazyň.</p>
+                    <pre class="bg-light p-3">ip route 0.0.0.0 0.0.0.0 10.0.0.1</pre>
+                    <hr>
+                    <h3 class="h5">3. Gönükme (OSPF)</h3>
+                    <p>OSPF process ID 1 bilen işlediň we 192.168.1.0/24 toryny area 0-a goşuň.</p>
+                    <pre class="bg-light p-3">router ospf 1
+ network 192.168.1.0 0.0.0.255 area 0</pre>
+                    <hr>
+                    <h3 class="h5">4. Gönükme (Routing tablisasyny analiz etmek)</h3>
+                    <p>Berlen routing tablisasynda:</p>
+                    <pre class="bg-light p-3">
+C    192.168.1.0/24 is directly connected, FastEthernet0/0
+S    10.0.0.0/8 [1/0] via 172.16.1.1
+O    172.16.0.0/16 [110/2] via 192.168.1.2, 00:00:12, FastEthernet0/0</pre>
+                    <p>Her bir ýazgynyň manysyny düşündiriň.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

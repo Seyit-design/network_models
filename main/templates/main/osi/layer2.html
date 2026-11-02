@@ -1,0 +1,153 @@
+{% extends "main/base.html" %}
+
+{% block title %}OSI - Maglumat baglanyşyk gatlagy{% endblock %}
+
+{% block content %}
+<div class="row">
+    <div class="col-md-12">
+        <nav aria-label="breadcrumb">
+            <ol class="breadcrumb">
+                <li class="breadcrumb-item"><a href="/osi/">OSI</a></li>
+                <li class="breadcrumb-item active">Maglumat baglanyşyk gatlagy</li>
+            </ol>
+        </nav>
+
+        <h1>Maglumat baglanyşyk gatlagy (Layer 2)</h1>
+        
+        <div class="layer-card">
+            <h2>Gelip çykyşy we wezipeleri</h2>
+            <p>Maglumat baglanyşyk gatlagy 1970-nji ýyllarda Ethernet tehnologiýasy bilen birlikde işlenip düzüldi. Bu gatlak fiziki gatlagyň üstünde ygtybarly maglumat geçişini üpjün etmek üçin döredildi.</p>
+            <p><strong>Esasy wezipeleri:</strong></p>
+            <ul>
+                <li>Fiziki adresleme (MAC adresler)</li>
+                <li>Frame (çarçuwa) döretmek</li>
+                <li>Ýalňyşlyklary anyklamak we düzetmek</li>
+                <li>Akymy dolandyrmak</li>
+                <li>Media girişini dolandyrmak (CSMA/CD, CSMA/CA)</li>
+            </ul>
+        </div>
+
+        <div class="layer-card">
+            <h2>MAC adresler</h2>
+            <p>MAC adres (Media Access Control) - her tor enjamyna önümçilik wagty berilýän ýeke-täk 48 bitlik adres. Ol 6 baýtdan ybarat we 16-lyk san ulgamynda ýazylýar.</p>
+            <div class="alert alert-info">
+                <strong>Mysal:</strong> 00:1A:2B:3C:4D:5E <br>
+                <small>Ilkinji 3 baýt (00:1A:2B) - öndürijini kody, soňky 3 baýt (3C:4D:5E) - enjamyň unikal belgisi</small>
+            </div>
+        </div>
+
+        <div class="layer-card">
+            <h2>Frame gurluşy</h2>
+            <div class="animation-container">
+                <h4>Ethernet frame gurluşy:</h4>
+                <table class="table table-bordered">
+                    <tr>
+                        <td>Preamble (7 baýt)</td>
+                        <td>SFD (1 baýt)</td>
+                        <td>Destination MAC (6 baýt)</td>
+                        <td>Source MAC (6 baýt)</td>
+                        <td>Type/Length (2 baýt)</td>
+                        <td>Data (46-1500 baýt)</td>
+                        <td>FCS (4 baýt)</td>
+                    </tr>
+                </table>
+                <div style="position: relative; height: 60px; background: #e9ecef; margin-top: 20px;">
+                    <div style="position: absolute; width: 50px; height: 40px; background: #007bff; color: white; text-align: center; animation: slideFrame 5s infinite;">Frame 1</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="layer-card">
+            <h2>Protokollar we enjamlar</h2>
+            <div class="row">
+                <div class="col-md-6">
+                    <h5>Protokollar:</h5>
+                    <ul>
+                        <li><strong>Ethernet</strong> (IEEE 802.3)</li>
+                        <li><strong>Wi-Fi</strong> (IEEE 802.11)</li>
+                        <li><strong>PPP</strong> (Point-to-Point Protocol)</li>
+                        <li><strong>HDLC</strong> (High-Level Data Link Control)</li>
+                        <li><strong>Frame Relay</strong></li>
+                        <li><strong>ATM</strong> (Asynchronous Transfer Mode)</li>
+                    </ul>
+                </div>
+                <div class="col-md-6">
+                    <h5>Enjamlar:</h5>
+                    <ul>
+                        <li><strong>Switch (kommutator)</strong> - MAC adres esasynda frame-lary ugrukdyrýar</li>
+                        <li><strong>Bridge (köpri)</strong> - iki tor segmentini birleşdirýär</li>
+                        <li><strong>NIC (Tor karty)</strong> - enjamy tora birleşdirýär</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <div class="layer-card">
+            <h2>Praktiki mysal: Switch-iň işleýşi</h2>
+            <div class="row">
+                <div class="col-md-8">
+                    <p>Switch özüne birikdirilen enjamlaryň MAC adreslerini ýatda saklaýar (MAC tablisasy). PC1 (MAC: AA:AA:AA:AA:AA:AA) PC2 (MAC: BB:BB:BB:BB:BB:BB) -e maglumat ibermek islände:</p>
+                    <ol>
+                        <li>PC1 frame döredýär: Destination MAC = BB:BB:BB:BB:BB:BB, Source MAC = AA:AA:AA:AA:AA:AA</li>
+                        <li>Switch frame alýar we MAC tablisasyny barlaýar</li>
+                        <li>Eger BB:BB:BB:BB:BB:BB port 2-de bolsa, frame diňe şol porta iberilýär</li>
+                    </ol>
+                </div>
+                <div class="col-md-4">
+                    <div class="card">
+                        <div class="card-body">
+                            <h6>MAC tablisa:</h6>
+                            <table class="table table-sm">
+                                <tr><th>MAC adres</th><th>Port</th></tr>
+                                <tr><td>AA:AA:AA:AA:AA:AA</td><td>1</td></tr>
+                                <tr><td>BB:BB:BB:BB:BB:BB</td><td>2</td></tr>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="layer-card">
+            <h2>ARP protokoly</h2>
+            <p>ARP (Address Resolution Protocol) - IP adresden MAC adres tapmak üçin ulanylýar.</p>
+            <div class="animation-container">
+                <p>ARP işleýşi:</p>
+                <div id="arpAnimation">
+                    <span class="badge bg-primary">PC1 (192.168.1.10)</span>
+                    <span class="badge bg-secondary">→</span>
+                    <span class="badge bg-info">ARP sorag: "Kimde 192.168.1.20 bar?"</span>
+                    <span class="badge bg-secondary">→</span>
+                    <span class="badge bg-success">PC2 (192.168.1.20)</span>
+                    <div class="mt-2">
+                        <span class="badge bg-success">PC2</span>
+                        <span class="badge bg-secondary">→</span>
+                        <span class="badge bg-info">ARP jogap: "Men! MAC: BB:BB:BB:BB:BB:BB"</span>
+                    </div>
+                </div>
+                <button class="btn btn-sm btn-primary mt-2" onclick="startARP()">ARP işleýşini gör</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+function startARP() {
+    let steps = [
+        'PC1 ARP sorag iberýär: "192.168.1.20 kime degişli?"',
+        'PC2 jogap berýär: "Men, MAC adresim BB:BB:BB:BB:BB:BB"',
+        'PC1 ARP kesşine MAC adresi ýazýar'
+    ];
+    
+    let i = 0;
+    function showStep() {
+        if (i < steps.length) {
+            $('#arpAnimation').append('<div class="alert alert-info mt-2">' + steps[i] + '</div>');
+            i++;
+            setTimeout(showStep, 2000);
+        }
+    }
+    showStep();
+}
+</script>
+{% endblock %}

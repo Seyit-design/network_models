@@ -1,0 +1,79 @@
+{% extends 'main/base.html' %}
+{% load static %}
+
+{% block title %}MAC Adres Converter{% endblock %}
+
+{% block content %}
+<div class="bg-light py-4">
+    <div class="container">
+        <nav aria-label="breadcrumb">
+            <ol class="breadcrumb">
+                <li class="breadcrumb-item"><a href="{% url 'index' %}">Baş sahypa</a></li>
+                <li class="breadcrumb-item"><a href="{% url 'tools_index' %}">Gurallar</a></li>
+                <li class="breadcrumb-item active">MAC Converter</li>
+            </ol>
+        </nav>
+        <h1 class="display-5 fw-bold">MAC Adres Converter</h1>
+        <p class="lead">MAC adres formatlaryny üýtgetmek we öndürijini tapmak</p>
+    </div>
+</div>
+
+<div class="container py-5">
+    <div class="row">
+        <div class="col-lg-8 mx-auto">
+            <div class="card">
+                <div class="card-header bg-white">
+                    <h2 class="h5 mb-0">MAC adres giriziň</h2>
+                </div>
+                <div class="card-body">
+                    <form method="post" action="{% url 'mac_converter' %}">
+                        {% csrf_token %}
+                        <div class="mb-3">
+                            <label for="mac" class="form-label">MAC adres</label>
+                            <input type="text" class="form-control" id="mac" name="mac" placeholder="Mysal: 00:1A:2B:3C:4D:5E" value="{{ request.POST.mac|default:'' }}" required>
+                            <div class="form-text">Formatyň ähmiýeti ýok: 00:1A:2B:3C:4D:5E, 00-1A-2B-3C-4D-5E, 001A.2B3C.4D5E, ýa-da 001A2B3C4D5E ýaly girizip bilersiňiz.</div>
+                        </div>
+                        <button type="submit" class="btn btn-primary w-100">Öwür</button>
+                    </form>
+
+                    {% if result %}
+                        <hr class="my-4">
+                        <h3 class="h6">Netijeler:</h3>
+                        {% if result.error %}
+                            <div class="alert alert-danger">{{ result.error }}</div>
+                        {% else %}
+                            <table class="table table-bordered">
+                                <tr>
+                                    <th style="width: 120px;">Cisco formaty</th>
+                                    <td><code>{{ result.cisco }}</code></td>
+                                </tr>
+                                <tr>
+                                    <th>Linux formaty</th>
+                                    <td><code>{{ result.linux }}</code></td>
+                                </tr>
+                                <tr>
+                                    <th>Windows formaty</th>
+                                    <td><code>{{ result.windows }}</code></td>
+                                </tr>
+                                <tr>
+                                    <th>Arassa (bare)</th>
+                                    <td><code>{{ result.bare }}</code></td>
+                                </tr>
+                                <tr>
+                                    <th>OUI (öndüriji kody)</th>
+                                    <td><code>{{ result.vendor }}</code></td>
+                                </tr>
+                            </table>
+                            <p class="text-muted small"><i class="fas fa-info-circle me-1"></i> OUI – öndürijini identifisirleýän ilkinji 6 simwol. Öndüriji barada giçräk maglumat üçin <a href="{% url 'mac_finder' %}">MAC Finder</a> ulanyň.</p>
+                        {% endif %}
+                    {% endif %}
+                </div>
+            </div>
+            <div class="alert alert-info mt-4">
+                <i class="fas fa-lightbulb me-2"></i>
+                <strong>Maslahat:</strong> Bu gural MAC adresiňizi dürli formatlara öwürýär we öndüriji kody (OUI) görkezýär. Öndürijini anyk bilmek isleseňiz, <a href="{% url 'mac_finder' %}" class="alert-link">MAC Finder</a> bölümini ulanyň.
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

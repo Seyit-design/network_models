@@ -1,0 +1,23 @@
+{% extends 'main/base.html' %}
+{% block title %}Enjam deňeşdirme{% endblock %}
+{% block content %}
+<div class="container py-5">
+    <h1>Tor enjamlaryny deňeşdirme</h1>
+    
+    <table class="table table-bordered">
+        <thead>
+            <tr>
+                <th>Enjam</th>
+                <th>Gatlak</th>
+                <th>Adres</th>
+                <th>Funksiýa</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr><td>Hub</td><td>Fiziki</td><td>-</td><td>Signal güýçlendiriji</td></tr>
+            <tr><td>Switch</td><td>Maglumat baglanyşyk</td><td>MAC</td><td>Tor birikdiriji</td></tr>
+            <tr><td>Router</td><td>Ulgam</td><td>IP</td><td>Torlary birleşdiriji</td></tr>
+        </tbody>
+    </table>
+</div>
+{% endblock %}

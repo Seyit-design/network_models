@@ -1,0 +1,104 @@
+{% extends 'main/base.html' %}
+{% load static %}
+
+{% block title %}Kabeller we birikmeler{% endblock %}
+
+{% block content %}
+<div class="bg-light py-4">
+    <div class="container">
+        <nav aria-label="breadcrumb">
+            <ol class="breadcrumb">
+                <li class="breadcrumb-item"><a href="{% url 'index' %}">Baş sahypa</a></li>
+                <li class="breadcrumb-item active">Kabeller</li>
+            </ol>
+        </nav>
+        <h1 class="display-5 fw-bold">Kabeller we birikmeler</h1>
+        <p class="lead">Tor ulgamynda ulanylýan kabelleriň görnüşleri, aýratynlyklary we ulanylyşy</p>
+    </div>
+</div>
+
+<div class="container py-5">
+    <div class="row g-4">
+        <div class="col-md-4">
+            <div class="card h-100">
+                <div class="card-body text-center">
+                    <i class="fas fa-ethernet fa-3x text-primary mb-3"></i>
+                    <h3 class="h5">Ethernet kabeller</h3>
+                    <p class="text-muted">CAT5, CAT5e, CAT6, CAT7 – esasy tor kabelleri</p>
+                    <a href="{% url 'cable_ethernet' %}" class="btn btn-outline-primary">Giňişleýin</a>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="card h-100">
+                <div class="card-body text-center">
+                    <i class="fas fa-fiber fa-3x text-primary mb-3"></i>
+                    <h3 class="h5">Fiber optik</h3>
+                    <p class="text-muted">Single-mode, multi-mode – uzak aralyk we ýokary tizlik</p>
+                    <a href="{% url 'cable_fiber' %}" class="btn btn-outline-primary">Giňişleýin</a>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="card h-100">
+                <div class="card-body text-center">
+                    <i class="fas fa-broadcast-tower fa-3x text-primary mb-3"></i>
+                    <h3 class="h5">Simsiz birikmeler</h3>
+                    <p class="text-muted">Wi-Fi, Bluetooth, Cellular</p>
+                    <a href="{% url 'wireless_index' %}" class="btn btn-outline-primary">Giňişleýin</a>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="card h-100">
+                <div class="card-body text-center">
+                    <i class="fas fa-tv fa-3x text-primary mb-3"></i>
+                    <h3 class="h5">Koaksial kabel</h3>
+                    <p class="text-muted">TV, internet (Kabel TV)</p>
+                    <a href="{% url 'cable_coaxial' %}" class="btn btn-outline-primary">Giňişleýin</a>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="card h-100">
+                <div class="card-body text-center">
+                    <i class="fas fa-plug fa-3x text-primary mb-3"></i>
+                    <h3 class="h5">Serial we Console</h3>
+                    <p class="text-muted">Router, switch dolandyryş üçin</p>
+                    <a href="{% url 'cable_serial' %}" class="btn btn-outline-primary">Giňişleýin</a>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="card h-100">
+                <div class="card-body text-center">
+                    <i class="fas fa-usb fa-3x text-primary mb-3"></i>
+                    <h3 class="h5">USB kabeller</h3>
+                    <p class="text-muted">Periferiýa enjamlary üçin</p>
+                    <a href="{% url 'cable_usb' %}" class="btn btn-outline-primary">Giňişleýin</a>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="card h-100">
+                <div class="card-body text-center">
+                    <i class="fas fa-tools fa-3x text-primary mb-3"></i>
+                    <h3 class="h5">Kabel çekmek (Crimping)</h3>
+                    <p class="text-muted">Kabel uçlaryny birikdirmek</p>
+                    <a href="{% url 'cable_crimping' %}" class="btn btn-outline-primary">Giňişleýin</a>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="card h-100">
+                <div class="card-body text-center">
+                    <i class="fas fa-palette fa-3x text-primary mb-3"></i>
+                    <h3 class="h5">Reňk kodlary</h3>
+                    <p class="text-muted">T568A, T568B standartlary</p>
+                    <a href="{% url 'cable_colors' %}" class="btn btn-outline-primary">Giňişleýin</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

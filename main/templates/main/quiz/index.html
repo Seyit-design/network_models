@@ -1,0 +1,145 @@
+{% extends 'main/base.html' %}
+{% load static %}
+
+{% block title %}Testler - Tor ulgamlary{% endblock %}
+
+{% block content %}
+<div class="bg-light py-4">
+    <div class="container">
+        <nav aria-label="breadcrumb">
+            <ol class="breadcrumb">
+                <li class="breadcrumb-item"><a href="{% url 'index' %}">Baş sahypa</a></li>
+                <li class="breadcrumb-item active">Testler</li>
+            </ol>
+        </nav>
+        <h1 class="display-5 fw-bold">Testler</h1>
+        <p class="lead">Bilimiňizi barlaň we özüňizi synagdan geçiriň</p>
+    </div>
+</div>
+
+<div class="container py-5">
+    <!-- Statistika -->
+    <div class="row mb-5">
+        <div class="col-md-3">
+            <div class="card text-center">
+                <div class="card-body">
+                    <i class="fas fa-question-circle fa-3x text-primary mb-3"></i>
+                    <h3 class="h2">500+</h3>
+                    <p class="text-muted">Sorag</p>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-3">
+            <div class="card text-center">
+                <div class="card-body">
+                    <i class="fas fa-layer-group fa-3x text-primary mb-3"></i>
+                    <h3 class="h2">20+</h3>
+                    <p class="text-muted">Test</p>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-3">
+            <div class="card text-center">
+                <div class="card-body">
+                    <i class="fas fa-users fa-3x text-primary mb-3"></i>
+                    <h3 class="h2">1000+</h3>
+                    <p class="text-muted">Okuwçy</p>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-3">
+            <div class="card text-center">
+                <div class="card-body">
+                    <i class="fas fa-trophy fa-3x text-primary mb-3"></i>
+                    <h3 class="h2">90%</h3>
+                    <p class="text-muted">Geçiş derejesi</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Test kategoriýalary -->
+    <div class="row g-4">
+        <div class="col-md-6">
+            <div class="card h-100">
+                <div class="card-body">
+                    <div class="d-flex justify-content-between align-items-start mb-3">
+                        <span class="badge bg-primary">OSI Model</span>
+                        <small class="text-muted"><i class="fas fa-clock me-1"></i>10 minut</small>
+                    </div>
+                    <h3 class="h5 mb-3">OSI Modeliniň 7 gatlagy</h3>
+                    <p class="text-muted small mb-3">10 sorag - Her gatlak barada soraglar</p>
+                    <div class="d-flex justify-content-between align-items-center">
+                        <span><i class="fas fa-users me-1"></i> 234 geçirildi</span>
+                        <a href="{% url 'quiz_detail' quiz_id=1 %}" class="btn btn-primary btn-sm">Başla</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-6">
+            <div class="card h-100">
+                <div class="card-body">
+                    <div class="d-flex justify-content-between align-items-start mb-3">
+                        <span class="badge bg-success">TCP/IP</span>
+                        <small class="text-muted"><i class="fas fa-clock me-1"></i>15 minut</small>
+                    </div>
+                    <h3 class="h5 mb-3">TCP/IP Model we protokollar</h3>
+                    <p class="text-muted small mb-3">15 sorag - TCP/IP gatlaklary we esasy protokollar</p>
+                    <div class="d-flex justify-content-between align-items-center">
+                        <span><i class="fas fa-users me-1"></i> 189 geçirildi</span>
+                        <a href="{% url 'quiz_detail' quiz_id=2 %}" class="btn btn-primary btn-sm">Başla</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-6">
+            <div class="card h-100">
+                <div class="card-body">
+                    <div class="d-flex justify-content-between align-items-start mb-3">
+                        <span class="badge bg-warning">Protokollar</span>
+                        <small class="text-muted"><i class="fas fa-clock me-1"></i>20 minut</small>
+                    </div>
+                    <h3 class="h5 mb-3">Tor protokollary we port nomerleri</h3>
+                    <p class="text-muted small mb-3">20 sorag - TCP, UDP, HTTP, FTP, DNS we başgalar</p>
+                    <div class="d-flex justify-content-between align-items-center">
+                        <span><i class="fas fa-users me-1"></i> 156 geçirildi</span>
+                        <a href="{% url 'quiz_detail' quiz_id=3 %}" class="btn btn-primary btn-sm">Başla</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-6">
+            <div class="card h-100">
+                <div class="card-body">
+                    <div class="d-flex justify-content-between align-items-start mb-3">
+                        <span class="badge bg-info">Enjamlar</span>
+                        <small class="text-muted"><i class="fas fa-clock me-1"></i>10 minut</small>
+                    </div>
+                    <h3 class="h5 mb-3">Tor enjamlary we olaryň wezipeleri</h3>
+                    <p class="text-muted small mb-3">12 sorag - Router, switch, hub, firewall</p>
+                    <div class="d-flex justify-content-between align-items-center">
+                        <span><i class="fas fa-users me-1"></i> 145 geçirildi</span>
+                        <a href="{% url 'quiz_detail' quiz_id=4 %}" class="btn btn-primary btn-sm">Başla</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-6">
+            <div class="card h-100">
+                <div class="card-body">
+                    <div class="d-flex justify-content-between align-items-start mb-3">
+                        <span class="badge bg-danger">IP Adresleme</span>
+                        <small class="text-muted"><i class="fas fa-clock me-1"></i>25 minut</small>
+                    </div>
+                    <h3 class="h5 mb-3">IP adresler we subnetting</h3>
+                    <p class="text-muted small mb-3">25 sorag - IPv4, subnet mask, CIDR, VLSM</p>
+                    <div class="d-flex justify-content-between align-items-center">
+                        <span><i class="fas fa-users me-1"></i> 98 geçirildi</span>
+                        <a href="{% url 'quiz_detail' quiz_id=5 %}" class="btn btn-primary btn-sm">Başla</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

@@ -1,0 +1,84 @@
+{% extends 'main/base.html' %}
+{% load static %}
+
+{% block title %}Test - Soraglar{% endblock %}
+
+{% block content %}
+<div class="bg-light py-4">
+    <div class="container">
+        <nav aria-label="breadcrumb">
+            <ol class="breadcrumb">
+                <li class="breadcrumb-item"><a href="{% url 'index' %}">Baş sahypa</a></li>
+                <li class="breadcrumb-item"><a href="{% url 'quiz_index' %}">Testler</a></li>
+                <li class="breadcrumb-item active">Test {{ quiz_id }}</li>
+            </ol>
+        </nav>
+        <h1 class="display-5 fw-bold">Test {{ quiz_id }}</h1>
+        <p class="lead">Soraglara jogap beriň</p>
+    </div>
+</div>
+
+<div class="container py-5">
+    <div class="row">
+        <div class="col-lg-8 mx-auto">
+            <div class="card">
+                <div class="card-header bg-white">
+                    <div class="d-flex justify-content-between align-items-center">
+                        <h2 class="h5 mb-0">Soraglar</h2>
+                        <span class="badge bg-primary">10 sorag</span>
+                    </div>
+                </div>
+                <div class="card-body">
+                    <form action="{% url 'quiz_submit' quiz_id %}" method="post">
+                        {% csrf_token %}
+                        
+                        <!-- Sorag 1 (mysal) -->
+                        <div class="mb-4 p-3 border rounded">
+                            <p class="fw-bold mb-3">1. OSI modelinde näçe gatlak bar?</p>
+                            <div class="form-check">
+                                <input class="form-check-input" type="radio" name="q1" id="q1a" value="5">
+                                <label class="form-check-label" for="q1a">5</label>
+                            </div>
+                            <div class="form-check">
+                                <input class="form-check-input" type="radio" name="q1" id="q1b" value="7">
+                                <label class="form-check-label" for="q1b">7</label>
+                            </div>
+                            <div class="form-check">
+                                <input class="form-check-input" type="radio" name="q1" id="q1c" value="4">
+                                <label class="form-check-label" for="q1c">4</label>
+                            </div>
+                            <div class="form-check">
+                                <input class="form-check-input" type="radio" name="q1" id="q1d" value="6">
+                                <label class="form-check-label" for="q1d">6</label>
+                            </div>
+                        </div>
+                        
+                        <!-- Sorag 2 (mysal) -->
+                        <div class="mb-4 p-3 border rounded">
+                            <p class="fw-bold mb-3">2. IP adresiň dogry görnüşi haýsy?</p>
+                            <div class="form-check">
+                                <input class="form-check-input" type="radio" name="q2" id="q2a" value="192.168.1.256">
+                                <label class="form-check-label" for="q2a">192.168.1.256</label>
+                            </div>
+                            <div class="form-check">
+                                <input class="form-check-input" type="radio" name="q2" id="q2b" value="10.0.0.1">
+                                <label class="form-check-label" for="q2b">10.0.0.1</label>
+                            </div>
+                            <div class="form-check">
+                                <input class="form-check-input" type="radio" name="q2" id="q2c" value="192.168.1">
+                                <label class="form-check-label" for="q2c">192.168.1</label>
+                            </div>
+                            <div class="form-check">
+                                <input class="form-check-input" type="radio" name="q2" id="q2d" value="10.0.0.1.5">
+                                <label class="form-check-label" for="q2d">10.0.0.1.5</label>
+                            </div>
+                        </div>
+                        
+                        <button type="submit" class="btn btn-primary w-100">Testi tabşyr</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

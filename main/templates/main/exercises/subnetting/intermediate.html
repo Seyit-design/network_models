@@ -1,0 +1,54 @@
+{% extends 'main/base.html' %}
+{% block title %}Orta subnetting maşklary{% endblock %}
+{% block content %}
+<div class="bg-light py-4">
+    <div class="container">
+        <nav aria-label="breadcrumb">
+            <ol class="breadcrumb">
+                <li class="breadcrumb-item"><a href="{% url 'index' %}">Baş sahypa</a></li>
+                <li class="breadcrumb-item"><a href="{% url 'exercises_index' %}">Maşklar</a></li>
+                <li class="breadcrumb-item"><a href="{% url 'ex_subnetting' %}">Subnetting</a></li>
+                <li class="breadcrumb-item active">Orta</li>
+            </ol>
+        </nav>
+        <h1 class="display-5 fw-bold">Orta subnetting gönükmeleri</h1>
+    </div>
+</div>
+
+<div class="container py-5">
+    <div class="row">
+        <div class="col-lg-8 mx-auto">
+            <div class="card mb-4">
+                <div class="card-header bg-white">
+                    <h2 class="h5 mb-0">1-nji gönükme</h2>
+                </div>
+                <div class="card-body">
+                    <p>Size 192.168.0.0/24 tor berlen. Aşakdaky talaplar boýunça subnetleri dörediň:</p>
+                    <ul>
+                        <li>Subnet A: 50 host</li>
+                        <li>Subnet B: 30 host</li>
+                        <li>Subnet C: 10 host</li>
+                    </ul>
+                    <p>Her subnet üçin tor adresini, maskany we broadcast adresini ýazyň.</p>
+                </div>
+            </div>
+            <div class="card mb-4">
+                <div class="card-header bg-white">
+                    <h2 class="h5 mb-0">2-nji gönükme</h2>
+                </div>
+                <div class="card-body">
+                    <p>10.10.0.0/16 toryny 200 hostly subnetlere bölmek isleýärsiňiz. Iň amatly maskany tapyň we subnetleriň sanyny hasaplaň.</p>
+                </div>
+            </div>
+            <div class="card mb-4">
+                <div class="card-header bg-white">
+                    <h2 class="h5 mb-0">3-nji gönükme</h2>
+                </div>
+                <div class="card-body">
+                    <p>Router-da 192.168.1.0/27 tory bar. Bu subnetdäki ulanyp boljak host sany näçe? Iň soňky host adresi haýsy?</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

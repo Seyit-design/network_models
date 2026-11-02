@@ -1,0 +1,49 @@
+{% extends 'main/base.html' %}
+{% load static %}
+
+{% block title %}Howpsuzlyk problemalary{% endblock %}
+
+{% block content %}
+<div class="bg-light py-4">
+    <div class="container">
+        <nav aria-label="breadcrumb">
+            <ol class="breadcrumb">
+                <li class="breadcrumb-item"><a href="{% url 'index' %}">Baş sahypa</a></li>
+                <li class="breadcrumb-item"><a href="{% url 'troubleshoot_index' %}">Troubleshooting</a></li>
+                <li class="breadcrumb-item active">Howpsuzlyk problemalary</li>
+            </ol>
+        </nav>
+        <h1 class="display-5 fw-bold">Howpsuzlyk problemalary</h1>
+    </div>
+</div>
+
+<div class="container py-5">
+    <div class="row">
+        <div class="col-lg-8 mx-auto">
+            <div class="card mb-4">
+                <div class="card-header bg-white">
+                    <h2 class="h5 mb-0">Köp duş gelýän howpsuzlyk meseleleri</h2>
+                </div>
+                <div class="card-body">
+                    <ul>
+                        <li><strong>Firewall bloklaýar</strong> – programma ýa-da portyň bloklanmagy. Firewall sazlamalaryny barlaň.</li>
+                        <li><strong>Wi-Fi paroly gowşak</strong> – WPA2 ýa-da WPA3 ulanyň, çylşyrymly parol belläň.</li>
+                        <li><strong>Router-yň dolandyryş paneli açyk</strong> – Router-a girmek üçin parol belläň, default paroly üýtgediň.</li>
+                        <li><strong>ARP poisoning / spoofing</strong> – Tor ulgamynda hüjüm bolup biler. Static ARP ýa-da switch-de port howpsuzlygy ulanyň.</li>
+                        <li><strong>DDoS hüjümi</strong> – Tor ulgamynda aşa trafik bolsa, router-y reboot ediň, ýa-da ISP-e habar beriň.</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="card mb-4">
+                <div class="card-header bg-white">
+                    <h2 class="h5 mb-0">Firewall barlagy</h2>
+                </div>
+                <div class="card-body">
+                    <p>Windows-da: "Windows Defender Firewall" → "Allow an app through firewall"</p>
+                    <p>Linux-da: <code>sudo ufw status</code> (UFW ulanylsa)</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

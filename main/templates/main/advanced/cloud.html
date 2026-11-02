@@ -1,0 +1,18 @@
+{% extends 'main/base.html' %}
+{% block title %}Cloud Networking{% endblock %}
+{% block content %}
+<div class="bg-light py-4">...</div>
+<div class="container py-5">
+    <p><strong>Bulut tor ulgamy (Cloud Networking)</strong> – bulut platformalarynda (AWS, Microsoft Azure, Google Cloud) tor infrastrukturasyny gurmak we dolandyrmak.</p>
+    <h3 class="h5">Esasy düşünjeler:</h3>
+    <ul>
+        <li><strong>VPC (Virtual Private Cloud):</strong> Bulutda izolirlenen tor.</li>
+        <li><strong>Subnet:</strong> VPC-i kiçi böleklere bölmek.</li>
+        <li><strong>Internet Gateway:</strong> VPC-e internet birikmesi.</li>
+        <li><strong>NAT Gateway:</strong> Hususy subnetlerden internete çykmak.</li>
+        <li><strong>Security Groups:</strong> Wirtual firewall (stateli).</li>
+        <li><strong>Network ACL:</strong> Stateless firewall, subnet derejesinde.</li>
+        <li><strong>Load Balancer:</strong> Trafigi birnäçe serwere paýlamak.</li>
+    </ul>
+</div>
+{% endblock %}

@@ -1,0 +1,43 @@
+{% extends 'main/base.html' %}
+{% load static %}
+
+{% block title %}Network Simulation{% endblock %}
+
+{% block content %}
+<div class="bg-light py-4">
+    <div class="container">
+        <nav aria-label="breadcrumb">
+            <ol class="breadcrumb">
+                <li class="breadcrumb-item"><a href="{% url 'index' %}">Baş sahypa</a></li>
+                <li class="breadcrumb-item"><a href="{% url 'labs_index' %}">Laboratoriýalar</a></li>
+                <li class="breadcrumb-item active">Simulýasiýa</li>
+            </ol>
+        </nav>
+        <h1 class="display-5 fw-bold">Tor simulýasiýa gurallary</h1>
+        <p class="lead">GNS3, EVE-NG, Packet Tracer – hakyky tor enjamlaryny simulýasiýa etmek</p>
+    </div>
+</div>
+
+<div class="container py-5">
+    <div class="row">
+        <div class="col-md-6">
+            <div class="card mb-4">
+                <div class="card-body">
+                    <h3 class="h5">GNS3</h3>
+                    <p>GNS3 – hakyky IOS görnüşlerini işledip bilýän güýçli simulýator. Cisco, Juniper, VyOS we beýleki enjamlary goldaýar.</p>
+                    <p><strong>Gurnama:</strong> GNS3.com saytyndan ýükläň, VirtualBox ýa-da VMware bilen birleşdirip ulanyň.</p>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-6">
+            <div class="card mb-4">
+                <div class="card-body">
+                    <h3 class="h5">EVE-NG</h3>
+                    <p>EVE-NG (Emulated Virtual Environment) – professional simulýasiýa platformasy. Web interfeýsli, köp enjamy goldaýar.</p>
+                    <p><strong>Görnüşleri:</strong> Community (mugt), Professional (pullukly).</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

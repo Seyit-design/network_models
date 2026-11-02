@@ -1,0 +1,52 @@
+{% extends 'main/base.html' %}
+{% load static %}
+
+{% block title %}OSI Model diagrammasy{% endblock %}
+
+{% block content %}
+<div class="bg-light py-4">
+    <div class="container">
+        <nav aria-label="breadcrumb">
+            <ol class="breadcrumb">
+                <li class="breadcrumb-item"><a href="{% url 'index' %}">Baş sahypa</a></li>
+                <li class="breadcrumb-item"><a href="{% url 'diagrams_index' %}">Diagrammalar</a></li>
+                <li class="breadcrumb-item active">OSI Model</li>
+            </ol>
+        </nav>
+        <h1 class="display-5 fw-bold">OSI Model diagrammasy</h1>
+    </div>
+</div>
+
+<div class="container py-5">
+    <div class="row">
+        <div class="col-lg-10 mx-auto">
+            <div class="card">
+                <div class="card-body text-center">
+                    <img src="{% static 'images/osi_model_large.png' %}" class="img-fluid" alt="OSI Model" onerror="this.src='https://via.placeholder.com/800x400?text=OSI+Model+Diagram'">
+                    
+                    <hr class="my-4">
+                    
+                    <div class="table-responsive">
+                        <table class="table table-bordered">
+                            <thead class="table-primary">
+                                <tr><th>Gatlak</th><th>Ady</th><th>Maglumat birligi</th><th>Protokollar</th><th>Enjamlar</th></tr>
+                            </thead>
+                            <tbody>
+                                <tr><td>7</td><td>Amaly gatlak</td><td>Data</td><td>HTTP, FTP, SMTP, DNS</td><td>-</td></tr>
+                                <tr><td>6</td><td>Prezentasiýa gatlagy</td><td>Data</td><td>SSL, TLS, JPEG</td><td>-</td></tr>
+                                <tr><td>5</td><td>Sessiýa gatlagy</td><td>Data</td><td>NetBIOS, RPC</td><td>-</td></tr>
+                                <tr><td>4</td><td>Ulag gatlagy</td><td>Segment</td><td>TCP, UDP</td><td>-</td></tr>
+                                <tr><td>3</td><td>Ulgam gatlagy</td><td>Paket</td><td>IP, ICMP</td><td>Router</td></tr>
+                                <tr><td>2</td><td>Maglumat baglanyşyk</td><td>Frame</td><td>MAC, LLC</td><td>Switch, Bridge</td></tr>
+                                <tr><td>1</td><td>Fiziki gatlak</td><td>Bit</td><td>Ethernet, USB</td><td>Hub, Repeater</td></tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    
+                    <a href="{% url 'osi_index' %}" class="btn btn-primary mt-3">OSI Model barada öwren</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

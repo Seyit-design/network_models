@@ -1,0 +1,44 @@
+{% extends 'main/base.html' %}
+{% block title %}Binary Converter{% endblock %}
+{% block content %}
+<div class="container py-5">
+    <div class="row">
+        <div class="col-md-8 mx-auto">
+            <div class="card">
+                <div class="card-header bg-white">
+                    <h1 class="h4 mb-0">Binary (2-lik) Converter</h1>
+                </div>
+                <div class="card-body">
+                    <form method="post">
+                        {% csrf_token %}
+                        <div class="mb-3">
+                            <label class="form-label">San giriziň</label>
+                            <input type="text" name="number" class="form-control" placeholder="255 ýa-da 11111111" required>
+                        </div>
+                        <div class="mb-3">
+                            <label class="form-label">Ugry saýlaň</label>
+                            <select name="direction" class="form-select">
+                                <option value="to_binary">Decimal -> Binary</option>
+                                <option value="to_decimal">Binary -> Decimal</option>
+                            </select>
+                        </div>
+                        <button type="submit" class="btn btn-primary w-100">Öwür</button>
+                    </form>
+                    
+                    {% if result %}
+                        <hr>
+                        {% if result.error %}
+                            <div class="alert alert-danger">{{ result.error }}</div>
+                        {% else %}
+                            <div class="alert alert-success">
+                                <p class="mb-0"><strong>Original:</strong> {{ result.original }}</p>
+                                <p class="mb-0"><strong>Öwürilen:</strong> {{ result.converted }}</p>
+                            </div>
+                        {% endif %}
+                    {% endif %}
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

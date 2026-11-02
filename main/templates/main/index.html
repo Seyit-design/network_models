@@ -1,0 +1,75 @@
+{% extends 'main/base.html' %}
+{% block title %}Troubleshooting{% endblock %}
+{% block content %}
+<div class="container py-5">
+    <h1 class="mb-4">Troubleshooting (Problem çözmek)</h1>
+    
+    <div class="row">
+        <div class="col-md-4 mb-3">
+            <div class="card">
+                <div class="card-body">
+                    <i class="fas fa-plug fa-3x text-primary mb-3"></i>
+                    <h5>Baglanyşyk problemalary</h5>
+                    <p>Tor baglanyşyk problemalaryny çözmek</p>
+                    <a href="{% url 'tshoot_connectivity' %}" class="btn btn-primary">Giňişleýin</a>
+                </div>
+            </div>
+        </div>
+        
+        <div class="col-md-4 mb-3">
+            <div class="card">
+                <div class="card-body">
+                    <i class="fas fa-globe fa-3x text-primary mb-3"></i>
+                    <h5>DNS problemalary</h5>
+                    <p>DNS çözüliş problemalary</p>
+                    <a href="{% url 'tshoot_dns' %}" class="btn btn-primary">Giňişleýin</a>
+                </div>
+            </div>
+        </div>
+        
+        <div class="col-md-4 mb-3">
+            <div class="card">
+                <div class="card-body">
+                    <i class="fas fa-exclamation-triangle fa-3x text-primary mb-3"></i>
+                    <h5>IP konflikt</h5>
+                    <p>IP adres konfliktlerini çözmek</p>
+                    <a href="{% url 'tshoot_ip_conflict' %}" class="btn btn-primary">Giňişleýin</a>
+                </div>
+            </div>
+        </div>
+        
+        <div class="col-md-4 mb-3">
+            <div class="card">
+                <div class="card-body">
+                    <i class="fas fa-tachometer-alt fa-3x text-primary mb-3"></i>
+                    <h5>Işjeňlik problemalary</h5>
+                    <p>Haýal tor we performans problemalary</p>
+                    <a href="{% url 'tshoot_performance' %}" class="btn btn-primary">Giňişleýin</a>
+                </div>
+            </div>
+        </div>
+        
+        <div class="col-md-4 mb-3">
+            <div class="card">
+                <div class="card-body">
+                    <i class="fas fa-shield-alt fa-3x text-primary mb-3"></i>
+                    <h5>Howpsuzlyk problemalary</h5>
+                    <p>Firewall we howpsuzlyk problemalary</p>
+                    <a href="{% url 'tshoot_security' %}" class="btn btn-primary">Giňişleýin</a>
+                </div>
+            </div>
+        </div>
+        
+        <div class="col-md-4 mb-3">
+            <div class="card">
+                <div class="card-body">
+                    <i class="fas fa-list fa-3x text-primary mb-3"></i>
+                    <h5>Umumy problemalar</h5>
+                    <p>Köp ýalňyşlyklar we çözümleri</p>
+                    <a href="{% url 'tshoot_common' %}" class="btn btn-primary">Giňişleýin</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

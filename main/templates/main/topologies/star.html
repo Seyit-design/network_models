@@ -1,0 +1,52 @@
+{% extends 'main/base.html' %}
+{% load static %}
+
+{% block title %}Ýyldyz topologiýa{% endblock %}
+
+{% block content %}
+<div class="bg-light py-4">
+    <div class="container">
+        <nav aria-label="breadcrumb">
+            <ol class="breadcrumb">
+                <li class="breadcrumb-item"><a href="{% url 'index' %}">Baş sahypa</a></li>
+                <li class="breadcrumb-item"><a href="{% url 'topologies_index' %}">Topologiýalar</a></li>
+                <li class="breadcrumb-item active">Ýyldyz</li>
+            </ol>
+        </nav>
+        <h1 class="display-5 fw-bold">Ýyldyz topologiýa (Star Topology)</h1>
+    </div>
+</div>
+
+<div class="container py-5">
+    <div class="row">
+        <div class="col-md-8">
+            <div class="card">
+                <div class="card-body">
+                    <p><strong>Ýyldyz topologiýa</strong> – ähli enjamlaryň merkezi bir enjama (switç ýa-da hub) birikdirilmegi bilen emele gelýän gurluş.</p>
+                    <h3 class="h5">Ýokluklary:</h3>
+                    <ul>
+                        <li>Ýönekeý we giňden ýaýran</li>
+                        <li>Bir enjam näsaz bolsa, beýlekiler işleýär</li>
+                        <li>Täze enjam goşmak aňsat</li>
+                        <li>Ýalňyşlyklary tapmak we düzetmek ýönekeý</li>
+                    </ul>
+                    <h3 class="h5">Gowsuzlyklary:</h3>
+                    <ul>
+                        <li>Merkezi enjam işlemesä, ähli tor işlemeýär</li>
+                        <li>Kabel sany köp (her enjam üçin aýratyn kabel)</li>
+                        <li>Merkezi enjama ýokary ýük düşýär</li>
+                    </ul>
+                    <p><strong>Ulanylyşy:</strong> Häzirki zaman torlarynyň köpüsinde (öz içinde Ethernet) ulanylýar.</p>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="card">
+                <div class="card-body text-center">
+                    <i class="fas fa-star fa-5x text-primary"></i>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

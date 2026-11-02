@@ -1,0 +1,80 @@
+{% extends "main/base.html" %}
+
+{% block title %}TCP/IP modeli - Umumy maglumat{% endblock %}
+
+{% block content %}
+<div class="row">
+    <div class="col-md-12">
+        <h1>TCP/IP modeli</h1>
+        
+        <div class="layer-card">
+            <h2>Gelip çykyşy we taryhy</h2>
+            <p>TCP/IP modeli 1970-nji ýyllarda ABŞ-nyň Goranmak ministrliginiň DARPA taslamasy hökmünde işlenip düzüldi. Esasy maksady dürli ulgamlaryň özara habarlaşmagyny üpjün etmekdi. 1980-nji ýyllarda ARPANET torunda ulanylyp başlandy we soňra Internetiň esasy protokoly boldy.</p>
+            <p>OSI modelinden tapawutlylykda TCP/IP has amaly bolup, 4 ýa-da 5 gatlakdan ybarat.</p>
+        </div>
+
+        <div class="layer-card">
+            <h2>TCP/IP gatlaklary (4 gatlakly görnüşi)</h2>
+            <div class="row">
+                <div class="col-md-3 mb-3">
+                    <div class="card h-100">
+                        <div class="card-body">
+                            <h5 class="card-title">4. Amaly gatlak</h5>
+                            <p class="card-text">OSI 5,6,7 gatlaklaryny birleşdirýär</p>
+                            <a href="/tcpip/layer4/" class="btn btn-sm btn-success">Giňişleýin</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-3 mb-3">
+                    <div class="card h-100">
+                        <div class="card-body">
+                            <h5 class="card-title">3. Ulag gatlagy</h5>
+                            <p class="card-text">OSI 4 gatlagyna gabat gelýär</p>
+                            <a href="/tcpip/layer3/" class="btn btn-sm btn-success">Giňişleýin</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-3 mb-3">
+                    <div class="card h-100">
+                        <div class="card-body">
+                            <h5 class="card-title">2. Internet gatlagy</h5>
+                            <p class="card-text">OSI 3 gatlagyna gabat gelýär</p>
+                            <a href="/tcpip/layer2/" class="btn btn-sm btn-success">Giňişleýin</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-3 mb-3">
+                    <div class="card h-100">
+                        <div class="card-body">
+                            <h5 class="card-title">1. Ulgama giriş gatlagy</h5>
+                            <p class="card-text">OSI 1 we 2 gatlaklaryny birleşdirýär</p>
+                            <a href="/tcpip/layer1/" class="btn btn-sm btn-success">Giňişleýin</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="layer-card">
+            <h2>OSI bilen TCP/IP deňeşdirme</h2>
+            <table class="table table-bordered">
+                <thead>
+                    <tr>
+                        <th>OSI modeli</th>
+                        <th>TCP/IP modeli</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr><td>7. Amaly</td><td rowspan="3">4. Amaly</td></tr>
+                    <tr><td>6. Prezentasiýa</td></tr>
+                    <tr><td>5. Sessiýa</td></tr>
+                    <tr><td>4. Ulag</td><td>3. Ulag</td></tr>
+                    <tr><td>3. Ulgam</td><td>2. Internet</td></tr>
+                    <tr><td>2. Maglumat baglanyşyk</td><td rowspan="2">1. Ulgama giriş</td></tr>
+                    <tr><td>1. Fiziki</td></tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+{% endblock %}

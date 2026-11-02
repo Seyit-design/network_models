@@ -1,0 +1,31 @@
+{% extends 'main/base.html' %}
+{% block title %}Port nomerleri{% endblock %}
+{% block content %}
+<div class="container py-5">
+    <h1>Meşhur port nomerleri</h1>
+    
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <th>Port</th>
+                <th>Protokol</th>
+                <th>Düşündiriş</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr><td>20,21</td><td>FTP</td><td>Faýl transferi</td></tr>
+            <tr><td>22</td><td>SSH</td><td>Howply shell</td></tr>
+            <tr><td>23</td><td>Telnet</td><td>Uzakdan dolandyryş</td></tr>
+            <tr><td>25</td><td>SMTP</td><td>Email ibermek</td></tr>
+            <tr><td>53</td><td>DNS</td><td>Domain atlar</td></tr>
+            <tr><td>80</td><td>HTTP</td><td>Web</td></tr>
+            <tr><td>110</td><td>POP3</td><td>Email almak</td></tr>
+            <tr><td>123</td><td>NTP</td><td>Wagt sinhronizasiýa</td></tr>
+            <tr><td>143</td><td>IMAP</td><td>Email almak</td></tr>
+            <tr><td>443</td><td>HTTPS</td><td>Howply web</td></tr>
+            <tr><td>3306</td><td>MySQL</td><td>Maglumat bazasy</td></tr>
+            <tr><td>3389</td><td>RDP</td><td>Uzakdaky iş stoly</td></tr>
+        </tbody>
+    </table>
+</div>
+{% endblock %}

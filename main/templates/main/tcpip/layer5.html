@@ -1,0 +1,236 @@
+{% extends "main/base.html" %}
+
+{% block title %}TCP/IP - Fiziki we Maglumat baglanyşyk gatlagy{% endblock %}
+
+{% block content %}
+<div class="row">
+    <div class="col-md-12">
+        <nav aria-label="breadcrumb">
+            <ol class="breadcrumb">
+                <li class="breadcrumb-item"><a href="/tcpip/">TCP/IP</a></li>
+                <li class="breadcrumb-item active">Fiziki we Maglumat baglanyşyk</li>
+            </ol>
+        </nav>
+
+        <h1>Fiziki we Maglumat baglanyşyk gatlagy (TCP/IP Layer 5)</h1>
+        
+        <div class="alert alert-info">
+            <strong>OSI bilen deňeşdirme:</strong> Bu gatlak OSI modeliniň <strong>Fiziki (Layer 1)</strong> we <strong>Maglumat baglanyşyk (Layer 2)</strong> gatlaklaryny birleşdirýär.
+        </div>
+
+        <div class="layer-card">
+            <h2>Bu gatlak näme üçin döredildi?</h2>
+            <p>TCP/IP modeli işlenip düzülende, fiziki gurşaw we maglumat baglanyşyk gatlaklaryny birleşdirmek kararyna gelindi. Sebäbi bu iki gatlak özara berk baglanyşykly we köplenç bir protokollar toplumy hökmünde işleýär (meselem, Ethernet).</p>
+            <p><strong>Esasy wezipeleri:</strong></p>
+            <ul>
+                <li>Bitleriň fiziki gurşawda äkidilmegi (kabel, radio, optiki süýüm)</li>
+                <li>MAC adresleriň kömegi bilen enjamlary tanamak</li>
+                <li>Frame-lary döretmek we ibermek</li>
+                <li>Ýalňyşlyklary anyklamak we düzetmek (FCS, CRC)</li>
+                <li>Media girişini dolandyrmak (CSMA/CD, CSMA/CA)</li>
+            </ul>
+        </div>
+
+        <div class="layer-card">
+            <h2>Bu gatlakda ulanylýan tehnologiýalar we protokollar</h2>
+            <div class="row">
+                <div class="col-md-6">
+                    <h5>📡 Fiziki tehnologiýalar:</h5>
+                    <ul>
+                        <li><strong>Ethernet:</strong> 10BASE-T, 100BASE-TX, 1000BASE-T (Cat5, Cat6 kabeller)</li>
+                        <li><strong>Fiber optika:</strong> Single-mode, Multi-mode</li>
+                        <li><strong>Wi-Fi:</strong> IEEE 802.11 a/b/g/n/ac/ax</li>
+                        <li><strong>Bluetooth:</strong> 802.15.1</li>
+                        <li><strong>Koaksial kabel:</strong> Köne torlarda we telewideniýede</li>
+                    </ul>
+                </div>
+                <div class="col-md-6">
+                    <h5>🖧 Maglumat baglanyşyk protokollary:</h5>
+                    <ul>
+                        <li><strong>Ethernet (IEEE 802.3):</strong> Iň giň ýaýran protokol</li>
+                        <li><strong>Wi-Fi (IEEE 802.11):</strong> Simsiz torlar üçin</li>
+                        <li><strong>PPP (Point-to-Point Protocol):</strong> Nokatdan-nokada baglanyşyk</li>
+                        <li><strong>HDLC:</strong> Synhron baglanyşyklar üçin</li>
+                        <li><strong>ARP (Address Resolution Protocol):</strong> IP adresden MAC adres tapmak</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <div class="layer-card">
+            <h2>ARP protokolynyň işleýşi (animasiýa)</h2>
+            <div class="animation-container">
+                <div style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap;">
+                    <div class="text-center">
+                        <span class="badge bg-primary p-3">PC1 (192.168.1.10)</span>
+                        <div>MAC: AA:AA:AA:AA:AA:AA</div>
+                    </div>
+                    <div class="text-center">
+                        <span class="badge bg-secondary p-3">→ ARP sorag →</span>
+                    </div>
+                    <div class="text-center">
+                        <span class="badge bg-success p-3">PC2 (192.168.1.20)</span>
+                        <div>MAC: BB:BB:BB:BB:BB:BB</div>
+                    </div>
+                </div>
+                <div class="mt-3">
+                    <button class="btn btn-primary" onclick="startARP()">ARP işleýşini gör</button>
+                </div>
+                <div id="arpResult" class="mt-3"></div>
+            </div>
+        </div>
+
+        <div class="layer-card">
+            <h2>Frame (çarçuwa) gurluşy</h2>
+            <p>Ethernet frame-iň düzümi:</p>
+            <table class="table table-bordered">
+                <tr>
+                    <td>Preamble (7 baýt)</td>
+                    <td>SFD (1 baýt)</td>
+                    <td>Destination MAC (6 baýt)</td>
+                    <td>Source MAC (6 baýt)</td>
+                    <td>Type/Length (2 baýt)</td>
+                    <td>Data (46-1500 baýt)</td>
+                    <td>FCS (4 baýt)</td>
+                </tr>
+            </table>
+            <p><strong>FCS (Frame Check Sequence):</strong> CRC algoritmi bilen ýalňyşlyklary anyklaýar.</p>
+        </div>
+
+        <div class="layer-card">
+            <h2>MAC adres we onuň gurluşy</h2>
+            <p>MAC adres 48 bitlik (6 baýt) bolup, 16-lyk san ulgamynda ýazylýar.</p>
+            <div class="alert alert-info">
+                <strong>Mysal:</strong> 00:1A:2B:3C:4D:5E
+                <hr>
+                <strong>Ilkinji 3 baýt (00:1A:2B):</strong> Öndürijiniň identifikatory (OUI)<br>
+                <strong>Soňky 3 baýt (3C:4D:5E):</strong> Enjamyň unikal belgisi
+            </div>
+            <p>MAC adres enjamyň tor kartyna önümçilik wagty ýazylýar we üýtgemeli däl (köplenç).</p>
+        </div>
+
+        <div class="layer-card">
+            <h2>Praktiki mysal: Ethernet switch-iň işleýşi</h2>
+            <p>Switch özüne birikdirilen enjamlaryň MAC adreslerini ýatda saklaýar (MAC tablisa).</p>
+            <div class="row">
+                <div class="col-md-6">
+                    <h6>MAC tablisa:</h6>
+                    <table class="table table-sm table-bordered">
+                        <tr><th>MAC adres</th><th>Port</th></tr>
+                        <tr><td>AA:AA:AA:AA:AA:AA</td><td>1</td></tr>
+                        <tr><td>BB:BB:BB:BB:BB:BB</td><td>2</td></tr>
+                        <tr><td>CC:CC:CC:CC:CC:CC</td><td>3</td></tr>
+                    </table>
+                </div>
+                <div class="col-md-6">
+                    <p>PC1 (port 1) PC3 (port 3) -e maglumat ibermekçi bolsa:</p>
+                    <ol>
+                        <li>PC1 frame döredýär (destination MAC = CC:CC:CC:CC:CC:CC)</li>
+                        <li>Switch frame alýar we MAC tablisadan CC:CC:CC:CC:CC:CC -iň port 3-dedigini görýär</li>
+                        <li>Frame diňe port 3-e iberilýär (beýleki portlara iberilmeýär)</li>
+                    </ol>
+                </div>
+            </div>
+        </div>
+
+        <div class="layer-card">
+            <h2>CSMA/CD (Ethernet üçin)</h2>
+            <p>CSMA/CD - Carrier Sense Multiple Access with Collision Detection. Köne Ethernet torlarynda ulanylýar.</p>
+            <div class="animation-container">
+                <div style="display: flex; justify-content: space-around;">
+                    <div>PC1 ⬜⬜⬜</div>
+                    <div>PC2 ⬜⬜⬜</div>
+                    <div>PC3 ⬜⬜⬜</div>
+                </div>
+                <button class="btn btn-sm btn-warning mt-2" onclick="simulateCollision()">Kolliziýa simulýasiýasy</button>
+                <div id="collisionMsg" class="mt-2"></div>
+            </div>
+        </div>
+
+        <div class="layer-card">
+            <h2>Gündelik durmuşdan mysallar</h2>
+            <div class="row">
+                <div class="col-md-4">
+                    <div class="card">
+                        <div class="card-body">
+                            <h5>🏠 Öý toru</h5>
+                            <p>Wi-Fi router (fiziki: radio tolkunlary, maglumat baglanyşyk: 802.11 protokoly)</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="card">
+                        <div class="card-body">
+                            <h5>🏢 Ofis toru</h5>
+                            <p>Ethernet kabelleri (Cat6) we switchler (MAC adres esasynda frame ibermek)</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="card">
+                        <div class="card-body">
+                            <h5>📱 Bluetooth</h5>
+                            <p>Smartfon we eşarp arasynda maglumat geçişi (fiziki: 2.4 GHz radio, maglumat baglanyşyk: Bluetooth protokoly)</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="layer-card">
+            <h2>Bu gatlakda işleýän enjamlar</h2>
+            <ul>
+                <li><strong>Switch (kommutator):</strong> Frame-lary MAC adres esasynda ugrukdyrýar</li>
+                <li><strong>Bridge (köpri):</strong> Iki tor segmentini birleşdirýär</li>
+                <li><strong>NIC (Tor karty):</strong> Enjamy tora birleşdirýän fiziki enjam</li>
+                <li><strong>Hub (multipleksor):</strong> Fiziki gatlakda işleýär (köne tehnologiýa)</li>
+                <li><strong>Access point:</strong> Simsiz enjamlary tora birleşdirýär</li>
+            </ul>
+        </div>
+
+        <div class="layer-card">
+            <h2>Ýalňyşlyklary anyklamak (CRC)</h2>
+            <p>Ethernet frame-inde FCS (Frame Check Sequence) ýalňyşlyklary anyklamak üçin ulanylýar. CRC (Cyclic Redundancy Check) algoritmi bilen hasaplanýar.</p>
+            <div class="bg-light p-3">
+                <code>Iberiji: "Salam" -> CRC = 0x1A2B<br>
+                Alyjy: "Salam" -> CRC = 0x1A2B (deň -> ýalňyş ýok)<br>
+                Eger "Salam" -> CRC = 0x3F4C bolsa, ýalňyş bar!</code>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+function startARP() {
+    let steps = [
+        'PC1 ARP sorag iberýär: "192.168.1.20 kime degişli?" (broadcast: FF:FF:FF:FF:FF:FF)',
+        'PC2 jogap berýär: "Men, MAC adresim BB:BB:BB:BB:BB:BB" (unicast)',
+        'PC1 ARP kesşine: 192.168.1.20 -> BB:BB:BB:BB:BB:BB ýazýar'
+    ];
+    
+    $('#arpResult').empty();
+    steps.forEach(function(step, index) {
+        setTimeout(function() {
+            $('#arpResult').append('<div class="alert alert-info p-1">' + step + '</div>');
+        }, index * 1500);
+    });
+}
+
+function simulateCollision() {
+    $('#collisionMsg').html('<div class="alert alert-danger">⚠️ Kolliziýa ýüze çykdy! PC1 we PC2 bir wagytda iberdi. Olar random wagtdan soň gaýtadan iberer.</div>');
+    setTimeout(function() {
+        $('#collisionMsg').html('<div class="alert alert-success">✅ PC1 üstünlikli iberdi, soňra PC2 iberdi.</div>');
+    }, 3000);
+}
+</script>
+
+<style>
+.layer-card {
+    margin-bottom: 20px;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    background-color: white;
+}
+</style>
+{% endblock %}

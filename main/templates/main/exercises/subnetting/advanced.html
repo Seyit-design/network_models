@@ -1,0 +1,59 @@
+{% extends 'main/base.html' %}
+{% block title %}Ýokary subnetting maşklary{% endblock %}
+{% block content %}
+<div class="bg-light py-4">
+    <div class="container">
+        <nav aria-label="breadcrumb">
+            <ol class="breadcrumb">
+                <li class="breadcrumb-item"><a href="{% url 'index' %}">Baş sahypa</a></li>
+                <li class="breadcrumb-item"><a href="{% url 'exercises_index' %}">Maşklar</a></li>
+                <li class="breadcrumb-item"><a href="{% url 'ex_subnetting' %}">Subnetting</a></li>
+                <li class="breadcrumb-item active">Ýokary</li>
+            </ol>
+        </nav>
+        <h1 class="display-5 fw-bold">Ýokary subnetting we VLSM gönükmeleri</h1>
+    </div>
+</div>
+
+<div class="container py-5">
+    <div class="row">
+        <div class="col-lg-8 mx-auto">
+            <div class="card mb-4">
+                <div class="card-header bg-white">
+                    <h2 class="h5 mb-0">1-nji gönükme (VLSM)</h2>
+                </div>
+                <div class="card-body">
+                    <p>Size 192.168.10.0/24 tor berlen. Aşakdaky talaplar boýunça VLSM ulanyp subnetleri dörediň:</p>
+                    <ul>
+                        <li>Subnet 1: 60 host</li>
+                        <li>Subnet 2: 28 host</li>
+                        <li>Subnet 3: 12 host</li>
+                        <li>Subnet 4: 2 host (router arasy)</li>
+                    </ul>
+                    <p>Her subnet üçin tor adresini, maskany we host aralygyny ýazyň.</p>
+                </div>
+            </div>
+            <div class="card mb-4">
+                <div class="card-header bg-white">
+                    <h2 class="h5 mb-0">2-nji gönükme (Route summarization)</h2>
+                </div>
+                <div class="card-body">
+                    <p>Aşakdaky subnetleri bir ýazgy bilen jemlemek üçin iň kiçi supernet adresi haýsy?</p>
+                    <pre>192.168.1.0/24, 192.168.2.0/24, 192.168.3.0/24, 192.168.4.0/24</pre>
+                </div>
+            </div>
+            <div class="card mb-4">
+                <div class="card-header bg-white">
+                    <h2 class="h5 mb-0">3-nji gönükme (Access list)</h2>
+                </div>
+                <div class="card-body">
+                    <p>192.168.1.0/25 toryndan diňe 192.168.1.64/26 subnetini rugsat etmek üçin wildcard maskany tapyň.</p>
+                </div>
+            </div>
+            <div class="alert alert-success">
+                <i class="fas fa-check-circle me-2"></i> Jogap (1-nji gönükme): A: /26 (64 adres), B: /27 (32), C: /28 (16), D: /30 (4).
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

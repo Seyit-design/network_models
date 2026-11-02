@@ -1,0 +1,93 @@
+{% extends "main/base.html" %}
+
+{% block title %}TCP/IP - Ulag gatlagy{% endblock %}
+
+{% block content %}
+<div class="row">
+    <div class="col-md-12">
+        <nav aria-label="breadcrumb">
+            <ol class="breadcrumb">
+                <li class="breadcrumb-item"><a href="/tcpip/">TCP/IP</a></li>
+                <li class="breadcrumb-item active">Ulag gatlagy</li>
+            </ol>
+        </nav>
+
+        <h1>Ulag gatlagy (Transport Layer)</h1>
+        
+        <div class="layer-card">
+            <h2>Bu gatlak näme?</h2>
+            <p>Ulag gatlagy TCP/IP modelinde OSI modeliniň Ulag gatlagyna (Layer 4) gabat gelýär. Bu gatlak maglumatlaryň ygtybarly ýetirilmegini üpjün edýär.</p>
+            
+            <div class="alert alert-info">
+                <strong>OSI bilen deňeşdirme:</strong> OSI Layer 4 (Ulag gatlagy)
+            </div>
+        </div>
+
+        <div class="layer-card">
+            <h2>TCP we UDP deňeşdirme</h2>
+            <table class="table table-bordered">
+                <thead>
+                    <tr>
+                        <th>Aýratynlyk</th>
+                        <th>TCP</th>
+                        <th>UDP</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Baglanyşyk</td>
+                        <td>Baglanyşyk esasly</td>
+                        <td>Baglanyşyksyz</td>
+                    </tr>
+                    <tr>
+                        <td>Ygtybarlylyk</td>
+                        <td>Ygtybarly</td>
+                        <td>Ygtybarly däl</td>
+                    </tr>
+                    <tr>
+                        <td>Tizlik</td>
+                        <td>Haýalrak</td>
+                        <td>Çalt</td>
+                    </tr>
+                    <tr>
+                        <td>Ulanylyşy</td>
+                        <td>Web, Email, FTP</td>
+                        <td>Streaming, VoIP, DNS</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <div class="layer-card">
+            <h2>Port sanlary</h2>
+            <div class="row">
+                <div class="col-md-4">
+                    <h6>Well-known ports (0-1023):</h6>
+                    <ul>
+                        <li>80 - HTTP</li>
+                        <li>443 - HTTPS</li>
+                        <li>21 - FTP</li>
+                        <li>22 - SSH</li>
+                        <li>25 - SMTP</li>
+                    </ul>
+                </div>
+                <div class="col-md-4">
+                    <h6>Registered ports (1024-49151):</h6>
+                    <ul>
+                        <li>3306 - MySQL</li>
+                        <li>5432 - PostgreSQL</li>
+                        <li>27017 - MongoDB</li>
+                    </ul>
+                </div>
+                <div class="col-md-4">
+                    <h6>Dynamic ports (49152-65535):</h6>
+                    <ul>
+                        <li>Geçiriji portlar</li>
+                        <li>P2P programmalar</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

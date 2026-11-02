@@ -1,0 +1,59 @@
+{% extends 'main/base.html' %}
+{% load static %}
+
+{% block title %}CompTIA Network+{% endblock %}
+
+{% block content %}
+<div class="bg-light py-4">
+    <div class="container">
+        <nav aria-label="breadcrumb">
+            <ol class="breadcrumb">
+                <li class="breadcrumb-item"><a href="{% url 'index' %}">Baş sahypa</a></li>
+                <li class="breadcrumb-item"><a href="{% url 'career_index' %}">Kariýer</a></li>
+                <li class="breadcrumb-item active">Network+</li>
+            </ol>
+        </nav>
+        <h1 class="display-5 fw-bold">CompTIA Network+</h1>
+        <p class="lead">Tor ulgamynyň esaslary boýunça başlangyç sertifikat</p>
+    </div>
+</div>
+
+<div class="container py-5">
+    <div class="row">
+        <div class="col-md-8">
+            <div class="card mb-4">
+                <div class="card-header bg-white">
+                    <h2 class="h5 mb-0">Network+ barada</h2>
+                </div>
+                <div class="card-body">
+                    <p>CompTIA Network+ – tor ulgamy hünärmenleri üçin ýörite döredilen, satyjy garaşsyz sertifikat. Tor gurmak, dolandyrmak we troubleshooting ýaly esaslary öwredýär.</p>
+                    <h3 class="h6 mt-3">Esasy mövzular:</h4>
+                    <ul>
+                        <li>Tor modelleri (OSI, TCP/IP)</li>
+                        <li>IP adresleme we subnetting</li>
+                        <li>Tor enjamlary (router, switch)</li>
+                        <li>Kabel we simsiz tehnologiýalar</li>
+                        <li>Tor howpsuzlygy</li>
+                        <li>Troubleshooting</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="card mb-4">
+                <div class="card-header bg-white">
+                    <h2 class="h5 mb-0">Synag maglumatlary</h2>
+                </div>
+                <div class="card-body">
+                    <ul class="list-unstyled">
+                        <li><strong>Kod:</strong> N10-008</li>
+                        <li><strong>Wagt:</strong> 90 minut</li>
+                        <li><strong>Sorag sany:</strong> 90</li>
+                        <li><strong>Baha:</strong> 338 USD</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

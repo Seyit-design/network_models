@@ -1,0 +1,67 @@
+{% extends 'main/base.html' %}
+{% load static %}
+
+{% block title %}VLSM Kalkulýator{% endblock %}
+
+{% block content %}
+<div class="bg-light py-4">
+    <div class="container">
+        <nav aria-label="breadcrumb">
+            <ol class="breadcrumb">
+                <li class="breadcrumb-item"><a href="{% url 'index' %}">Baş sahypa</a></li>
+                <li class="breadcrumb-item"><a href="{% url 'tools_index' %}">Gurallar</a></li>
+                <li class="breadcrumb-item active">VLSM Kalkulýator</li>
+            </ol>
+        </nav>
+        <h1 class="display-5 fw-bold">VLSM Kalkulýator</h1>
+        <p class="lead">Üýtgeýän uzynlykdaky subnet mask (Variable Length Subnet Mask)</p>
+    </div>
+</div>
+
+<div class="container py-5">
+    <div class="row">
+        <div class="col-lg-8 mx-auto">
+            <div class="card">
+                <div class="card-header bg-white">
+                    <h2 class="h5 mb-0">Esasy tor we subnet talaplary</h2>
+                </div>
+                <div class="card-body">
+                    <form action="{% url 'vlsm_calculator' %}" method="post">
+                        {% csrf_token %}
+                        <div class="mb-3">
+                            <label for="network" class="form-label">Esasy tor (Network)</label>
+                            <input type="text" class="form-control" id="network" name="network" placeholder="Mysal: 192.168.1.0/24" required>
+                            <div class="form-text">Tor adresini CIDR belgisi bilen giriziň (mysal: 192.168.1.0/24).</div>
+                        </div>
+                        <div class="mb-3">
+                            <label for="hosts" class="form-label">Host sany (wergirgül bilen aýryň)</label>
+                            <textarea class="form-control" id="hosts" name="hosts" rows="3" placeholder="Mysal: 50, 25, 12, 5" required></textarea>
+                            <div class="form-text">Her subnet üçin zerur host sanyny wergirgül bilen aýryp ýazyň. Tertibi möhümdir (uludan kiçä).</div>
+                        </div>
+                        <button type="submit" class="btn btn-primary w-100">Hasapla</button>
+                    </form>
+                </div>
+            </div>
+            <div class="alert alert-warning mt-4">
+                <i class="fas fa-exclamation-triangle me-2"></i>
+                <strong>Bellik:</strong> Bu gural entek işlenýär, doly funksional däl. Netijeleri görkezmek üçin <code>vlsm_calculator_result.html</code> şablony gerek.
+            </div>
+            <div class="card mt-4">
+                <div class="card-header bg-white">
+                    <h2 class="h5 mb-0">VLSM düşündiriş</h2>
+                </div>
+                <div class="card-body">
+                    <p>VLSM (Variable Length Subnet Mask) – torlary dürli ululykdaky subnetlere bölmäge mümkinçilik berýän usul. Bu, IP adreslerini tygşytly ulanmaga ýardam berýär.</p>
+                    <p><strong>Mysal:</strong> 192.168.1.0/24 toryny aşakdaky ýaly bölmek:</p>
+                    <ul>
+                        <li>Subnet A: 50 host – /26 (64 adres)</li>
+                        <li>Subnet B: 25 host – /27 (32 adres)</li>
+                        <li>Subnet C: 12 host – /28 (16 adres)</li>
+                        <li>Subnet D: 5 host – /29 (8 adres)</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

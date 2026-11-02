@@ -1,0 +1,21 @@
+{% extends 'main/base.html' %}
+{% block title %}DHCP Protocol{% endblock %}
+{% block content %}
+<div class="container py-5">
+    <h1>DHCP (Dynamic Host Configuration Protocol)</h1>
+    
+    <div class="card">
+        <div class="card-body">
+            <p><strong>Port:</strong> 67 (server), 68 (client)</p>
+            
+            <h5>DHCP işleýşi (DORA):</h5>
+            <ol>
+                <li><strong>D</strong>iscover - Client sorag iberýär</li>
+                <li><strong>O</strong>ffer - Server teklip iberýär</li>
+                <li><strong>R</strong>equest - Client kabul edýär</li>
+                <li><strong>A</strong>ck - Server tassyklaýar</li>
+            </ol>
+        </div>
+    </div>
+</div>
+{% endblock %}

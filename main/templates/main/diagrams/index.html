@@ -1,0 +1,54 @@
+{% extends 'main/base.html' %}
+{% load static %}
+
+{% block title %}Tor diagrammalary{% endblock %}
+
+{% block content %}
+<div class="bg-light py-4">
+    <div class="container">
+        <nav aria-label="breadcrumb">
+            <ol class="breadcrumb">
+                <li class="breadcrumb-item"><a href="{% url 'index' %}">Baş sahypa</a></li>
+                <li class="breadcrumb-item active">Diagrammalar</li>
+            </ol>
+        </nav>
+        <h1 class="display-5 fw-bold">Tor diagrammalary</h1>
+        <p class="lead">OSI, TCP/IP we beýleki tor modelleriniň görkezmesi</p>
+    </div>
+</div>
+
+<div class="container py-5">
+    <div class="row g-4">
+        <div class="col-md-4">
+            <div class="card h-100">
+                <img src="{% static 'images/osi_model.png' %}" class="card-img-top" alt="OSI Model" onerror="this.src='https://via.placeholder.com/300x200?text=OSI+Model'">
+                <div class="card-body">
+                    <h3 class="h5">OSI Model</h3>
+                    <p class="text-muted">7 gatlakly OSI modeliniň diagrammasy</p>
+                    <a href="{% url 'diagram_osi' %}" class="btn btn-outline-primary">Görkez</a>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="card h-100">
+                <img src="{% static 'images/tcpip_model.png' %}" class="card-img-top" alt="TCP/IP Model" onerror="this.src='https://via.placeholder.com/300x200?text=TCP%2FIP+Model'">
+                <div class="card-body">
+                    <h3 class="h5">TCP/IP Model</h3>
+                    <p class="text-muted">4 gatlakly TCP/IP modeliniň diagrammasy</p>
+                    <a href="{% url 'diagram_tcpip' %}" class="btn btn-outline-primary">Görkez</a>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="card h-100">
+                <img src="{% static 'images/network_diagram.png' %}" class="card-img-top" alt="Network Diagram" onerror="this.src='https://via.placeholder.com/300x200?text=Network+Diagram'">
+                <div class="card-body">
+                    <h3 class="h5">Tor diagrammasy</h3>
+                    <p class="text-muted">Router, switch we kompýuterleriň birikmesi</p>
+                    <a href="{% url 'diagram_network' %}" class="btn btn-outline-primary">Görkez</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

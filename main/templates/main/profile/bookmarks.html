@@ -1,0 +1,51 @@
+{% extends 'main/base.html' %}
+{% load static %}
+
+{% block title %}Meniň belgilerim{% endblock %}
+
+{% block content %}
+<div class="bg-light py-4">
+    <div class="container">
+        <nav aria-label="breadcrumb">
+            <ol class="breadcrumb">
+                <li class="breadcrumb-item"><a href="{% url 'index' %}">Baş sahypa</a></li>
+                <li class="breadcrumb-item"><a href="{% url 'user_profile' %}">Profil</a></li>
+                <li class="breadcrumb-item active">Belgiler</li>
+            </ol>
+        </nav>
+        <h1 class="display-5 fw-bold">Meniň belgilerim</h1>
+        <p class="lead">Soňra okamak üçin belgän dersleriňiz</p>
+    </div>
+</div>
+
+<div class="container py-5">
+    <div class="row">
+        <div class="col-12">
+            {% if bookmarks %}
+                <div class="list-group">
+                    {% for bookmark in bookmarks %}
+                    <div class="list-group-item d-flex justify-content-between align-items-center">
+                        <div>
+                            <h5 class="mb-1">{{ bookmark.lesson.title }}</h5>
+                            <p class="mb-1 text-muted small">{{ bookmark.lesson.category.name }} | {{ bookmark.lesson.difficulty }}</p>
+                        </div>
+                        <div>
+                            <a href="{% url 'lesson_detail' bookmark.lesson.slug %}" class="btn btn-sm btn-outline-primary me-2">Okamak</a>
+                            <a href="{% url 'remove_bookmark' bookmark.id %}" class="btn btn-sm btn-outline-danger" onclick="return confirm('Belgini aýyrmak isleýärsiňizmi?')">
+                                <i class="fas fa-trash"></i>
+                            </a>
+                        </div>
+                    </div>
+                    {% endfor %}
+                </div>
+            {% else %}
+                <div class="alert alert-info">
+                    <i class="fas fa-info-circle me-2"></i>
+                    Entek hiç hili belgiňiz ýok. Dersleri öwrenip, özüňize belgä goşup bilersiňiz.
+                </div>
+                <a href="{% url 'category_list' %}" class="btn btn-primary">Dersleri gözlemek</a>
+            {% endif %}
+        </div>
+    </div>
+</div>
+{% endblock %}

@@ -1,0 +1,114 @@
+{% extends 'main/base.html' %}
+{% load static %}
+
+{% block title %}Kabel reňk kodlary{% endblock %}
+
+{% block content %}
+<div class="bg-light py-4">
+    <div class="container">
+        <nav aria-label="breadcrumb">
+            <ol class="breadcrumb">
+                <li class="breadcrumb-item"><a href="{% url 'index' %}">Baş sahypa</a></li>
+                <li class="breadcrumb-item"><a href="{% url 'cables_index' %}">Kabeller</a></li>
+                <li class="breadcrumb-item active">Reňk kodlary</li>
+            </ol>
+        </nav>
+        <h1 class="display-5 fw-bold">Kabel reňk kodlary</h1>
+        <p class="lead">Ethernet we fiber optik kabeller üçin reňk standartlary</p>
+    </div>
+</div>
+
+<div class="container py-5">
+    <!-- Ethernet kabelleri üçin reňk kodlary -->
+    <div class="card mb-4">
+        <div class="card-header bg-white">
+            <h2 class="h5 mb-0"><i class="fas fa-ethernet me-2 text-primary"></i>Ethernet kabelleri (RJ-45)</h2>
+        </div>
+        <div class="card-body">
+            <p>Ethernet kabellerinde simleriň tertibi iki esasy standart boýunça kesgitlenýär: <strong>T568A</strong> we <strong>T568B</strong>. Iki ujy hem bir standartda bolsa <strong>düz (straight-through)</strong> kabel, dürli standartlarda bolsa <strong>çatylan (crossover)</strong> kabel emele gelýär.</p>
+            
+            <div class="row">
+                <div class="col-md-6">
+                    <h3 class="h6">T568A standarty</h3>
+                    <table class="table table-sm table-bordered">
+                        <thead class="table-light">
+                            <tr><th>Pin</th><th>Reňk</th><th>Gysgaltma</th></tr>
+                        </thead>
+                        <tbody>
+                            <tr><td>1</td><td>Ak-Ýaşyl</td><td>W-G</td></tr>
+                            <tr><td>2</td><td>Ýaşyl</td><td>G</td></tr>
+                            <tr><td>3</td><td>Ak-Mämişi</td><td>W-O</td></tr>
+                            <tr><td>4</td><td>Gök</td><td>BL</td></tr>
+                            <tr><td>5</td><td>Ak-Gök</td><td>W-BL</td></tr>
+                            <tr><td>6</td><td>Mämişi</td><td>O</td></tr>
+                            <tr><td>7</td><td>Ak-Goňur</td><td>W-BR</td></tr>
+                            <tr><td>8</td><td>Goňur</td><td>BR</td></tr>
+                        </tbody>
+                    </table>
+                </div>
+                <div class="col-md-6">
+                    <h3 class="h6">T568B standarty (has köp ulanylýar)</h3>
+                    <table class="table table-sm table-bordered">
+                        <thead class="table-light">
+                            <tr><th>Pin</th><th>Reňk</th><th>Gysgaltma</th></tr>
+                        </thead>
+                        <tbody>
+                            <tr><td>1</td><td>Ak-Mämişi</td><td>W-O</td></tr>
+                            <tr><td>2</td><td>Mämişi</td><td>O</td></tr>
+                            <tr><td>3</td><td>Ak-Ýaşyl</td><td>W-G</td></tr>
+                            <tr><td>4</td><td>Gök</td><td>BL</td></tr>
+                            <tr><td>5</td><td>Ak-Gök</td><td>W-BL</td></tr>
+                            <tr><td>6</td><td>Ýaşyl</td><td>G</td></tr>
+                            <tr><td>7</td><td>Ak-Goňur</td><td>W-BR</td></tr>
+                            <tr><td>8</td><td>Goňur</td><td>BR</td></tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+            <p class="text-muted small"><i class="fas fa-info-circle me-1"></i> Gysgaltmalar: W – Ak, G – Ýaşyl, O – Mämişi, BL – Gök, BR – Goňur.</p>
+        </div>
+    </div>
+
+    <!-- Fiber optik kabeller üçin reňk kodlary -->
+    <div class="card mb-4">
+        <div class="card-header bg-white">
+            <h2 class="h5 mb-0"><i class="fas fa-fiber me-2 text-primary"></i>Fiber optik kabeller</h2>
+        </div>
+        <div class="card-body">
+            <p>Fiber optik kabellerde daşky gabygyň reňki kabeliň görnüşini we ulanylyşyny görkezýär.</p>
+            <table class="table table-bordered">
+                <thead class="table-light">
+                    <tr><th>Reňk</th><th>Kabel görnüşi</th><th>Düşündiriş</th></tr>
+                </thead>
+                <tbody>
+                    <tr><td><span class="badge" style="background-color:yellow; color:black;">Sary</span></td><td>Single-mode</td><td>Uzak aralyk, lazer çeşmesi</td></tr>
+                    <tr><td><span class="badge" style="background-color:aqua;">Açyk gök</span></td><td>Multi-mode (OM1/OM2)</td><td>Gysga aralyk, LED</td></tr>
+                    <tr><td><span class="badge" style="background-color:magenta;">Gülgün</span></td><td>Multi-mode (OM3)</td><td>50/125 µm, lazer optimizirlenen</td></tr>
+                    <tr><td><span class="badge" style="background-color:purple; color:white;">Benewşe</span></td><td>Multi-mode (OM4)</td><td>Ýokary tizlik, 100 Gbps çenli</td></tr>
+                    <tr><td><span class="badge" style="background-color:lime;">Ýaşyl</span></td><td>Multi-mode (OM5)</td><td>Geniş dalga uzynlygy</td></tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+    <!-- Koaksial kabel reňkleri -->
+    <div class="card mb-4">
+        <div class="card-header bg-white">
+            <h2 class="h5 mb-0"><i class="fas fa-tv me-2 text-primary"></i>Koaksial kabeller</h2>
+        </div>
+        <div class="card-body">
+            <p>Koaksial kabellerde merkezi simiň we dielektrikiň reňki dürli bolup biler, ýöne esasy standart ýok. Köplenç:</p>
+            <ul>
+                <li><strong>RG-6:</strong> Siňdiriji örtük (satellite, kabel TV) – köplenç ak ýa-da gara.</li>
+                <li><strong>RG-59:</strong> CCTV ulgamlary – köplenç ak.</li>
+            </ul>
+        </div>
+    </div>
+
+    <!-- Kabel ulanylyşyna görä maslahatlar -->
+    <div class="alert alert-info">
+        <i class="fas fa-lightbulb me-2"></i>
+        <strong>Maslahat:</strong> T568B standarty Amerikada we köp ýurtlarda esasy standart hökmünde ulanylýar. T568A bolsa köne enjamlar we käbir hökümet ulgamlarynda duş gelýär. Iki standart hem dogry, ýöne bir kabeliň iki ujy bir standartda bolmaly.
+    </div>
+</div>
+{% endblock %}

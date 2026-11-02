@@ -1,0 +1,74 @@
+{% extends 'main/base.html' %}
+{% load static %}
+
+{% block title %}Amaly maşklar{% endblock %}
+
+{% block content %}
+<div class="bg-light py-4">
+    <div class="container">
+        <nav aria-label="breadcrumb">
+            <ol class="breadcrumb">
+                <li class="breadcrumb-item"><a href="{% url 'index' %}">Baş sahypa</a></li>
+                <li class="breadcrumb-item active">Maşklar</li>
+            </ol>
+        </nav>
+        <h1 class="display-5 fw-bold">Amaly maşklar</h1>
+        <p class="lead">Tor ulgamy başarnyklaryňyzy ösdüriň</p>
+    </div>
+</div>
+
+<div class="container py-5">
+    <div class="row g-4">
+        <div class="col-md-4">
+            <div class="card h-100">
+                <div class="card-body text-center">
+                    <i class="fas fa-code-branch fa-3x text-primary mb-3"></i>
+                    <h3 class="h5">Subnetting maşklary</h3>
+                    <p>Başlangyç, orta we ýokary derejeli subnetting gönükmeleri</p>
+                    <a href="{% url 'ex_subnetting' %}" class="btn btn-outline-primary">Başla</a>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="card h-100">
+                <div class="card-body text-center">
+                    <i class="fas fa-network-wired fa-3x text-primary mb-3"></i>
+                    <h3 class="h5">IP klasslary</h3>
+                    <p>Klass A, B, C we hususy IP aralyklary</p>
+                    <a href="{% url 'ex_ip_classes' %}" class="btn btn-outline-primary">Başla</a>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="card h-100">
+                <div class="card-body text-center">
+                    <i class="fas fa-draw-polygon fa-3x text-primary mb-3"></i>
+                    <h3 class="h5">VLSM</h3>
+                    <p>Üýtgeýän uzynlykdaky subnet mask bilen işlemek</p>
+                    <a href="{% url 'ex_vlsm' %}" class="btn btn-outline-primary">Başla</a>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="card h-100">
+                <div class="card-body text-center">
+                    <i class="fas fa-plug fa-3x text-primary mb-3"></i>
+                    <h3 class="h5">Kabel maşklary</h3>
+                    <p>Kabel görnüşleri, reňk kodlary we birikdirme</p>
+                    <a href="{% url 'ex_cabling' %}" class="btn btn-outline-primary">Başla</a>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="card h-100">
+                <div class="card-body text-center">
+                    <i class="fas fa-route fa-3x text-primary mb-3"></i>
+                    <h3 class="h5">Routing maşklary</h3>
+                    <p>Static we dynamic routing gönükmeleri</p>
+                    <a href="{% url 'ex_routing' %}" class="btn btn-outline-primary">Başla</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

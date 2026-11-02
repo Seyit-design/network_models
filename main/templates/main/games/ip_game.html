@@ -1,0 +1,23 @@
+{% extends 'main/base.html' %}
+{% block title %}IP oýuny{% endblock %}
+{% block content %}
+<div class="container py-5">
+    <h1>IP adres oýuny</h1>
+    
+    <div class="card">
+        <div class="card-body">
+            <p>IP adres: <span id="ip">192.168.1.1</span></p>
+            <p>Bu haýsy klas?</p>
+            <button class="btn btn-outline-primary" onclick="checkAnswer('A')">Class A</button>
+            <button class="btn btn-outline-primary" onclick="checkAnswer('B')">Class B</button>
+            <button class="btn btn-outline-primary" onclick="checkAnswer('C')">Class C</button>
+        </div>
+    </div>
+</div>
+
+<script>
+function checkAnswer(answer) {
+    alert("Jogap: " + answer);
+}
+</script>
+{% endblock %}

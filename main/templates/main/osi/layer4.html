@@ -1,0 +1,175 @@
+{% extends "main/base.html" %}
+
+{% block title %}OSI - Ulag gatlagy{% endblock %}
+
+{% block content %}
+<div class="row">
+    <div class="col-md-12">
+        <nav aria-label="breadcrumb">
+            <ol class="breadcrumb">
+                <li class="breadcrumb-item"><a href="/osi/">OSI</a></li>
+                <li class="breadcrumb-item active">Ulag gatlagy</li>
+            </ol>
+        </nav>
+
+        <h1>Ulag gatlagy (Layer 4)</h1>
+        
+        <div class="layer-card">
+            <h2>Gelip çykyşy we wezipeleri</h2>
+            <p>Ulag gatlagy 1970-nji ýyllaryň ahyrynda TCP (Transmission Control Protocol) we UDP (User Datagram Protocol) protokollary bilen birlikde işlenip düzüldi. Bu gatlagyň esasy wezipesi - maglumatlaryň ygtybarly we tertipli ýetirilmegini üpjün etmek.</p>
+            <p><strong>Esasy wezipeleri:</strong></p>
+            <ul>
+                <li>Port adresleme (ulanylýan programmany kesgitlemek)</li>
+                <li>Maglumatlary segmentlere bölmek</li>
+                <li>Ygtybarlylygy üpjün etmek (TCP)</li>
+                <li>Akymy dolandyrmak</li>
+                <li>Gürpüldini dolandyrmak</li>
+            </ul>
+        </div>
+
+        <div class="layer-card">
+            <h2>TCP vs UDP</h2>
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="card border-primary">
+                        <div class="card-header bg-primary text-white">TCP</div>
+                        <div class="card-body">
+                            <ul>
+                                <li>Baglanyşyk esasly</li>
+                                <li>Ygtybarly maglumat geçişi</li>
+                                <li>Maglumatlar tertipli ýetirilýär</li>
+                                <li>Ýalňyşlyklary düzedýär</li>
+                                <li>Akymy dolandyrýar</li>
+                                <li>Haçan: Web (HTTP), Email (SMTP), FTP</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="card border-success">
+                        <div class="card-header bg-success text-white">UDP</div>
+                        <div class="card-body">
+                            <ul>
+                                <li>Baglanyşyksyz</li>
+                                <li>Ygtybarly däl (çalt)</li>
+                                <li>Tertip ähmiýetsiz</li>
+                                <li>Ýalňyşlyklary düzetmeýär</li>
+                                <li>Akym dolandyryşy ýok</li>
+                                <li>Haçan: VoIP, DNS, Streaming, Oýunlar</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="layer-card">
+            <h2>TCP el çarpmasy (3-way handshake)</h2>
+            <div class="animation-container">
+                <div style="display: flex; justify-content: space-between;">
+                    <div class="text-center">
+                        <h5>Iberiji (Client)</h5>
+                        <div id="clientState" class="badge bg-secondary">CLOSED</div>
+                    </div>
+                    <div class="text-center">
+                        <h5>Alyjy (Server)</h5>
+                        <div id="serverState" class="badge bg-secondary">LISTEN</div>
+                    </div>
+                </div>
+                <div style="height: 200px; position: relative; margin-top: 20px;">
+                    <!-- SYN -->
+                    <div id="synPacket" style="position: absolute; left: 20%; top: 50px; background: #007bff; color: white; padding: 10px; border-radius: 5px; display: none;">
+                        SYN (SEQ=100)
+                    </div>
+                    <!-- SYN-ACK -->
+                    <div id="synackPacket" style="position: absolute; left: 60%; top: 100px; background: #28a745; color: white; padding: 10px; border-radius: 5px; display: none;">
+                        SYN-ACK (SEQ=200, ACK=101)
+                    </div>
+                    <!-- ACK -->
+                    <div id="ackPacket" style="position: absolute; left: 20%; top: 150px; background: #ffc107; padding: 10px; border-radius: 5px; display: none;">
+                        ACK (SEQ=101, ACK=201)
+                    </div>
+                </div>
+                <button class="btn btn-primary" onclick="startHandshake()">TCP el çarpmasyny başlat</button>
+            </div>
+        </div>
+
+        <div class="layer-card">
+            <h2>Port nomerleri</h2>
+            <table class="table table-striped">
+                <thead>
+                    <tr>
+                        <th>Port</th>
+                        <th>Protokol</th>
+                        <th>Ulanylyşy</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr><td>20,21</td><td>FTP</td><td>Faýl geçişi</td></tr>
+                    <tr><td>22</td><td>SSH</td><td>Ygtybarly remote giriş</td></tr>
+                    <tr><td>23</td><td>Telnet</td><td>Remote giriş</td></tr>
+                    <tr><td>25</td><td>SMTP</td><td>Email ibermek</td></tr>
+                    <tr><td>53</td><td>DNS</td><td>Adres çözmek</td></tr>
+                    <tr><td>80</td><td>HTTP</td><td>Web sahypalar</td></tr>
+                    <tr><td>110</td><td>POP3</td><td>Email almak</td></tr>
+                    <tr><td>143</td><td>IMAP</td><td>Email almak</td></tr>
+                    <tr><td>443</td><td>HTTPS</td><td>Ygtybarly web</td></tr>
+                </tbody>
+            </table>
+        </div>
+
+        <div class="layer-card">
+            <h2>Praktiki mysal: netstat</h2>
+            <p>Netstat komandasy bilen açyk portlary we baglanyşyklary görmek bolýar:</p>
+            <div class="bg-dark text-white p-3 rounded">
+                <code>$ netstat -an<br>
+                Proto  Local Address     Foreign Address   State<br>
+                TCP    0.0.0.0:80        0.0.0.0:0         LISTEN<br>
+                TCP    192.168.1.10:54321 93.184.216.34:80 ESTABLISHED<br>
+                UDP    0.0.0.0:53        0.0.0.0:0         </code>
+            </div>
+        </div>
+
+        <div class="layer-card">
+            <h2>TCP segment gurluşy</h2>
+            <table class="table table-bordered">
+                <tr>
+                    <td>Çeşme port (16 bit)</td>
+                    <td>Barjak port (16 bit)</td>
+                </tr>
+                <tr>
+                    <td colspan="2">Sekens belgisi (32 bit)</td>
+                </tr>
+                <tr>
+                    <td colspan="2">Tassyklama belgisi (32 bit)</td>
+                </tr>
+                <tr>
+                    <td>Data offset (4 bit)</td>
+                    <td>Reserved (6 bit)</td>
+                    <td>Flaglar (6 bit)</td>
+                    <td>Window (16 bit)</td>
+                </tr>
+            </table>
+        </div>
+    </div>
+</div>
+
+<script>
+function startHandshake() {
+    $('#clientState').text('SYN_SENT').removeClass('bg-secondary').addClass('bg-primary');
+    $('#synPacket').show().animate({left: '60%'}, 1000, function() {
+        $('#serverState').text('SYN_RCVD').removeClass('bg-secondary').addClass('bg-success');
+        $('#synPacket').hide();
+        $('#synackPacket').show().animate({left: '20%'}, 1000, function() {
+            $('#clientState').text('ESTABLISHED').removeClass('bg-primary').addClass('bg-success');
+            $('#synackPacket').hide();
+            $('#ackPacket').show().animate({left: '60%'}, 1000, function() {
+                $('#serverState').text('ESTABLISHED').removeClass('bg-success').addClass('bg-success');
+                $('#ackPacket').hide();
+                alert('TCP baglanyşyk guruldy!');
+            });
+        });
+    });
+}
+</script>
+{% endblock %}

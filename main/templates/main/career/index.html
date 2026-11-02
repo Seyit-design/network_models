@@ -1,0 +1,54 @@
+{% extends 'main/base.html' %}
+{% load static %}
+
+{% block title %}Kariýer ýollary{% endblock %}
+
+{% block content %}
+<div class="bg-light py-4">
+    <div class="container">
+        <nav aria-label="breadcrumb">
+            <ol class="breadcrumb">
+                <li class="breadcrumb-item"><a href="{% url 'index' %}">Baş sahypa</a></li>
+                <li class="breadcrumb-item active">Kariýer</li>
+            </ol>
+        </nav>
+        <h1 class="display-5 fw-bold">Kariýer ýollary</h1>
+        <p class="lead">Tor ulgamy hünärmeni bolmak üçin ädimler</p>
+    </div>
+</div>
+
+<div class="container py-5">
+    <div class="row g-4">
+        <div class="col-md-4">
+            <div class="card h-100">
+                <div class="card-body text-center">
+                    <i class="fas fa-certificate fa-3x text-primary mb-3"></i>
+                    <h3 class="h5">Sertifikatlar</h3>
+                    <p class="text-muted">CCNA, Network+, Security+ we beýlekiler</p>
+                    <a href="{% url 'career_certifications' %}" class="btn btn-outline-primary">Giňişleýin</a>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="card h-100">
+                <div class="card-body text-center">
+                    <i class="fas fa-briefcase fa-3x text-primary mb-3"></i>
+                    <h3 class="h5">Iş mümkinçilikleri</h3>
+                    <p class="text-muted">Network Administrator, Engineer we ş.m.</p>
+                    <a href="{% url 'career_jobs' %}" class="btn btn-outline-primary">Giňişleýin</a>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="card h-100">
+                <div class="card-body text-center">
+                    <i class="fas fa-question-circle fa-3x text-primary mb-3"></i>
+                    <h3 class="h5">Interwýu maslahatlary</h3>
+                    <p class="text-muted">Köp berilýän soraglar we jogap bermek usullary</p>
+                    <a href="{% url 'career_interview' %}" class="btn btn-outline-primary">Giňişleýin</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

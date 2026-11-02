@@ -1,0 +1,43 @@
+{% extends 'main/base.html' %}
+{% block title %}{{ term.term }}{% endblock %}
+{% block content %}
+<div class="container py-5">
+    <nav aria-label="breadcrumb">
+        <ol class="breadcrumb">
+            <li class="breadcrumb-item"><a href="{% url 'glossary_index' %}">Sözlük</a></li>
+            <li class="breadcrumb-item active">{{ term.term }}</li>
+        </ol>
+    </nav>
+    
+    <div class="card">
+        <div class="card-body">
+            <h1 class="h2 mb-4">{{ term.term }}</h1>
+            
+            {% if term.acronym %}
+            <p><strong>Gysgaldylan:</strong> {{ term.acronym }}</p>
+            {% endif %}
+            
+            <div class="mb-4">
+                <h5>Kesgitleme:</h5>
+                <p>{{ term.definition }}</p>
+            </div>
+            
+            {% if term.example %}
+            <div class="mb-4">
+                <h5>Mysal:</h5>
+                <div class="bg-light p-3 rounded">
+                    {{ term.example|linebreaks }}
+                </div>
+            </div>
+            {% endif %}
+            
+            {% if term.category %}
+            <p>
+                <strong>Kategoriýa:</strong>
+                <span class="badge bg-info">{{ term.category.name }}</span>
+            </p>
+            {% endif %}
+        </div>
+    </div>
+</div>
+{% endblock %}

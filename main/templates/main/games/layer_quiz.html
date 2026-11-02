@@ -1,0 +1,164 @@
+{% extends 'main/base.html' %}
+{% load static %}
+
+{% block title %}OSI Gatlak oýuny{% endblock %}
+
+{% block content %}
+<div class="bg-light py-4">
+    <div class="container">
+        <nav aria-label="breadcrumb">
+            <ol class="breadcrumb">
+                <li class="breadcrumb-item"><a href="{% url 'index' %}">Baş sahypa</a></li>
+                <li class="breadcrumb-item"><a href="{% url 'games_index' %}">Oýunlar</a></li>
+                <li class="breadcrumb-item active">OSI Gatlak oýuny</li>
+            </ol>
+        </nav>
+        <h1 class="display-5 fw-bold">OSI Gatlak oýuny</h1>
+        <p class="lead">Gatlaklary dogry tertipde düzüň</p>
+    </div>
+</div>
+
+<div class="container py-5">
+    <div class="row">
+        <div class="col-lg-8 mx-auto">
+            <div class="card">
+                <div class="card-header bg-white">
+                    <div class="d-flex justify-content-between align-items-center">
+                        <h2 class="h5 mb-0">Gatlaklary süýşürip tertipleşdiriň</h2>
+                        <span id="score" class="badge bg-success">Ball: 0</span>
+                    </div>
+                </div>
+                <div class="card-body">
+                    <div id="layers-container" class="mb-4">
+                        <!-- Gatlaklar bu ýere JavaScript bilen doldurylar -->
+                    </div>
+                    <div class="d-flex justify-content-between">
+                        <button class="btn btn-outline-primary" onclick="shuffleLayers()">
+                            <i class="fas fa-random me-2"></i>Gatyşdyr
+                        </button>
+                        <button class="btn btn-primary" onclick="checkOrder()">
+                            <i class="fas fa-check me-2"></i>Barla
+                        </button>
+                    </div>
+                </div>
+            </div>
+            <div id="result" class="alert mt-4" style="display: none;"></div>
+        </div>
+    </div>
+</div>
+
+<script>
+var layers = [
+    {num: 1, name: 'Fiziki gatlak', desc: 'Kabeller, signallar'},
+    {num: 2, name: 'Maglumat baglanyşyk gatlagy', desc: 'MAC adresler, switçler'},
+    {num: 3, name: 'Ulgam gatlagy', desc: 'IP adresler, routerler'},
+    {num: 4, name: 'Ulag gatlagy', desc: 'TCP, UDP'},
+    {num: 5, name: 'Sessiýa gatlagy', desc: 'Sessiýa dolandyryş'},
+    {num: 6, name: 'Prezentasiýa gatlagy', desc: 'Şifrleme, kompressiýa'},
+    {num: 7, name: 'Amaly gatlak', desc: 'HTTP, FTP, SMTP'}
+];
+
+function displayLayers(layersArray) {
+    var container = $('#layers-container');
+    container.empty();
+    layersArray.forEach(function(layer, index) {
+        var layerHtml = `
+            <div class="layer-item card mb-2" draggable="true" data-layer="${layer.num}" data-index="${index}">
+                <div class="card-body d-flex align-items-center">
+                    <i class="fas fa-grip-vertical me-3 text-muted handle"></i>
+                    <div class="flex-grow-1">
+                        <h4 class="h6 mb-1">Gatlak ${layer.num}: ${layer.name}</h4>
+                        <small class="text-muted">${layer.desc}</small>
+                    </div>
+                    <span class="badge bg-primary">${layer.num}</span>
+                </div>
+            </div>
+        `;
+        container.append(layerHtml);
+    });
+    addDragDrop();
+}
+
+function shuffleLayers() {
+    var shuffled = [...layers];
+    for (let i = shuffled.length - 1; i > 0; i--) {
+        const j = Math.floor(Math.random() * (i + 1));
+        [shuffled[i], shuffled[j]] = [shuffled[j], shuffled[i]];
+    }
+    displayLayers(shuffled);
+    $('#score').text('Ball: 0');
+    $('#result').hide();
+}
+
+function checkOrder() {
+    var items = $('.layer-item');
+    var order = [];
+    items.each(function() {
+        order.push(parseInt($(this).data('layer')));
+    });
+    // Send to server for validation
+    $.post('{% url "game_layer_quiz_check" %}', {order: order}, function(data) {
+        if (data.correct) {
+            $('#result').removeClass('alert-danger').addClass('alert-success').html('<i class="fas fa-check-circle me-2"></i> Dogry! 100 bal!').show();
+            $('#score').text('Ball: 100');
+        } else {
+            $('#result').removeClass('alert-success').addClass('alert-danger').html('<i class="fas fa-times-circle me-2"></i> Ýalňyş! Gaýtadan synanyşyň.').show();
+        }
+    }).fail(function() {
+        alert('Serwer bilen baglanyşyk ýalňyşlygy');
+    });
+}
+
+function addDragDrop() {
+    var dragSrcEl = null;
+    $('.layer-item').on('dragstart', function(e) {
+        dragSrcEl = this;
+        e.originalEvent.dataTransfer.effectAllowed = 'move';
+        e.originalEvent.dataTransfer.setData('text/html', $(this).attr('data-index'));
+        $(this).css('opacity', '0.4');
+    }).on('dragenter', function(e) {
+        e.preventDefault();
+        $(this).addClass('border-primary');
+    }).on('dragover', function(e) {
+        e.preventDefault();
+        e.originalEvent.dataTransfer.dropEffect = 'move';
+        return false;
+    }).on('dragleave', function(e) {
+        $(this).removeClass('border-primary');
+    }).on('drop', function(e) {
+        e.preventDefault();
+        $(this).removeClass('border-primary');
+        if (dragSrcEl != this) {
+            var fromIndex = parseInt($(dragSrcEl).attr('data-index'));
+            var toIndex = parseInt($(this).attr('data-index'));
+            var items = $('.layer-item');
+            if (fromIndex < toIndex) {
+                $(this).after(dragSrcEl);
+            } else {
+                $(this).before(dragSrcEl);
+            }
+            items.each(function(index) {
+                $(this).attr('data-index', index);
+            });
+        }
+        $(dragSrcEl).css('opacity', '1');
+        return false;
+    }).on('dragend', function(e) {
+        $(this).css('opacity', '1');
+        $('.layer-item').removeClass('border-primary');
+    });
+}
+
+$(document).ready(function() {
+    shuffleLayers();
+});
+</script>
+
+<style>
+.layer-item { cursor: move; transition: all 0.2s; }
+.layer-item:hover { transform: translateX(5px); box-shadow: 0 2px 8px rgba(0,0,0,0.1); }
+.handle { cursor: grab; }
+.handle:active { cursor: grabbing; }
+.border-primary { border: 2px solid var(--primary-color) !important; }
+</style>
+{% endblock %}

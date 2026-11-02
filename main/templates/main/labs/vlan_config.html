@@ -1,0 +1,59 @@
+{% extends 'main/base.html' %}
+{% load static %}
+
+{% block title %}VLAN konfigurasiýa{% endblock %}
+
+{% block content %}
+<div class="bg-light py-4">
+    <div class="container">
+        <nav aria-label="breadcrumb">
+            <ol class="breadcrumb">
+                <li class="breadcrumb-item"><a href="{% url 'index' %}">Baş sahypa</a></li>
+                <li class="breadcrumb-item"><a href="{% url 'labs_index' %}">Laboratoriýalar</a></li>
+                <li class="breadcrumb-item active">VLAN konfigurasiýa</li>
+            </ol>
+        </nav>
+        <h1 class="display-5 fw-bold">VLAN döretmek we dolandyrmak</h1>
+    </div>
+</div>
+
+<div class="container py-5">
+    <div class="card mb-4">
+        <div class="card-body">
+            <h3 class="h5">VLAN döretmek</h3>
+            <pre class="bg-light p-3">
+enable
+configure terminal
+vlan 10
+name IT
+vlan 20
+name HR
+exit
+            </pre>
+        </div>
+    </div>
+    <div class="card mb-4">
+        <div class="card-body">
+            <h3 class="h5">Access port bellemek</h3>
+            <pre class="bg-light p-3">
+interface fa0/1
+switchport mode access
+switchport access vlan 10
+interface fa0/2
+switchport mode access
+switchport access vlan 20
+            </pre>
+        </div>
+    </div>
+    <div class="card mb-4">
+        <div class="card-body">
+            <h3 class="h5">Trunk port konfigurasiýa (switchler arasy)</h3>
+            <pre class="bg-light p-3">
+interface fa0/24
+switchport mode trunk
+switchport trunk allowed vlan 10,20,30
+            </pre>
+        </div>
+    </div>
+</div>
+{% endblock %}

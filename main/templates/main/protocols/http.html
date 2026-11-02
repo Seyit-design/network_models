@@ -1,0 +1,29 @@
+{% extends 'main/base.html' %}
+{% block title %}HTTP Protocol{% endblock %}
+{% block content %}
+<div class="container py-5">
+    <h1>HTTP (Hypertext Transfer Protocol)</h1>
+    
+    <div class="card">
+        <div class="card-body">
+            <p><strong>Port:</strong> 80</p>
+            
+            <h5>HTTP metodlar:</h5>
+            <ul>
+                <li>GET - maglumat almak</li>
+                <li>POST - maglumat ibermek</li>
+                <li>PUT - täzelemek</li>
+                <li>DELETE - pozmak</li>
+            </ul>
+            
+            <h5>Status kodlar:</h5>
+            <ul>
+                <li>2xx - Üstünlikli</li>
+                <li>3xx - Redirect</li>
+                <li>4xx - Client error</li>
+                <li>5xx - Server error</li>
+            </ul>
+        </div>
+    </div>
+</div>
+{% endblock %}

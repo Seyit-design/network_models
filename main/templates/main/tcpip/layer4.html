@@ -1,0 +1,81 @@
+{% extends "main/base.html" %}
+
+{% block title %}TCP/IP - Amaly gatlak{% endblock %}
+
+{% block content %}
+<div class="row">
+    <div class="col-md-12">
+        <nav aria-label="breadcrumb">
+            <ol class="breadcrumb">
+                <li class="breadcrumb-item"><a href="/tcpip/">TCP/IP</a></li>
+                <li class="breadcrumb-item active">Amaly gatlak</li>
+            </ol>
+        </nav>
+
+        <h1>Amaly gatlak (Application Layer)</h1>
+        
+        <div class="layer-card">
+            <h2>Bu gatlak näme?</h2>
+            <p>TCP/IP modeliniň Amaly gatlagy OSI modeliniň Sessiýa, Prezentasiýa we Amaly gatlaklaryny (5,6,7) birleşdirýär. Bu gatlak ulanyjy programmalaryna tor hyzmatlaryny hödürleýär.</p>
+            
+            <div class="alert alert-info">
+                <strong>OSI bilen deňeşdirme:</strong> OSI Layer 5 + Layer 6 + Layer 7
+            </div>
+        </div>
+
+        <div class="layer-card">
+            <h2>Esasy protokollar we ulanylyşy</h2>
+            <div class="row">
+                <div class="col-md-4">
+                    <div class="card">
+                        <div class="card-body">
+                            <h6>🌐 HTTP/HTTPS</h6>
+                            <p>Web sahypalar</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="card">
+                        <div class="card-body">
+                            <h6>📧 SMTP/POP3/IMAP</h6>
+                            <p>Elektron poçta</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="card">
+                        <div class="card-body">
+                            <h6>📁 FTP/SFTP</h6>
+                            <p>Faýl geçirmek</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4 mt-3">
+                    <div class="card">
+                        <div class="card-body">
+                            <h6>🔍 DNS</h6>
+                            <p>Adres çözmek</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4 mt-3">
+                    <div class="card">
+                        <div class="card-body">
+                            <h6>🖥️ SSH/Telnet</h6>
+                            <p>Remote giriş</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4 mt-3">
+                    <div class="card">
+                        <div class="card-body">
+                            <h6>⏰ NTP</h6>
+                            <p>Wagt sinhronizasiýasy</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

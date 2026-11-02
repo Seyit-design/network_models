@@ -1,0 +1,84 @@
+{% extends 'main/base.html' %}
+{% load static %}
+
+{% block title %}Sertifikatlar{% endblock %}
+
+{% block content %}
+<div class="bg-light py-4">
+    <div class="container">
+        <nav aria-label="breadcrumb">
+            <ol class="breadcrumb">
+                <li class="breadcrumb-item"><a href="{% url 'index' %}">Baş sahypa</a></li>
+                <li class="breadcrumb-item"><a href="{% url 'career_index' %}">Kariýer</a></li>
+                <li class="breadcrumb-item active">Sertifikatlar</li>
+            </ol>
+        </nav>
+        <h1 class="display-5 fw-bold">Tor ulgamy sertifikatlary</h1>
+        <p class="lead">Hünär derejäňizi tassyklamak üçin iň meşhur sertifikatlar</p>
+    </div>
+</div>
+
+<div class="container py-5">
+    <div class="row g-4">
+        <div class="col-md-4">
+            <div class="card h-100">
+                <div class="card-body">
+                    <h3 class="h5">Cisco</h3>
+                    <ul>
+                        <li>CCNA (Associate)</li>
+                        <li>CCNP (Professional)</li>
+                        <li>CCIE (Expert)</li>
+                        <li>DevNet (Automation)</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="card h-100">
+                <div class="card-body">
+                    <h3 class="h5">CompTIA</h3>
+                    <ul>
+                        <li>Network+</li>
+                        <li>Security+</li>
+                        <li>CASP+ (Advanced)</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="card h-100">
+                <div class="card-body">
+                    <h3 class="h5">Juniper</h3>
+                    <ul>
+                        <li>JNCIA (Associate)</li>
+                        <li>JNCIS (Specialist)</li>
+                        <li>JNCIE (Expert)</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="card h-100">
+                <div class="card-body">
+                    <h3 class="h5">VMware</h3>
+                    <ul>
+                        <li>VCP-NV (Network Virtualization)</li>
+                        <li>VCAP-NV (Advanced)</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="card h-100">
+                <div class="card-body">
+                    <h3 class="h5">AWS / Cloud</h3>
+                    <ul>
+                        <li>AWS Certified Advanced Networking</li>
+                        <li>Azure Network Engineer</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

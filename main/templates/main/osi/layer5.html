@@ -1,0 +1,150 @@
+{% extends "main/base.html" %}
+
+{% block title %}OSI - Sessiýa gatlagy{% endblock %}
+
+{% block content %}
+<div class="row">
+    <div class="col-md-12">
+        <nav aria-label="breadcrumb">
+            <ol class="breadcrumb">
+                <li class="breadcrumb-item"><a href="/osi/">OSI</a></li>
+                <li class="breadcrumb-item active">Sessiýa gatlagy</li>
+            </ol>
+        </nav>
+
+        <h1>Sessiýa gatlagy (Layer 5)</h1>
+        
+        <div class="layer-card">
+            <h2>Gelip çykyşy we wezipeleri</h2>
+            <p>Sessiýa gatlagy 1970-nji ýyllarda terminallar we mainframe kompýuterler arasynda baglanyşyklary dolandyrmak üçin döredildi. Bu gatlak iki ulgam arasyndaky sessiýany gurmak, dolandyrmak we ýapmak üçin jogapkär.</p>
+            <p><strong>Esasy wezipeleri:</strong></p>
+            <ul>
+                <li>Sessiýa gurmak, saklamak we ýapmak</li>
+                <li>Sessiýa restarty (dowam etdirilmegi)</li>
+                <li>Dialog dolandyryşy (kim gürleýär)</li>
+                <li>Checkpoint goýmak</li>
+                <li>Sessiýa separasiýasy</li>
+            </ul>
+        </div>
+
+        <div class="layer-card">
+            <h2>Sessiýa dolandyryş animasiýasy</h2>
+            <div class="animation-container">
+                <div id="sessionDemo">
+                    <div class="progress mb-3">
+                        <div id="sessionProgress" class="progress-bar" style="width: 0%">Sessiýa 0%</div>
+                    </div>
+                    <div class="d-flex justify-content-between">
+                        <button class="btn btn-success" onclick="startSession()">Sessiýa başlat</button>
+                        <button class="btn btn-warning" onclick="pauseSession()">Sessiýa pause</button>
+                        <button class="btn btn-primary" onclick="resumeSession()">Dowam et</button>
+                        <button class="btn btn-danger" onclick="endSession()">Sessiýa ýap</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="layer-card">
+            <h2>Protokollar we mysallar</h2>
+            <div class="row">
+                <div class="col-md-6">
+                    <h5>Protokollar:</h5>
+                    <ul>
+                        <li><strong>NetBIOS</strong> - Faýl we printer paýlaşmak</li>
+                        <li><strong>RPC</strong> (Remote Procedure Call)</li>
+                        <li><strong>SQL*Net</strong> - Oracle maglumat bazasy</li>
+                        <li><strong>ASP</strong> (AppleTalk Session)</li>
+                        <li><strong>SSH</strong> session dolandyryşy</li>
+                    </ul>
+                </div>
+                <div class="col-md-6">
+                    <h5>Praktiki mysallar:</h5>
+                    <ul>
+                        <li>Bank işleri - bir geçirimde birnäçe amal</li>
+                        <li>Onlaýn oýunlar - oýun sessiýasy</li>
+                        <li>Video konferensiýa - session dolandyryş</li>
+                        <li>FTP - faýl geçişinde sessiýa</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <div class="layer-card">
+            <h2>Checkpoint we synchronizasiýa</h2>
+            <p>Uly faýl geçirilende, sessiýa gatlagy checkpoint (barlag nokatlary) goýýar. Eger baglanyşyk üzülse, faýl başdan däl-de, soňky checkpoint-den dowam edýär.</p>
+            <div style="background: linear-gradient(90deg, #28a745 0%, #28a745 30%, #ffc107 30%, #ffc107 60%, #007bff 60%, #007bff 100%); height: 20px; border-radius: 10px; margin: 20px 0;">
+                <div style="position: relative; width: 100%;">
+                    <span style="position: absolute; left: 30%; top: -20px;">Checkpoint 1</span>
+                    <span style="position: absolute; left: 60%; top: -20px;">Checkpoint 2</span>
+                </div>
+            </div>
+            <p>✅ Üstünlikli geçen bölekler<br>
+               ⚠️ Checkpoint-den soňky bölekler<br>
+               🔄 Baglanyşyk üzülse, checkpoint 2-den dowam ediler</p>
+        </div>
+
+        <div class="layer-card">
+            <h2>Dialog dolandyryş</h2>
+            <div class="row">
+                <div class="col-md-6">
+                    <h5>Simplex (bir taraplaýyn)</h5>
+                    <p>Diňe bir tarap iberip bilýär</p>
+                    <div class="bg-light p-2">📡 Telewizor → Tomaşaçy</div>
+                </div>
+                <div class="col-md-6">
+                    <h5>Half-duplex (gezekli-gezegine)</h5>
+                    <p>Iki tarap hem iberip bilýär, ýöne bir wagtda diňe biri</p>
+                    <div class="bg-light p-2">📞 A: "Salam" → B: "Salam"</div>
+                </div>
+                <div class="col-md-6 mt-3">
+                    <h5>Full-duplex (iki taraplaýyn)</h5>
+                    <p>Iki tarap hem bir wagtda iberip bilýär</p>
+                    <div class="bg-light p-2">📱 Telefon gürrüňi</div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+let sessionActive = false;
+let sessionPaused = false;
+let progress = 0;
+let interval;
+
+function startSession() {
+    if (!sessionActive) {
+        sessionActive = true;
+        sessionPaused = false;
+        progress = 0;
+        updateProgress();
+        interval = setInterval(function() {
+            if (sessionActive && !sessionPaused && progress < 100) {
+                progress += 2;
+                updateProgress();
+            }
+        }, 200);
+    }
+}
+
+function pauseSession() {
+    sessionPaused = true;
+}
+
+function resumeSession() {
+    sessionPaused = false;
+}
+
+function endSession() {
+    sessionActive = false;
+    clearInterval(interval);
+    progress = 0;
+    updateProgress();
+    $('#sessionProgress').css('width', '0%').text('Sessiýa ýapyldy');
+}
+
+function updateProgress() {
+    $('#sessionProgress').css('width', progress + '%').text('Sessiýa ' + progress + '%');
+}
+</script>
+{% endblock %}

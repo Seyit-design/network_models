@@ -1,0 +1,26 @@
+{% extends 'main/base.html' %}
+{% block title %}DNS Protocol{% endblock %}
+{% block content %}
+<div class="container py-5">
+    <h1>DNS (Domain Name System)</h1>
+    
+    <div class="card">
+        <div class="card-body">
+            <p><strong>Port:</strong> 53</p>
+            <p>Domain atlary IP adrese öwürýär</p>
+            
+            <h5>Mysal:</h5>
+            <p>www.google.com → 142.250.185.46</p>
+            
+            <h5>DNS record görnüşleri:</h5>
+            <ul>
+                <li>A - IPv4 adres</li>
+                <li>AAAA - IPv6 adres</li>
+                <li>CNAME - Alias</li>
+                <li>MX - Mail server</li>
+                <li>NS - Name server</li>
+            </ul>
+        </div>
+    </div>
+</div>
+{% endblock %}

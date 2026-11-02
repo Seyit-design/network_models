@@ -1,0 +1,57 @@
+{% extends 'main/base.html' %}
+{% load static %}
+
+{% block title %}Subnet Kalkulýator{% endblock %}
+
+{% block content %}
+<div class="bg-light py-4">
+    <div class="container">
+        <nav aria-label="breadcrumb">
+            <ol class="breadcrumb">
+                <li class="breadcrumb-item"><a href="{% url 'index' %}">Baş sahypa</a></li>
+                <li class="breadcrumb-item"><a href="{% url 'tools_index' %}">Gurallar</a></li>
+                <li class="breadcrumb-item active">Subnet Kalkulýator</li>
+            </ol>
+        </nav>
+        <h1 class="display-5 fw-bold">Subnet Kalkulýator</h1>
+        <p class="lead">Tory kiçi subnetlere bölmek</p>
+    </div>
+</div>
+
+<div class="container py-5">
+    <div class="row">
+        <div class="col-lg-8 mx-auto">
+            <div class="card">
+                <div class="card-header bg-white">
+                    <h2 class="h5 mb-0">Maglumat giriziň</h2>
+                </div>
+                <div class="card-body">
+                    <form action="{% url 'subnet_calculator_result' %}" method="post">
+                        {% csrf_token %}
+                        <div class="mb-3">
+                            <label for="ip_address" class="form-label">IP adres (tor adresi)</label>
+                            <input type="text" class="form-control" id="ip_address" name="ip_address" placeholder="Mysal: 192.168.1.0" required>
+                            <div class="form-text">Tor adresini giriziň (mysal üçin, 192.168.1.0).</div>
+                        </div>
+                        <div class="mb-3">
+                            <label for="prefix" class="form-label">Prefiks (CIDR)</label>
+                            <input type="number" class="form-control" id="prefix" name="prefix" value="24" min="1" max="30" required>
+                            <div class="form-text">CIDR belgisi, meselem: 24 (255.255.255.0 üçin).</div>
+                        </div>
+                        <div class="mb-3">
+                            <label for="num_subnets" class="form-label">Subnet sany</label>
+                            <input type="number" class="form-control" id="num_subnets" name="num_subnets" value="4" min="2" max="64" required>
+                            <div class="form-text">Näçe sany subnet bölmek isleýäniňiz.</div>
+                        </div>
+                        <button type="submit" class="btn btn-primary w-100">Hasapla</button>
+                    </form>
+                </div>
+            </div>
+            <div class="alert alert-info mt-4">
+                <i class="fas fa-info-circle me-2"></i>
+                <strong>Maslahat:</strong> IP adres we subnet mask girizip, toruňyzy kiçi böleklere bölüp bilersiňiz. Netijede her subnet üçin tor adresi, broadcast adresi we host aralygy görkeziler.
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

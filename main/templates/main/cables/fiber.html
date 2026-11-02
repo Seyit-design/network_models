@@ -1,0 +1,43 @@
+{% extends 'main/base.html' %}
+{% load static %}
+
+{% block title %}Fiber optik kabeller{% endblock %}
+
+{% block content %}
+<div class="bg-light py-4">
+    <div class="container">
+        <nav aria-label="breadcrumb">
+            <ol class="breadcrumb">
+                <li class="breadcrumb-item"><a href="{% url 'index' %}">Baş sahypa</a></li>
+                <li class="breadcrumb-item"><a href="{% url 'cables_index' %}">Kabeller</a></li>
+                <li class="breadcrumb-item active">Fiber optik</li>
+            </ol>
+        </nav>
+        <h1 class="display-5 fw-bold">Fiber optik kabeller</h1>
+        <p class="lead">Ýokary tizlikli, uzak aralyga maglumat ibermek üçin</p>
+    </div>
+</div>
+
+<div class="container py-5">
+    <div class="row g-4">
+        <div class="col-md-6">
+            <div class="card h-100">
+                <div class="card-body">
+                    <h3 class="h5">Single-mode</h3>
+                    <p>Uzak aralyk (kilometrlerçe), lazer çeşmesi, inçe ýadro.</p>
+                    <a href="{% url 'fiber_single_mode' %}" class="btn btn-sm btn-outline-primary">Giňişleýin</a>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-6">
+            <div class="card h-100">
+                <div class="card-body">
+                    <h3 class="h5">Multi-mode</h3>
+                    <p>Gysga aralyk (500 m çenli), LED çeşmesi, galyň ýadro.</p>
+                    <a href="{% url 'fiber_multi_mode' %}" class="btn btn-sm btn-outline-primary">Giňişleýin</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

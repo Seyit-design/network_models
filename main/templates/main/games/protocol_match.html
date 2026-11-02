@@ -1,0 +1,34 @@
+{% extends 'main/base.html' %}
+{% block title %}Protokol deňleşdir oýuny{% endblock %}
+{% block content %}
+<div class="container py-5">
+    <h1>Protokol deňleşdir oýuny</h1>
+    
+    <div class="row">
+        <div class="col-md-6">
+            <h5>Protokollar</h5>
+            <div id="protocols" class="list-group">
+                <div class="list-group-item" draggable="true">HTTP</div>
+                <div class="list-group-item" draggable="true">FTP</div>
+                <div class="list-group-item" draggable="true">DNS</div>
+            </div>
+        </div>
+        <div class="col-md-6">
+            <h5>Portlar</h5>
+            <div id="ports" class="list-group">
+                <div class="list-group-item">80</div>
+                <div class="list-group-item">21</div>
+                <div class="list-group-item">53</div>
+            </div>
+        </div>
+    </div>
+    
+    <button class="btn btn-primary mt-3" onclick="checkMatch()">Barla</button>
+</div>
+
+<script>
+function checkMatch() {
+    alert("Oýun gurulýar...");
+}
+</script>
+{% endblock %}

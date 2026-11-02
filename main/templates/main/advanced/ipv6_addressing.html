@@ -1,0 +1,14 @@
+{% extends 'main/base.html' %}
+{% block title %}IPv6 adresleme{% endblock %}
+{% block content %}
+<div class="bg-light py-4">...</div>
+<div class="container py-5">
+    <h1 class="h3">IPv6 adresleme</h1>
+    <p><strong>Global Unicast:</strong> 2000::/3 – internetde ulanylýan umumy adresler.</p>
+    <p><strong>Link-Local:</strong> fe80::/10 – bir tor segmentinde (link) ulanylýar, router bilen gürleşmek üçin. Awto-konfigurasiýa.</p>
+    <p><strong>Unique Local:</strong> fc00::/7 – hususy tor (NAT ýaly, ýöne global ýagtyda ýöremeýär).</p>
+    <p><strong>Multicast:</strong> ff00::/8 – bir topar enjama maglumat ibermek.</p>
+    <p><strong>Adres bölünişi:</strong> 64 bit tor, 64 bit host (Interface ID). Interface ID köplenç MAC adresden (EUI-64) emele gelýär.</p>
+    <p><strong>Stateless Autoconfiguration (SLAAC):</strong> Enjam routerdan alan maglumat esasynda öz-özüne adres belleýär.</p>
+</div>
+{% endblock %}

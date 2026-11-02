@@ -1,0 +1,55 @@
+{% extends 'main/base.html' %}
+{% load static %}
+
+{% block title %}Simsiz birikmeler{% endblock %}
+
+{% block content %}
+<div class="bg-light py-4">
+    <div class="container">
+        <nav aria-label="breadcrumb">
+            <ol class="breadcrumb">
+                <li class="breadcrumb-item"><a href="{% url 'index' %}">Baş sahypa</a></li>
+                <li class="breadcrumb-item"><a href="{% url 'cables_index' %}">Kabeller</a></li>
+                <li class="breadcrumb-item active">Simsiz</li>
+            </ol>
+        </nav>
+        <h1 class="display-5 fw-bold">Simsiz birikmeler</h1>
+        <p class="lead">Wi-Fi, Bluetooth, Cellular – kabele zerurlyk ýok</p>
+    </div>
+</div>
+
+<div class="container py-5">
+    <div class="row g-4">
+        <div class="col-md-4">
+            <div class="card h-100">
+                <div class="card-body text-center">
+                    <i class="fas fa-wifi fa-3x text-primary mb-3"></i>
+                    <h3 class="h5">Wi-Fi</h3>
+                    <p>Ýerli tor üçin simsiz tehnologiýa</p>
+                    <a href="{% url 'wireless_wifi' %}" class="btn btn-outline-primary">Giňişleýin</a>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="card h-100">
+                <div class="card-body text-center">
+                    <i class="fas fa-bluetooth fa-3x text-primary mb-3"></i>
+                    <h3 class="h5">Bluetooth</h3>
+                    <p>Gysga aralyk, enjam birikdirmek</p>
+                    <a href="{% url 'wireless_bluetooth' %}" class="btn btn-outline-primary">Giňişleýin</a>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="card h-100">
+                <div class="card-body text-center">
+                    <i class="fas fa-broadcast-tower fa-3x text-primary mb-3"></i>
+                    <h3 class="h5">Cellular</h3>
+                    <p>Mobil tor (4G, 5G)</p>
+                    <a href="{% url 'wireless_cellular' %}" class="btn btn-outline-primary">Giňişleýin</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

@@ -1,0 +1,50 @@
+{% extends 'main/base.html' %}
+{% block title %}Subnet Kalkulýator - Netije{% endblock %}
+{% block content %}
+<div class="container py-5">
+    <div class="row">
+        <div class="col-md-10 mx-auto">
+            <div class="card">
+                <div class="card-header bg-white">
+                    <h1 class="h4 mb-0">Subnetler ({{ original }})</h1>
+                </div>
+                <div class="card-body">
+                    {% if results.error %}
+                        <div class="alert alert-danger">{{ results.error }}</div>
+                    {% else %}
+                        <div class="table-responsive">
+                            <table class="table table-bordered table-hover">
+                                <thead class="table-light">
+                                    <tr>
+                                        <th>#</th>
+                                        <th>Tor adresi</th>
+                                        <th>Subnet mask</th>
+                                        <th>Birinji host</th>
+                                        <th>Soňky host</th>
+                                        <th>Broadcast</th>
+                                        <th>Host sany</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    {% for subnet in results %}
+                                    <tr>
+                                        <td>{{ subnet.subnet }}</td>
+                                        <td>{{ subnet.network }}{{ subnet.cidr }}</td>
+                                        <td>{{ subnet.netmask }}</td>
+                                        <td>{{ subnet.first_host }}</td>
+                                        <td>{{ subnet.last_host }}</td>
+                                        <td>{{ subnet.broadcast }}</td>
+                                        <td>{{ subnet.hosts }}</td>
+                                    </tr>
+                                    {% endfor %}
+                                </tbody>
+                            </table>
+                        </div>
+                    {% endif %}
+                    <a href="{% url 'subnet_calculator' %}" class="btn btn-outline-primary">Täze hasaplama</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

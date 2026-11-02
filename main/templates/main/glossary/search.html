@@ -1,0 +1,23 @@
+{% extends 'main/base.html' %}
+{% block title %}Gözleg netijeleri{% endblock %}
+{% block content %}
+<div class="container py-5">
+    <h1 class="mb-4">Gözleg netijeleri: "{{ query }}"</h1>
+    
+    {% if terms %}
+        <div class="list-group">
+            {% for term in terms %}
+            <a href="{% url 'glossary_detail' term.term %}" class="list-group-item list-group-item-action">
+                <h5 class="mb-1">{{ term.term }}</h5>
+                <p class="mb-1">{{ term.definition|truncatewords:20 }}</p>
+            </a>
+            {% endfor %}
+        </div>
+    {% else %}
+        <div class="alert alert-info">
+            <i class="fas fa-info-circle me-2"></i>
+            "{{ query }}" boýunça hiç zat tapylmady
+        </div>
+    {% endif %}
+</div>
+{% endblock %}

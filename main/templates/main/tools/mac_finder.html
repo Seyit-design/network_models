@@ -1,0 +1,38 @@
+{% extends 'main/base.html' %}
+{% block title %}MAC Finder{% endblock %}
+{% block content %}
+<div class="container py-5">
+    <div class="row">
+        <div class="col-md-8 mx-auto">
+            <div class="card">
+                <div class="card-header bg-white">
+                    <h1 class="h4 mb-0">MAC Adres Öndürijini Tap</h1>
+                </div>
+                <div class="card-body">
+                    <form method="post">
+                        {% csrf_token %}
+                        <div class="mb-3">
+                            <label class="form-label">MAC Adres giriziň</label>
+                            <input type="text" name="mac" class="form-control" placeholder="00:1A:2B:3C:4D:5E" required>
+                        </div>
+                        <button type="submit" class="btn btn-primary w-100">Tap</button>
+                    </form>
+                    
+                    {% if result %}
+                        <hr>
+                        {% if result.error %}
+                            <div class="alert alert-danger">{{ result.error }}</div>
+                        {% else %}
+                            <div class="alert alert-success">
+                                <p><strong>MAC adres:</strong> {{ result.mac }}</p>
+                                <p><strong>OUI (öndüriji kody):</strong> {{ result.oui }}</p>
+                                <p><strong>Öndüriji:</strong> {{ result.vendor }}</p>
+                            </div>
+                        {% endif %}
+                    {% endif %}
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

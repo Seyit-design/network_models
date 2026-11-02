@@ -1,0 +1,156 @@
+
+{% extends 'main/base.html' %}
+{% load static %}
+
+{% block title %}Console kabel{% endblock %}
+
+{% block content %}
+<div class="bg-light py-4">
+    <div class="container">
+        <nav aria-label="breadcrumb">
+            <ol class="breadcrumb">
+                <li class="breadcrumb-item"><a href="{% url 'index' %}">Baş sahypa</a></li>
+                <li class="breadcrumb-item"><a href="{% url 'cables_index' %}">Kabeller</a></li>
+                <li class="breadcrumb-item active">Console kabel</li>
+            </ol>
+        </nav>
+        <h1 class="display-5 fw-bold">Console kabel</h1>
+        <p class="lead">Router, switch we beýleki tor enjamlaryny dolandyrmak üçin ulanylýan ýörite kabel</p>
+    </div>
+</div>
+
+<div class="container py-5">
+    <div class="row">
+        <div class="col-md-8">
+            <div class="card mb-4">
+                <div class="card-header bg-white">
+                    <h2 class="h5 mb-0"><i class="fas fa-info-circle me-2 text-primary"></i>Console kabel näme?</h2>
+                </div>
+                <div class="card-body">
+                    <p><strong>Console kabel</strong> – tor enjamlarynyň (router, switch, firewall) dolandyryş portuna (<strong>console port</strong>) kompýuteriň seriýal porty ýa-da USB porty arkaly birikmek üçin ulanylýan ýörite kabel.</p>
+                    <p>Bu kabel arkaly enjamyň işjeňleşdiriji programmasyna (IOS, JunOS we ş.m.) gönüden-göni girip, ony konfigurirlemek, näsazlyklary ýüze çykarmak we dikeltmek mümkin. Ilkinji gezek enjamy işe girizende (out-of-band) dolandyryş üçin zerurdyr.</p>
+                </div>
+            </div>
+
+            <div class="card mb-4">
+                <div class="card-header bg-white">
+                    <h2 class="h5 mb-0"><i class="fas fa-plug me-2 text-primary"></i>Görnüşleri we birikdiriji görnüşleri</h2>
+                </div>
+                <div class="card-body">
+                    <div class="table-responsive">
+                        <table class="table table-bordered">
+                            <thead class="table-light">
+                                <tr><th>Kabel görnüşi</th><th>Birikdirijiler</th><th>Ulanylyşy</th></tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td><strong>RJ-45 – DB9</strong></td>
+                                    <td>Bir ujy RJ-45 (8P8C), beýleki ujy DB9 (9 pinli seriýal port)</td>
+                                    <td>Köne kompýuterler we Cisco enjamlary üçin adaty console kabel. Köplenç <strong>light blue</strong> (açyk gök) reňkde bolýar.</td>
+                                </tr>
+                                <tr>
+                                    <td><strong>RJ-45 – USB</strong></td>
+                                    <td>Bir ujy RJ-45, beýleki ujy USB-A</td>
+                                    <td>Täze kompýuterlerde seriýal port ýok bolany üçin USB konwertirli kabel. Içinde FTDI çipi bolup, sürüji gerek.</td>
+                                </tr>
+                                <tr>
+                                    <td><strong>USB – Console (ýörite)</strong></td>
+                                    <td>Gönüden-göni USB (enjamda USB-B ýa-da mini-USB)</td>
+                                    <td>Käbir kiçi enjamlarda (MikroTik, Linksys, HP) duş gelýär.</td>
+                                </tr>
+                                <tr>
+                                    <td><strong>Rollover kabel</strong></td>
+                                    <td>RJ-45 – RJ-45 (kabeliň içindäki simler tersine tertiplenen)</td>
+                                    <td>Cisco enjamlarynda console üçin ulanylýar, bir ujy enjama, beýleki ujy RJ-45 – DB9 adaptere birikdirilýär.</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+
+            <div class="card mb-4">
+                <div class="card-header bg-white">
+                    <h2 class="h5 mb-0"><i class="fas fa-link me-2 text-primary"></i>Nädip birikdirmeli?</h2>
+                </div>
+                <div class="card-body">
+                    <ol>
+                        <li>Console kabeliniň RJ-45 ujyny enjamyň <strong>"Console"</strong> portuna birikdiriň (adaten enjamyň öň ýa-da yz panelinde).</li>
+                        <li>Beýleki ujyny kompýuteriň seriýal portuna (ýa-da USB adapter arkaly) birikdiriň. Eger USB kabel ulanylsa, sürüjileriň gurnalydygyna göz ýetiriň.</li>
+                        <li>Kompýuterde terminal programmasy açyň:
+                            <ul>
+                                <li><strong>Windows:</strong> PuTTY, Tera Term</li>
+                                <li><strong>Mac/Linux:</strong> Screen, Minicom</li>
+                            </ul>
+                        </li>
+                        <li>Serial port parametrlerini sazlaň:
+                            <pre class="bg-light p-2 mt-2">Baud rate: 9600
+Data bits: 8
+Stop bits: 1
+Parity: None
+Flow control: None</pre>
+                        </li>
+                        <li>Baglanyşyk açylandan soň, enjamyň çykaryşyny görüp (Enter basyp) we konfigurasiýa girip bilersiňiz.</li>
+                    </ol>
+                </div>
+            </div>
+
+            <div class="card mb-4">
+                <div class="card-header bg-white">
+                    <h2 class="h5 mb-0"><i class="fas fa-terminal me-2 text-primary"></i>Terminal programmalarynda sazlamalar</h2>
+                </div>
+                <div class="card-body">
+                    <h3 class="h6">PuTTY (Windows)</h3>
+                    <ul>
+                        <li>"Connection type" → "Serial"</li>
+                        <li>"Serial line" → COM port (meselem COM3)</li>
+                        <li>"Speed" → 9600</li>
+                        <li>"Open" düwmesine basyň</li>
+                    </ul>
+                    <h3 class="h6">Screen (Mac/Linux)</h3>
+                    <pre class="bg-light p-2">screen /dev/ttyUSB0 9600</pre>
+                    <p>Çykmak üçin: <code>Ctrl+A, K, Y</code></p>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-4">
+            <div class="card mb-4">
+                <div class="card-header bg-white">
+                    <h2 class="h5 mb-0"><i class="fas fa-exclamation-triangle me-2 text-warning"></i>Bellikler</h2>
+                </div>
+                <div class="card-body">
+                    <ul class="mb-0">
+                        <li>Käbir täze kompýuterlerde seriýal port bolmaýar; USB – Serial adapter gerek.</li>
+                        <li>Adapter sürüjilerini (mes. FTDI, Prolific) gurnalydygyna göz ýetiriň.</li>
+                        <li>COM port nomerini "Device Manager" (Windows) ýa-da <code>ls /dev/tty*</code> (Linux/Mac) bilen tapyp bilersiňiz.</li>
+                        <li>Enjama birikmezden ozal enjamyň işjeň (power on) ýagdaýdadygyny barlaň.</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="card mb-4">
+                <div class="card-header bg-white">
+                    <h2 class="h5 mb-0"><i class="fas fa-tools me-2 text-primary"></i>Meşhur programmalar</h2>
+                </div>
+                <div class="card-body">
+                    <ul class="list-unstyled">
+                        <li><i class="fab fa-windows me-2"></i>PuTTY (free)</li>
+                        <li><i class="fas fa-terminal me-2"></i>Tera Term (free)</li>
+                        <li><i class="fas fa-terminal me-2"></i>SecureCRT (commercial)</li>
+                        <li><i class="fab fa-apple me-2"></i>Screen (built-in)</li>
+                        <li><i class="fab fa-linux me-2"></i>Minicom</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="card">
+                <div class="card-body text-center">
+                    <i class="fas fa-question-circle fa-3x text-primary mb-3"></i>
+                    <h3 class="h6">Kömek gerekmi?</h3>
+                    <p class="small">Console birikmesi bilen bagly soraglaryňyz bolsa, forumlara ýüzleniň.</p>
+                    <a href="{% url 'resources_forums' %}" class="btn btn-outline-primary btn-sm">Forumlar</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

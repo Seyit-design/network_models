@@ -1,0 +1,145 @@
+{% extends 'main/base.html' %}
+{% load static %}
+
+{% block title %}Tor gurallary{% endblock %}
+
+{% block content %}
+<div class="bg-light py-4">
+    <div class="container">
+        <nav aria-label="breadcrumb">
+            <ol class="breadcrumb">
+                <li class="breadcrumb-item"><a href="{% url 'index' %}">Baş sahypa</a></li>
+                <li class="breadcrumb-item active">Gurallar</li>
+            </ol>
+        </nav>
+        <h1 class="display-5 fw-bold">Tor gurallary</h1>
+        <p class="lead">IP hasaplamalar, subnetting we beýleki peýdaly gurallar</p>
+    </div>
+</div>
+
+<div class="container py-5">
+    <div class="row g-4">
+        <!-- IP Kalkulýator -->
+        <div class="col-md-4">
+            <div class="card h-100">
+                <div class="card-body text-center">
+                    <i class="fas fa-calculator fa-3x text-primary mb-3"></i>
+                    <h3 class="h5">IP Kalkulýator</h3>
+                    <p class="text-muted">IP adres we subnet mask girizip, tor maglumatlaryny hasaplaň</p>
+                    <a href="{% url 'ip_calculator' %}" class="btn btn-outline-primary">Açmak</a>
+                </div>
+            </div>
+        </div>
+        <!-- Subnet Kalkulýator -->
+        <div class="col-md-4">
+            <div class="card h-100">
+                <div class="card-body text-center">
+                    <i class="fas fa-network-wired fa-3x text-primary mb-3"></i>
+                    <h3 class="h5">Subnet Kalkulýator</h3>
+                    <p class="text-muted">Tory kiçi subnetlere bölmek</p>
+                    <a href="{% url 'subnet_calculator' %}" class="btn btn-outline-primary">Açmak</a>
+                </div>
+            </div>
+        </div>
+        <!-- VLSM Kalkulýator -->
+        <div class="col-md-4">
+            <div class="card h-100">
+                <div class="card-body text-center">
+                    <i class="fas fa-code-branch fa-3x text-primary mb-3"></i>
+                    <h3 class="h5">VLSM Kalkulýator</h3>
+                    <p class="text-muted">Üýtgeýän uzynlykdaky subnet mask</p>
+                    <a href="{% url 'vlsm_calculator' %}" class="btn btn-outline-primary">Açmak</a>
+                </div>
+            </div>
+        </div>
+        <!-- MAC Converter -->
+        <div class="col-md-4">
+            <div class="card h-100">
+                <div class="card-body text-center">
+                    <i class="fas fa-fingerprint fa-3x text-primary mb-3"></i>
+                    <h3 class="h5">MAC Converter</h3>
+                    <p class="text-muted">MAC adres formatlaryny üýtgetmek</p>
+                    <a href="{% url 'mac_converter' %}" class="btn btn-outline-primary">Açmak</a>
+                </div>
+            </div>
+        </div>
+        <!-- Binary Converter -->
+        <div class="col-md-4">
+            <div class="card h-100">
+                <div class="card-body text-center">
+                    <i class="fas fa-code fa-3x text-primary mb-3"></i>
+                    <h3 class="h5">Binary Converter</h3>
+                    <p class="text-muted">Sanlary 2-lik ulgama öwürmek</p>
+                    <a href="{% url 'binary_converter' %}" class="btn btn-outline-primary">Açmak</a>
+                </div>
+            </div>
+        </div>
+        <!-- Hex Converter -->
+        <div class="col-md-4">
+            <div class="card h-100">
+                <div class="card-body text-center">
+                    <i class="fas fa-hashtag fa-3x text-primary mb-3"></i>
+                    <h3 class="h5">Hex Converter</h3>
+                    <p class="text-muted">Sanlary 16-lik ulgama öwürmek</p>
+                    <a href="{% url 'hex_converter' %}" class="btn btn-outline-primary">Açmak</a>
+                </div>
+            </div>
+        </div>
+        <!-- Port Skaner -->
+        <div class="col-md-4">
+            <div class="card h-100">
+                <div class="card-body text-center">
+                    <i class="fas fa-search fa-3x text-primary mb-3"></i>
+                    <h3 class="h5">Port Skaner</h3>
+                    <p class="text-muted">Açyk portlary tapmak</p>
+                    <a href="{% url 'port_scanner' %}" class="btn btn-outline-primary">Açmak</a>
+                </div>
+            </div>
+        </div>
+        <!-- Ping Test -->
+        <div class="col-md-4">
+            <div class="card h-100">
+                <div class="card-body text-center">
+                    <i class="fas fa-exchange-alt fa-3x text-primary mb-3"></i>
+                    <h3 class="h5">Ping Test</h3>
+                    <p class="text-muted">Enjama ping ibermek</p>
+                    <a href="{% url 'ping_test' %}" class="btn btn-outline-primary">Açmak</a>
+                </div>
+            </div>
+        </div>
+        <!-- Traceroute -->
+        <div class="col-md-4">
+            <div class="card h-100">
+                <div class="card-body text-center">
+                    <i class="fas fa-route fa-3x text-primary mb-3"></i>
+                    <h3 class="h5">Traceroute</h3>
+                    <p class="text-muted">Tor ýoluny yzarlamak</p>
+                    <a href="{% url 'traceroute' %}" class="btn btn-outline-primary">Açmak</a>
+                </div>
+            </div>
+        </div>
+        <!-- MAC Finder -->
+        <div class="col-md-4">
+            <div class="card h-100">
+                <div class="card-body text-center">
+                    <i class="fas fa-map-marker-alt fa-3x text-primary mb-3"></i>
+                    <h3 class="h5">MAC Finder</h3>
+                    <p class="text-muted">MAC adres öndürijini tapmak</p>
+                    <a href="{% url 'mac_finder' %}" class="btn btn-outline-primary">Açmak</a>
+                </div>
+            </div>
+        </div>
+        <!-- Wildcard Kalkulýator -->
+        <div class="col-md-4">
+            <div class="card h-100">
+                <div class="card-body text-center">
+                    <i class="fas fa-draw-polygon fa-3x text-primary mb-3"></i>
+                    <h3 class="h5">Wildcard Kalkulýator</h3>
+                    <p class="text-muted">Wildcard mask hasaplamak</p>
+                    <a href="{% url 'wildcard_calculator' %}" class="btn btn-outline-primary">Açmak</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

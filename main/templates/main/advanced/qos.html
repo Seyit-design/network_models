@@ -1,0 +1,16 @@
+{% extends 'main/base.html' %}
+{% block title %}QoS{% endblock %}
+{% block content %}
+<div class="bg-light py-4">...</div>
+<div class="container py-5">
+    <p><strong>QoS (Quality of Service)</strong> – tor trafigine ileri tutma bermek, möhüm maglumatlaryň gijikmezden baryp ýetmegini üpjün etmek.</p>
+    <h3 class="h5">Esasy usullar:</h3>
+    <ul>
+        <li><strong>Classification:</strong> Trafigi görnüşine görä bellemek (voice, video, data).</li>
+        <li><strong>Marking:</strong> Paketlere bellik goýmak (DSCP, CoS).</li>
+        <li><strong>Queuing:</strong> Nobat dolandyryşy (FIFO, PQ, WFQ).</li>
+        <li><strong>Shaping / Policing:</strong> Trafik tizligini çäklendirmek.</li>
+    </ul>
+    <p>Meselem: VoIP trafigine ýokary ileri tutma bermek.</p>
+</div>
+{% endblock %}

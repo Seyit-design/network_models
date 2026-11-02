@@ -1,0 +1,57 @@
+{% extends 'main/base.html' %}
+{% block title %}Port Skaner{% endblock %}
+{% block content %}
+<div class="container py-5">
+    <div class="row">
+        <div class="col-md-8 mx-auto">
+            <div class="card">
+                <div class="card-header bg-white">
+                    <h1 class="h4 mb-0">Port Skaner</h1>
+                </div>
+                <div class="card-body">
+                    <form method="post">
+                        {% csrf_token %}
+                        <div class="mb-3">
+                            <label class="form-label">Host (IP ýa-da domen)</label>
+                            <input type="text" name="host" class="form-control" placeholder="192.168.1.1 ýa-da google.com" required>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-6">
+                                <label class="form-label">Başlangyç port</label>
+                                <input type="number" name="start_port" class="form-control" value="1">
+                            </div>
+                            <div class="col-md-6">
+                                <label class="form-label">Soňky port</label>
+                                <input type="number" name="end_port" class="form-control" value="1024">
+                            </div>
+                        </div>
+                        <button type="submit" class="btn btn-primary w-100 mt-3">Skan et</button>
+                    </form>
+                    
+                    {% if result %}
+                        <hr>
+                        {% if result.error %}
+                            <div class="alert alert-danger">{{ result.error }}</div>
+                        {% else %}
+                            <div class="alert alert-success">
+                                <p><strong>Host:</strong> {{ result.host }} ({{ result.ip }})</p>
+                                <p><strong>Skan edilen portlar:</strong> {{ result.port_range }}</p>
+                                <p><strong>Açyk portlar:</strong></p>
+                                {% if result.open_ports %}
+                                    <ul>
+                                        {% for port in result.open_ports %}
+                                            <li>Port {{ port }} açyk</li>
+                                        {% endfor %}
+                                    </ul>
+                                {% else %}
+                                    <p>Açyk port tapylmady</p>
+                                {% endif %}
+                            </div>
+                        {% endif %}
+                    {% endif %}
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

@@ -1,0 +1,85 @@
+{% extends 'main/base.html' %}
+{% load static %}
+
+{% block title %}Web saýtlar{% endblock %}
+
+{% block content %}
+<div class="bg-light py-4">
+    <div class="container">
+        <nav aria-label="breadcrumb">
+            <ol class="breadcrumb">
+                <li class="breadcrumb-item"><a href="{% url 'index' %}">Baş sahypa</a></li>
+                <li class="breadcrumb-item"><a href="{% url 'resources_index' %}">Resurslar</a></li>
+                <li class="breadcrumb-item active">Web saýtlar</li>
+            </ol>
+        </nav>
+        <h1 class="display-5 fw-bold">Peýdaly web saýtlar</h1>
+        <p class="lead">Tor ulgamy öwrenmek üçin onlaýn gurallar we maglumat çeşmeleri</p>
+    </div>
+</div>
+
+<div class="container py-5">
+    <div class="row g-4">
+        <div class="col-md-4">
+            <div class="card h-100">
+                <div class="card-body">
+                    <i class="fas fa-graduation-cap fa-3x text-primary mb-3"></i>
+                    <h3 class="h5">Cisco Networking Academy</h3>
+                    <p class="text-muted">Cisco-nyň resmi okuw platformasy. CCNA, CCNP kurslary.</p>
+                    <a href="https://www.netacad.com" target="_blank" class="btn btn-outline-primary">Git</a>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="card h-100">
+                <div class="card-body">
+                    <i class="fas fa-network-wired fa-3x text-primary mb-3"></i>
+                    <h3 class="h5">Subnetting Practice</h3>
+                    <p class="text-muted">Subnetting öwrenmek we maşk etmek üçin gural.</p>
+                    <a href="https://subnettingpractice.com" target="_blank" class="btn btn-outline-primary">Git</a>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="card h-100">
+                <div class="card-body">
+                    <i class="fas fa-calculator fa-3x text-primary mb-3"></i>
+                    <h3 class="h5">IP Calculator</h3>
+                    <p class="text-muted">IP address we subnet hasaplamalary üçin onlaýn kalkulýator.</p>
+                    <a href="https://www.calculator.net/ip-subnet-calculator.html" target="_blank" class="btn btn-outline-primary">Git</a>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="card h-100">
+                <div class="card-body">
+                    <i class="fas fa-question-circle fa-3x text-primary mb-3"></i>
+                    <h3 class="h5">Server Fault</h3>
+                    <p class="text-muted">Tor ulgamy soraglaryna jogap berýän forum (Stack Exchange).</p>
+                    <a href="https://serverfault.com" target="_blank" class="btn btn-outline-primary">Git</a>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="card h-100">
+                <div class="card-body">
+                    <i class="fas fa-file-alt fa-3x text-primary mb-3"></i>
+                    <h3 class="h5">Packet Life Cheat Sheets</h3>
+                    <p class="text-muted">Tor ulgamy protokollary we buýruklar üçin çit listler.</p>
+                    <a href="https://packetlife.net/library/cheat-sheets/" target="_blank" class="btn btn-outline-primary">Git</a>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="card h-100">
+                <div class="card-body">
+                    <i class="fas fa-youtube fa-3x text-primary mb-3"></i>
+                    <h3 class="h5">YouTube: NetworkChuck</h3>
+                    <p class="text-muted">Tor ulgamy we etika hakynda gysga wideolar.</p>
+                    <a href="https://www.youtube.com/c/NetworkChuck" target="_blank" class="btn btn-outline-primary">Git</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

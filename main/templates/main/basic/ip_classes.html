@@ -1,0 +1,17 @@
+{% extends 'main/base.html' %}
+{% block title %}IP klasslary{% endblock %}
+{% block content %}
+<div class="container py-5">
+    <h1>IP klasslary</h1>
+    <table class="table table-bordered">
+        <thead>
+            <tr><th>Klass</th><th>Başlangyç</th><th>Subnet mask</th><th>Ulanylyşy</th></tr>
+        </thead>
+        <tbody>
+            <tr><td>A</td><td>1.0.0.0 - 126.255.255.255</td><td>255.0.0.0</td><td>Uly torlar</td></tr>
+            <tr><td>B</td><td>128.0.0.0 - 191.255.255.255</td><td>255.255.0.0</td><td>Orta torlar</td></tr>
+            <tr><td>C</td><td>192.0.0.0 - 223.255.255.255</td><td>255.255.255.0</td><td>Kiçi torlar</td></tr>
+        </tbody>
+    </table>
+</div>
+{% endblock %}

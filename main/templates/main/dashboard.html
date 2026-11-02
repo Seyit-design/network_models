@@ -1,0 +1,85 @@
+{% extends 'main/base.html' %}
+{% load static %}
+
+{% block title %}Meniň panelim{% endblock %}
+
+{% block content %}
+<div class="bg-light py-4">
+    <div class="container">
+        <nav aria-label="breadcrumb">
+            <ol class="breadcrumb">
+                <li class="breadcrumb-item"><a href="{% url 'index' %}">Baş sahypa</a></li>
+                <li class="breadcrumb-item active">Panel</li>
+            </ol>
+        </nav>
+        <h1 class="display-5 fw-bold">Hoş geldiňiz, {{ user.username }}!</h1>
+        <p class="lead">Öwreniş progressiňiz we işjeňligiňiz</p>
+    </div>
+</div>
+
+<div class="container py-5">
+    <div class="row">
+        <div class="col-md-4 mb-4">
+            <div class="card text-center">
+                <div class="card-body">
+                    <i class="fas fa-chart-line fa-3x text-primary mb-3"></i>
+                    <h3 class="h2">{{ completed_lessons }}</h3>
+                    <p class="text-muted">Tamamlanan ders</p>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4 mb-4">
+            <div class="card text-center">
+                <div class="card-body">
+                    <i class="fas fa-tasks fa-3x text-success mb-3"></i>
+                    <h3 class="h2">{{ total_lessons }}</h3>
+                    <p class="text-muted">Jemi ders</p>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4 mb-4">
+            <div class="card text-center">
+                <div class="card-body">
+                    <i class="fas fa-trophy fa-3x text-warning mb-3"></i>
+                    <h3 class="h2">{{ progress_percentage|floatformat:1 }}%</h3>
+                    <p class="text-muted">Progress</p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-6">
+            <div class="card">
+                <div class="card-header bg-white">
+                    <h2 class="h5 mb-0">Soňky test netijeleri</h2>
+                </div>
+                <div class="card-body">
+                    <ul class="list-group">
+                        {% for result in quiz_results %}
+                        <li class="list-group-item d-flex justify-content-between">
+                            {{ result.quiz.title }}
+                            <span class="badge bg-{% if result.score >= 70 %}success{% else %}warning{% endif %}">{{ result.score }}%</span>
+                        </li>
+                        {% empty %}
+                        <li class="list-group-item">Entek test çözmediňiz.</li>
+                        {% endfor %}
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-6">
+            <div class="card">
+                <div class="card-header bg-white">
+                    <h2 class="h5 mb-0">Dowam et</h2>
+                </div>
+                <div class="card-body">
+                    <p>Indiki ders: <a href="#">Subnetting esaslary</a></p>
+                    <div class="progress">
+                        <div class="progress-bar" style="width: {{ progress_percentage }}%">{{ progress_percentage|floatformat:1 }}%</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

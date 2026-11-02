@@ -1,0 +1,56 @@
+{% extends 'main/base.html' %}
+{% load static %}
+
+{% block title %}Traceroute{% endblock %}
+
+{% block content %}
+<div class="bg-light py-4">
+    <div class="container">
+        <nav aria-label="breadcrumb">
+            <ol class="breadcrumb">
+                <li class="breadcrumb-item"><a href="{% url 'index' %}">Baş sahypa</a></li>
+                <li class="breadcrumb-item"><a href="{% url 'tools_index' %}">Gurallar</a></li>
+                <li class="breadcrumb-item active">Traceroute</li>
+            </ol>
+        </nav>
+        <h1 class="display-5 fw-bold">Traceroute</h1>
+        <p class="lead">IP ýa-da domen adyna çenli tor ýoluny yzarlaň</p>
+    </div>
+</div>
+
+<div class="container py-5">
+    <div class="row">
+        <div class="col-lg-8 mx-auto">
+            <div class="card">
+                <div class="card-header bg-white">
+                    <h2 class="h5 mb-0">Traceroute iber</h2>
+                </div>
+                <div class="card-body">
+                    <form method="post">
+                        {% csrf_token %}
+                        <div class="mb-3">
+                            <label for="host" class="form-label">Host (IP ýa-da domen)</label>
+                            <input type="text" class="form-control" id="host" name="host" placeholder="Mysal: google.com ýa-da 8.8.8.8" required>
+                        </div>
+                        <button type="submit" class="btn btn-primary w-100">Traceroute iber</button>
+                    </form>
+
+                    {% if result %}
+                        <hr>
+                        {% if result.error %}
+                            <div class="alert alert-danger mt-3">{{ result.error }}</div>
+                        {% else %}
+                            <h3 class="h6 mt-3">Netije ({{ result.host }}):</h3>
+                            <pre class="bg-light p-3 rounded">{{ result.output }}</pre>
+                        {% endif %}
+                    {% endif %}
+                </div>
+            </div>
+            <div class="alert alert-info mt-4">
+                <i class="fas fa-info-circle me-2"></i>
+                <strong>Bellik:</strong> Traceroute buýrugy tor ýolundaky her bir routeriň jogap wagtyny görkezýär. Bu işlemek üçin serwerde gerekli rugsatlar bolmaly.
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

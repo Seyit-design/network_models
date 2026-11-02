@@ -1,0 +1,26 @@
+{% extends 'main/base.html' %}
+{% block title %}Protokollary deňeşdirme{% endblock %}
+{% block content %}
+<div class="container py-5">
+    <h1>Protokollary deňeşdirme</h1>
+    
+    <table class="table table-bordered">
+        <thead>
+            <tr>
+                <th>Protokol</th>
+                <th>Port</th>
+                <th>Gatlak</th>
+                <th>Ulanylyşy</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr><td>TCP</td><td>-</td><td>Ulag</td><td>Ygtybarly maglumat</td></tr>
+            <tr><td>UDP</td><td>-</td><td>Ulag</td><td>Wideo, ses</td></tr>
+            <tr><td>HTTP</td><td>80</td><td>Amaly</td><td>Web</td></tr>
+            <tr><td>HTTPS</td><td>443</td><td>Amaly</td><td>Howply web</td></tr>
+            <tr><td>DNS</td><td>53</td><td>Amaly</td><td>Domain atlar</td></tr>
+            <tr><td>DHCP</td><td>67/68</td><td>Amaly</td><td>IP paýlamak</td></tr>
+        </tbody>
+    </table>
+</div>
+{% endblock %}

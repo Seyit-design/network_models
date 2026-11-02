@@ -1,0 +1,63 @@
+{% extends 'main/base.html' %}
+{% load static %}
+
+{% block title %}CAT7 Kabel{% endblock %}
+
+{% block content %}
+<div class="bg-light py-4">
+    <div class="container">
+        <nav aria-label="breadcrumb">
+            <ol class="breadcrumb">
+                <li class="breadcrumb-item"><a href="{% url 'index' %}">Baş sahypa</a></li>
+                <li class="breadcrumb-item"><a href="{% url 'cables_index' %}">Kabeller</a></li>
+                <li class="breadcrumb-item"><a href="{% url 'cable_ethernet' %}">Ethernet</a></li>
+                <li class="breadcrumb-item active">CAT7</li>
+            </ol>
+        </nav>
+        <h1 class="display-5 fw-bold">CAT7 Kabel</h1>
+    </div>
+</div>
+
+<div class="container py-5">
+    <div class="row">
+        <div class="col-md-8">
+            <div class="card">
+                <div class="card-body">
+                    <p><strong>CAT7 (Category 7)</strong> – ýokary tizlikli Ethernet torlary üçin standart. Doly ekranly (S/FTP) bolup, parazitlerden has gowy goralýar.</p>
+                    <h3 class="h5">Spesifikasiýalar:</h3>
+                    <ul>
+                        <li><strong>Tizlik:</strong> 10 Gbps (100 metre çenli)</li>
+                        <li><strong>Ýygylyk:</strong> 600 MHz</li>
+                        <li><strong>Maksimal uzynlyk:</strong> 100 metr</li>
+                        <li><strong>Konnektor:</strong> RJ-45 (GigaGate45), GG45, TERA</li>
+                        <li><strong>Görnüşi:</strong> S/FTP (ekranly, her jübüt ekranly we umumy ekranly)</li>
+                    </ul>
+                    <h3 class="h5">Ýokluklary:</h3>
+                    <ul>
+                        <li>Ýokary tizlik we ýygylyk</li>
+                        <li>Doly ekranly – parazitlere we signal ýitgisine garşy gowy gorag</li>
+                        <li>10 Gbps-i 100 metr aralykda goldaýar</li>
+                        <li>CAT6a-dan has ýokary ýygylyk</li>
+                    </ul>
+                    <h3 class="h5">Ulanylyşy:</h3>
+                    <p>Data merkezleri, ýokary tizlikli server torlary, 10 Gigabit Ethernet, ýaýlym we howpsuzlyk ulgamlary.</p>
+                    <p class="text-muted">Bellik: CAT7 kabelleri köplenç RJ-45 konnektor bilen däl-de, GG45 ýa-da TERA konnektorlar bilen ulanylýar, ýöne käbir öndürijiler RJ-45 konnektorly CAT7 kabelleri hem hödürleýär.</p>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="card">
+                <div class="card-body">
+                    <i class="fas fa-ethernet fa-4x text-primary mb-3"></i>
+                    <h3 class="h5">CAT7 aýratynlyklary</h3>
+                    <ul>
+                        <li>10 Gbps (100 m)</li>
+                        <li>600 MHz</li>
+                        <li>S/FTP ekranly</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

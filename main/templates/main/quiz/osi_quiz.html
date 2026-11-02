@@ -1,0 +1,9 @@
+{% extends 'main/base.html' %}
+{% block title %}OSI Model Testi{% endblock %}
+{% block content %}
+<div class="container py-5">
+    <h1>OSI Model Testi</h1>
+    <p>Bu testde OSI modeliniň 7 gatlagy barada soraglar bar.</p>
+    <a href="{% url 'quiz_detail' quiz_id=1 %}" class="btn btn-primary">Teste başla</a>
+</div>
+{% endblock %}
