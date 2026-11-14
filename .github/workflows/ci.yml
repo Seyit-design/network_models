@@ -1,4 +1,4 @@
-name: My First CI
+name: My First CI Boss
 
 on:
   push:
