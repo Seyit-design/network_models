@@ -1,10 +1,8 @@
-
-name: Django Auto Deploy
+name: My First CI Boss
 
 on:
   push:
-    branches:
-      - main
+    branches: [ "main" ]
 
 jobs:
   connect:
@@ -16,18 +14,15 @@ jobs:
           sudo apt-get update
           sudo apt-get install -y sshpass
 
-      - name: Download Project
+      - name: Deploy Project to Server
         env:
           SSHPASS: ${{ secrets.gizlin }}
         run: |
           sshpass -e ssh \
             -o StrictHostKeyChecking=accept-new \
             root@45.61.176.113 \
-            '
-              if [ -d "network_models/.git" ]; then
-                cd network_models
-                git pull origin main
-              else
-                git clone https://github.com/Seyit-design/network_models.git
-              fi
-            '
+            "if [ -d '/root/network_models' ]; then \
+               cd /root/network_models && git pull origin main; \
+             else \
+               git clone https://github.com/Seyit-design/network_models.git /root/network_models; \
+             fi"
