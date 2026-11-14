@@ -1,7 +1,10 @@
-name: My First CI Boss
+
+name: Django Auto Deploy
 
 on:
   push:
+    branches:
+      - main
 
 jobs:
   connect:
@@ -20,4 +23,11 @@ jobs:
           sshpass -e ssh \
             -o StrictHostKeyChecking=accept-new \
             root@45.61.176.113 \
-            "git clone https://github.com/Seyit-design/network_models.git"
+            '
+              if [ -d "network_models/.git" ]; then
+                cd network_models
+                git pull origin main
+              else
+                git clone https://github.com/Seyit-design/network_models.git
+              fi
+            '
