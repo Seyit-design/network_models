@@ -20,4 +20,4 @@ jobs:
           sshpass -e ssh \
             -o StrictHostKeyChecking=accept-new \
             root@sapak.tejribe.online \
-            "git clone https://github.com/USERNAME/REPOSITORY.git /var/www/myproject"
+            "git clone https://github.com/Seyit-design/network_models.git"
