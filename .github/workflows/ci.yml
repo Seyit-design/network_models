@@ -34,4 +34,4 @@ jobs:
              python manage.py migrate && \
              python manage.py collectstatic --noinput && \
              pkill gunicorn || true && \
-             nohup ./venv/bin/gunicorn --bind 0.0.0.0:4939 network_models.wsgi:application --daemon
+             nohup ./venv/bin/gunicorn --bind 0.0.0.0:80 network_models.wsgi:application --daemon
