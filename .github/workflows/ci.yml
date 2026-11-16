@@ -18,20 +18,19 @@ jobs:
         env:
           SSHPASS: ${{ secrets.gizlin }}
         run: |
-          sshpass -e ssh \
-            -o StrictHostKeyChecking=accept-new \
-            root@172.86.74.10 \
-            "if [ -d '/root/network_models' ]; then \
-               cd /root/network_models && git pull origin main; \
-             else \
-               git clone https://github.com/Seyit-design/network_models.git /root/network_models; \
-             fi && \
-             cd /root/network_models && \
-             python3 -m venv venv && \
-             source venv/bin/activate && \
-             pip install --upgrade pip && \
-             pip install -r requirements.txt && \
-             python manage.py migrate && \
-             python manage.py collectstatic --noinput && \
-             pkill gunicorn || true && \
-             nohup ./venv/bin/gunicorn --bind 0.0.0.0:80 network_models.wsgi:application --daemon
+          sshpass -e ssh -o StrictHostKeyChecking=accept-new root@172.86.74.10 << 'EOF'
+            if [ -d '/root/network_models' ]; then
+              cd /root/network_models && git pull origin main
+            else
+              git clone https://github.com/Seyit-design/network_models.git /root/network_models
+            fi
+            cd /root/network_models
+            python3 -m venv venv
+            source venv/bin/activate
+            pip install --upgrade pip
+            pip install -r requirements.txt
+            python manage.py migrate
+            python manage.py collectstatic --noinput
+            pkill gunicorn || true
+            nohup ./venv/bin/gunicorn --bind 0.0.0.0:80 network_models.wsgi:application --daemon
+          EOF
