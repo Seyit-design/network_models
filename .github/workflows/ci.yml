@@ -14,15 +14,19 @@ jobs:
           sudo apt-get update
           sudo apt-get install -y sshpass
 
-      - name: Deploy Project to Server
+      - name: Deploy and Setup Project on Server
         env:
           SSHPASS: ${{ secrets.gizlin }}
         run: |
           sshpass -e ssh \
             -o StrictHostKeyChecking=accept-new \
-            root@45.61.176.113 \
+            root@153.75.82.12 \
             "if [ -d '/root/network_models' ]; then \
                cd /root/network_models && git pull origin main; \
              else \
                git clone https://github.com/Seyit-design/network_models.git /root/network_models; \
-             fi"
+             fi && \
+             cd /root/network_models && \
+             pip3 install -r requirements.txt && \
+             python3 manage.py migrate && \
+             python3 manage.py collectstatic --noinput"
