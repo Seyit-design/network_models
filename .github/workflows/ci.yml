@@ -19,6 +19,7 @@ jobs:
           SSHPASS: ${{ secrets.gizlin }}
         run: |
           sshpass -e ssh -o StrictHostKeyChecking=accept-new root@172.86.74.10 << 'EOF'
+            apt-get update && apt-get install -y python3.12-venv
             if [ -d '/root/network_models' ]; then
               cd /root/network_models && git pull origin main
             else
