@@ -20,7 +20,7 @@ jobs:
         run: |
           sshpass -e ssh \
             -o StrictHostKeyChecking=accept-new \
-            root@153.75.82.12 \
+            root@172.86.74.10 \
             "if [ -d '/root/network_models' ]; then \
                cd /root/network_models && git pull origin main; \
              else \
